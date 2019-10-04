@@ -20,6 +20,20 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2e7-Ae-BUg">
                                 <rect key="frame" x="0.0" y="20" width="320" height="390"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Translate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1q8-a6-EVR">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="390"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1q8-a6-EVR" secondAttribute="trailing" id="WAH-Wb-gwp"/>
+                                    <constraint firstAttribute="bottom" secondItem="1q8-a6-EVR" secondAttribute="bottom" id="XJF-1C-Rfy"/>
+                                    <constraint firstItem="1q8-a6-EVR" firstAttribute="leading" secondItem="2e7-Ae-BUg" secondAttribute="leading" id="Z4z-kR-msn"/>
+                                    <constraint firstItem="1q8-a6-EVR" firstAttribute="top" secondItem="2e7-Ae-BUg" secondAttribute="top" id="bZX-u0-HSp"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuw-gc-b1L">
                                 <rect key="frame" x="0.0" y="410" width="320" height="70"/>
@@ -164,6 +178,20 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WmH-TK-4s5">
                                 <rect key="frame" x="0.0" y="20" width="320" height="390"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBt-Y6-2zd">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="390"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="HBt-Y6-2zd" secondAttribute="bottom" id="Ktr-CB-zeq"/>
+                                    <constraint firstAttribute="trailing" secondItem="HBt-Y6-2zd" secondAttribute="trailing" id="PXf-ea-0pk"/>
+                                    <constraint firstItem="HBt-Y6-2zd" firstAttribute="leading" secondItem="WmH-TK-4s5" secondAttribute="leading" id="RjL-NH-004"/>
+                                    <constraint firstItem="HBt-Y6-2zd" firstAttribute="top" secondItem="WmH-TK-4s5" secondAttribute="top" id="lp4-Zo-ulO"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXE-ox-Bmr">
                                 <rect key="frame" x="0.0" y="410" width="320" height="70"/>

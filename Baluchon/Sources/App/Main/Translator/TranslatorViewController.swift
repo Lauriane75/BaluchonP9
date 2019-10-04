@@ -17,6 +17,8 @@ class TranslatorViewController: UIViewController {
 
     var viewModel: TranslatorViewModel!
 
+    weak var delegate: TranslatorViewControllerDelegate?
+
     // MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -30,6 +32,7 @@ class TranslatorViewController: UIViewController {
     }
 
     @IBAction func menuButton(_ sender: Any) {
+        viewModel.didPressBackToMenu()
     }
     
 }

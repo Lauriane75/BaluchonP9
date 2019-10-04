@@ -58,7 +58,7 @@ class ConverterViewController: UIViewController {
     }
     
     @IBAction func menuButton(_ sender: Any) {
-
+        viewModel.didPressBackToMenu()
     }
 }
 

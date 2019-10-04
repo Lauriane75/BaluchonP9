@@ -12,13 +12,21 @@ final class TranslatorViewModel {
 
     // MARK: - Properties
 
+    private let delegate: TranslatorViewControllerDelegate?
+
     private let repository: TranslatorRepositoryType
 
     // MARK: - Initializer
 
-    init(repository: TranslatorRepositoryType) {
+    init(repository: TranslatorRepositoryType, delegate: TranslatorViewControllerDelegate?) {
         self.repository = repository
+        self.delegate = delegate
     }
+
+
+    // MARK: - Outputs
+
+    var resultText: ((String) -> Void)?
 
     // MARK: - Inputs
 
@@ -36,12 +44,7 @@ final class TranslatorViewModel {
     }
 
     func didPressBackToMenu() {
-    
+        delegate?.didPressbackToMenu()
     }
-
-
-    // MARK: - Outputs
-
-    var resultText: ((String) -> Void)?
 }
 

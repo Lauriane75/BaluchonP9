@@ -48,10 +48,10 @@ fileprivate final class MockMainViewControllerDelegate: MainViewControllerDelega
     }
     
     func didPressWeatherButton() {
-        didPressConverter = true
+        didPressWeather = true
     }
     
     func didPressConverterButton() {
-        didPressWeather = true
+        didPressConverter = true
     }
 }

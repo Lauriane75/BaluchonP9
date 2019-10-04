@@ -12,12 +12,15 @@ final class WeatherViewModel {
 
     // MARK: - Properties
 
+    private let delegate: WeatherViewControllerDelegate?
+
     private let repository: WeatherRepositoryType
 
     // MARK: - Initializer
 
-    init(repository: WeatherRepositoryType) {
+    init(repository: WeatherRepositoryType, delegate: WeatherViewControllerDelegate?) {
         self.repository = repository
+        self.delegate = delegate
     }
 
     // MARK: - Inputs
@@ -33,6 +36,10 @@ final class WeatherViewModel {
         repository.showWeather(temperature: text, callback: { text in
             self.resultTemperature?(text)
         })
+    }
+
+    func didPressBackToMenu() {
+        delegate?.didPressbackToMenu()
     }
 
     // MARK: - Outputs

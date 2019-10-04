@@ -12,12 +12,15 @@ final class ConverterViewModel {
 
     // MARK: - Properties
 
+    private let delegate: ConverterViewControllerDelegate?
+
     private let repository: ConverterRepositoryType
 
     // MARK: - Initializer
 
-    init(repository: ConverterRepositoryType) {
+    init(repository: ConverterRepositoryType, delegate: ConverterViewControllerDelegate?) {
         self.repository = repository
+        self.delegate = delegate
     }
 
     var requestRates: [Rate] = [] {
@@ -53,6 +56,10 @@ final class ConverterViewModel {
         guard index < requestRates.count else { return }
         let rate = requestRates[index]
         selectedRequestRateValueText?("\(rate.value)")
+    }
+
+    func didPressBackToMenu() {
+        delegate?.didPressbackToMenu()
     }
 
     // MARK: - Outputs

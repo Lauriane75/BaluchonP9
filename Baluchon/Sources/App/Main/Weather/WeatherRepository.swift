@@ -9,7 +9,7 @@
 import Foundation
 
 protocol WeatherRepositoryType: class {
-    func getWeather(callback: @escaping (Currency) -> Void)
+    func getWeather(callback: @escaping (Weather) -> Void)
     func showWeather(temperature: String, callback: @escaping (String) -> Void)
 }
 
@@ -27,11 +27,11 @@ final class WeatherRepository: WeatherRepositoryType {
         self.client = client
     }
 
-    func getWeather(callback: @escaping (Currency) -> Void) {
-        let urlString = ""
+    func getWeather(callback: @escaping (Weather) -> Void) {
+        let urlString = "http://api.openweathermap.org/data/2.5/weather?q=Paris&appid=916792210f24330ed8b2f3f603669f4d"
         let url = URL(string: urlString)!
-        client.request(type: Currency.self, requestType: .GET, url: url, cancelledBy: token) { currency in
-            callback(currency)
+        client.request(type: Weather.self, requestType: .GET, url: url, cancelledBy: token) { weather in
+            callback(weather)
         }
     }
 

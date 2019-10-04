@@ -14,6 +14,7 @@
 		2F041F0A2331424000177AC2 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F041F092331424000177AC2 /* HTTPClient.swift */; };
 		2FCCF1952335266A00D199BA /* HTTPEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCF1942335266A00D199BA /* HTTPEngine.swift */; };
 		2FCCF1972335267300D199BA /* RequestCancelationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCF1962335267300D199BA /* RequestCancelationToken.swift */; };
+		56995F875274175209B7153F /* Pods_Baluchon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CA42E57B6DF0B62C5C0D15 /* Pods_Baluchon.framework */; };
 		D31A47C3233BD23B002EA4FF /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31A47C2233BD23B002EA4FF /* Weather.swift */; };
 		D33C69EC231EBC2E003FB721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33C69EB231EBC2E003FB721 /* AppDelegate.swift */; };
 		D33C69F1231EBC2E003FB721 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33C69EF231EBC2E003FB721 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		D387BAA023325E07006AE04D /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387BA9F23325E07006AE04D /* WeatherRepository.swift */; };
 		D3CCCD3E2343B959006D4C7D /* EnglishLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCCD3D2343B959006D4C7D /* EnglishLanguage.swift */; };
 		D3F163DB233A7B6F0031DB39 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F163DA233A7B6F0031DB39 /* Context.swift */; };
+		E59A3FB528BFF338CA4742B7 /* Pods_BaluchonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6986B9250889A1B4CE9365 /* Pods_BaluchonTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		189386AB25FD09067A83791E /* Pods-Baluchon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baluchon.release.xcconfig"; path = "Target Support Files/Pods-Baluchon/Pods-Baluchon.release.xcconfig"; sourceTree = "<group>"; };
 		2F041EFF23313D2000177AC2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		2F041F0123313F2B00177AC2 /* BaluchonTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaluchonTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F041F0223313F2C00177AC2 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
@@ -55,6 +58,8 @@
 		2F041F092331424000177AC2 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		2FCCF1942335266A00D199BA /* HTTPEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEngine.swift; sourceTree = "<group>"; };
 		2FCCF1962335267300D199BA /* RequestCancelationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCancelationToken.swift; sourceTree = "<group>"; };
+		50CA42E57B6DF0B62C5C0D15 /* Pods_Baluchon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baluchon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B6986B9250889A1B4CE9365 /* Pods_BaluchonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaluchonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D31A47C2233BD23B002EA4FF /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		D33C69E8231EBC2E003FB721 /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33C69EB231EBC2E003FB721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +84,9 @@
 		D387BA9F23325E07006AE04D /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
 		D3CCCD3D2343B959006D4C7D /* EnglishLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishLanguage.swift; sourceTree = "<group>"; };
 		D3F163DA233A7B6F0031DB39 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		E79DB47FA9A43664A2634923 /* Pods-Baluchon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baluchon.debug.xcconfig"; path = "Target Support Files/Pods-Baluchon/Pods-Baluchon.debug.xcconfig"; sourceTree = "<group>"; };
+		FA3B535017FB9B9D9B9DCD3A /* Pods-BaluchonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaluchonTests.debug.xcconfig"; path = "Target Support Files/Pods-BaluchonTests/Pods-BaluchonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FC34E1A418BF1B942D3DA5AC /* Pods-BaluchonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaluchonTests.release.xcconfig"; path = "Target Support Files/Pods-BaluchonTests/Pods-BaluchonTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56995F875274175209B7153F /* Pods_Baluchon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,12 +102,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E59A3FB528BFF338CA4742B7 /* Pods_BaluchonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		009570C218058EF8AD85816E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E79DB47FA9A43664A2634923 /* Pods-Baluchon.debug.xcconfig */,
+				189386AB25FD09067A83791E /* Pods-Baluchon.release.xcconfig */,
+				FA3B535017FB9B9D9B9DCD3A /* Pods-BaluchonTests.debug.xcconfig */,
+				FC34E1A418BF1B942D3DA5AC /* Pods-BaluchonTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		2F041EFE23313C2600177AC2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,12 +145,23 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		6BB356210D55552CF23C2FF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50CA42E57B6DF0B62C5C0D15 /* Pods_Baluchon.framework */,
+				6B6986B9250889A1B4CE9365 /* Pods_BaluchonTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D33C69DF231EBC2E003FB721 = {
 			isa = PBXGroup;
 			children = (
 				D33C69EA231EBC2E003FB721 /* Baluchon */,
 				D33C69FF231EBC31003FB721 /* BaluchonTests */,
 				D33C69E9231EBC2E003FB721 /* Products */,
+				009570C218058EF8AD85816E /* Pods */,
+				6BB356210D55552CF23C2FF1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,6 +217,7 @@
 				D358AD342330CE4300D84FD4 /* WeatherViewController.swift */,
 				D387BA9D23325DF5006AE04D /* WeatherViewModel.swift */,
 				D387BA9F23325E07006AE04D /* WeatherRepository.swift */,
+				D3FEC622234505FC0049D91C /* Model */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -194,6 +228,7 @@
 				D358AD362330CE5E00D84FD4 /* TranslatorViewController.swift */,
 				2F041F042331416200177AC2 /* TranslatorViewModel.swift */,
 				2F041F062331416D00177AC2 /* TranslatorRepository.swift */,
+				D3FEC621234505E10049D91C /* Model */,
 			);
 			path = Translator;
 			sourceTree = "<group>";
@@ -224,8 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				D36A7D94233A7886001E722B /* Currency.swift */,
-				D31A47C2233BD23B002EA4FF /* Weather.swift */,
-				D3CCCD3D2343B959006D4C7D /* EnglishLanguage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,12 +266,28 @@
 		D39BFC202331221C00455A59 /* Converter */ = {
 			isa = PBXGroup;
 			children = (
-				D36A7D93233A787A001E722B /* Model */,
 				D358AD322330CE3700D84FD4 /* ConverterViewController.swift */,
 				D387BA9923325DB7006AE04D /* ConverterViewModel.swift */,
 				D387BA9B23325DD2006AE04D /* ConverterRepository.swift */,
+				D36A7D93233A787A001E722B /* Model */,
 			);
 			path = Converter;
+			sourceTree = "<group>";
+		};
+		D3FEC621234505E10049D91C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D3CCCD3D2343B959006D4C7D /* EnglishLanguage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D3FEC622234505FC0049D91C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D31A47C2233BD23B002EA4FF /* Weather.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,9 +297,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D33C6A05231EBC31003FB721 /* Build configuration list for PBXNativeTarget "Baluchon" */;
 			buildPhases = (
+				AD1434DEE6868156A22275F8 /* [CP] Check Pods Manifest.lock */,
 				D33C69E4231EBC2E003FB721 /* Sources */,
 				D33C69E5231EBC2E003FB721 /* Frameworks */,
 				D33C69E6231EBC2E003FB721 /* Resources */,
+				AE29EB895754894FEB945BF0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,6 +316,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D33C6A08231EBC31003FB721 /* Build configuration list for PBXNativeTarget "BaluchonTests" */;
 			buildPhases = (
+				C82910B873962BBD973D5B55 /* [CP] Check Pods Manifest.lock */,
 				D33C69F8231EBC31003FB721 /* Sources */,
 				D33C69F9231EBC31003FB721 /* Frameworks */,
 				D33C69FA231EBC31003FB721 /* Resources */,
@@ -337,6 +389,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AD1434DEE6868156A22275F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Baluchon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE29EB895754894FEB945BF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Baluchon/Pods-Baluchon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Baluchon/Pods-Baluchon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Baluchon/Pods-Baluchon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C82910B873962BBD973D5B55 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BaluchonTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D33C69E4231EBC2E003FB721 /* Sources */ = {
@@ -525,6 +641,7 @@
 		};
 		D33C6A06231EBC31003FB721 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E79DB47FA9A43664A2634923 /* Pods-Baluchon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -543,6 +660,7 @@
 		};
 		D33C6A07231EBC31003FB721 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 189386AB25FD09067A83791E /* Pods-Baluchon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -561,6 +679,7 @@
 		};
 		D33C6A09231EBC31003FB721 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA3B535017FB9B9D9B9DCD3A /* Pods-BaluchonTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -585,6 +704,7 @@
 		};
 		D33C6A0A231EBC31003FB721 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC34E1A418BF1B942D3DA5AC /* Pods-BaluchonTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

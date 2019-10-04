@@ -34,13 +34,13 @@ final class MainCoordinator {
     }
     
     private func showWeather() {
-        let translatorViewController = screens.createTranslatorViewController(delegate: self)
-        presenter.rootViewController?.show(translatorViewController, sender: nil)
+        let weatherViewController = screens.createWeatherViewController(delegate: self)
+        presenter.rootViewController?.show(weatherViewController, sender: nil)
     }
     
-    private func showCurrency() {
-        let translatorViewController = screens.createCurrencyViewController(delegate: self)
-        presenter.rootViewController?.show(translatorViewController, sender: nil)
+    private func showConverter() {
+        let converterViewController = screens.createConverterViewController(delegate: self)
+        presenter.rootViewController?.show(converterViewController, sender: nil)
     }
 }
 
@@ -53,9 +53,11 @@ extension MainCoordinator: MainViewControllerDelegate {
         showWeather()
     }
     func didPressConverterButton() {
-        showCurrency()
+        showConverter()
     }
 }
+
+
 
 extension MainCoordinator: WeatherViewControllerDelegate {
 
@@ -66,7 +68,7 @@ extension MainCoordinator: ConverterViewControllerDelegate {
 }
 
 extension MainCoordinator: TranslatorViewControllerDelegate {
-    func backToMenu() {
+    func didPressbackToMenu() {
         presenter.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }

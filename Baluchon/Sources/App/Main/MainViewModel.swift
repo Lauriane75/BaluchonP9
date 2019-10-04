@@ -40,6 +40,7 @@ final class MainViewModel {
         delegate?.didPressWeatherButton()
     }
 
+
     // MARK: - Outputs
 
     var translatorText: ((String) -> Void)?

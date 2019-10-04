@@ -12,13 +12,13 @@ class WeatherViewController: UIViewController {
 
     // MARK: - Outlets
 
+
     // MARK: - Properties
 
     var viewModel: WeatherViewModel!
 
     // MARK: - View life cycle
 
-    weak var delegate: WeatherViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,10 @@ class WeatherViewController: UIViewController {
 
     private func bind(to viewModel: WeatherViewModel) {
     }
+
     
     @IBAction func menuButton(_ sender: Any) {
+            viewModel.didPressBackToMenu()
     }
 
 

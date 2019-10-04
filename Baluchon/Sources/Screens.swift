@@ -42,22 +42,22 @@ extension Screens {
 // MARK: - Child
 
 protocol TranslatorViewControllerDelegate: class {
-    func backToMenu()
+    func didPressbackToMenu()
 }
 
 protocol WeatherViewControllerDelegate: class {
-    func backToMenu()
+    func didPressbackToMenu()
 }
 
 protocol ConverterViewControllerDelegate: class {
-    func backToMenu()
+    func didPressbackToMenu()
 }
 
 extension Screens {
     func createTranslatorViewController(delegate: TranslatorViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "TranslatorViewController") as! TranslatorViewController
         let repository = TranslatorRepository(client: context.client)
-        let viewModel = TranslatorViewModel(repository: repository)
+        let viewModel = TranslatorViewModel(repository: repository, delegate: delegate)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -65,15 +65,15 @@ extension Screens {
     func createWeatherViewController(delegate: WeatherViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "WeatherViewController") as! WeatherViewController
         let repository = WeatherRepository(client: context.client)
-        let viewModel = WeatherViewModel(repository: repository)
+        let viewModel = WeatherViewModel(repository: repository, delegate: delegate)
         viewController.viewModel = viewModel
         return viewController
     }
 
-    func createCurrencyViewController(delegate: ConverterViewControllerDelegate?) -> UIViewController {
+    func createConverterViewController(delegate: ConverterViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ConverterViewController") as! ConverterViewController
         let repository = ConverterRepository(client: context.client)
-        let viewModel = ConverterViewModel(repository: repository)
+        let viewModel = ConverterViewModel(repository: repository, delegate: delegate)
         viewController.viewModel = viewModel
         return viewController
     }
