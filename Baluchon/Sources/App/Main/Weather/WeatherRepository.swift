@@ -25,6 +25,7 @@ final class WeatherRepository: WeatherRepositoryType {
 
     init(client: HTTPClientType) {
         self.client = client
+
     }
 
     func getWeather(callback: @escaping (Weather) -> Void) {

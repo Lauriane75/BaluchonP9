@@ -23,20 +23,37 @@ final class WeatherViewModel {
         self.delegate = delegate
     }
 
+//    var requestWeather: [TimeTemperature] = [] {
+//        didSet {
+//            let keys: [String] = requestWeather.map { $0.key}.sorted(by: { $0 < $1 })
+//            self.visibleWeather?(keys)
+//        }
+//    }
+
     // MARK: - Inputs
 
     func viewDidLoad() {
         self.resultTemperature?("")
-        //        repository.getWeather(callback: { [weak self] currency in
-        //            print(weather)
-        //        })
+        repository.getWeather(callback: { [weak self] weather in
+            print(weather)
+//            self?.requestWeather(from: weather)
+        })
     }
+
+//private func initRequestWeather(from timeWeather: Temperature) {
+//    requestWeather = timeWeather.weather.map {
+//        TimeTemperature((key: $0.key, value: $0.value) }
+//    if let value = requestWeather.first?.value {
+//        selectedRequestWeatherValueText?("\(value)")
+//        }
+//    }
 
     func didPressShowWeather(text: String, from origin: String, to destination: String) {
         repository.showWeather(temperature: text, callback: { text in
             self.resultTemperature?(text)
         })
     }
+
 
     func didPressBackToMenu() {
         delegate?.didPressbackToMenu()
@@ -45,4 +62,14 @@ final class WeatherViewModel {
     // MARK: - Outputs
 
     var resultTemperature: ((String) -> Void)?
+
+    var visibleWeather: (([String]) -> Void)?
+
+    var selectedRequestWeatherValueText: ((String) -> Void)?
+}
+
+
+struct TimeTemperature {
+    let key: String
+    let value: Double
 }

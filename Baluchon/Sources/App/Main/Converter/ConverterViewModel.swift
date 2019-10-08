@@ -26,7 +26,14 @@ final class ConverterViewModel {
     var requestRates: [Rate] = [] {
         didSet {
             let keys: [String] = requestRates.map { $0.key }.sorted(by: { $0 < $1 })
-            self.visibleRates?(keys)
+            self.visibleRequestRates?(keys)
+        }
+    }
+
+    var resultRates: [Rate] = [] {
+        didSet {
+            let keys: [String] = resultRates.map { $0.key }.sorted(by: { $0 < $1 })
+            self.visibleResultRates?(keys)
         }
     }
 
@@ -36,6 +43,7 @@ final class ConverterViewModel {
         self.resultText?("")
         repository.getCurrency(callback: { [weak self] currency in
             self?.initRequestRates(from: currency)
+            self?.initResultRates(from: currency)
         })
     }
 
@@ -43,6 +51,13 @@ final class ConverterViewModel {
         requestRates = currency.rates.map { Rate(key: $0.key, value: $0.value) }
         if let value = requestRates.first?.value {
             selectedRequestRateValueText?("\(value)")
+        }
+    }
+
+    private func initResultRates(from currency: Currency) {
+        resultRates = currency.rates.map { Rate(key: $0.key, value: $0.value) }
+        if let value = resultRates.first?.value {
+            selectedResultRateValueText?("\(value)")
         }
     }
 
@@ -58,6 +73,12 @@ final class ConverterViewModel {
         selectedRequestRateValueText?("\(rate.value)")
     }
 
+    func didSelectResultRate(at index: Int) {
+        guard index < resultRates.count else { return }
+        let rate = resultRates[index]
+        selectedResultRateValueText?("\(rate.value)")
+    }
+
     func didPressBackToMenu() {
         delegate?.didPressbackToMenu()
     }
@@ -66,9 +87,14 @@ final class ConverterViewModel {
 
     var resultText: ((String) -> Void)?
 
-    var visibleRates: (([String]) -> Void)?
+    var visibleRequestRates: (([String]) -> Void)?
+
+    var visibleResultRates: (([String]) -> Void)?
 
     var selectedRequestRateValueText: ((String) -> Void)?
+
+    var selectedResultRateValueText: ((String) -> Void)?
+
 }
 
 struct Rate {
