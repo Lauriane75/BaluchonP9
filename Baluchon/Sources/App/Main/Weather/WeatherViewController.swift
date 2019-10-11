@@ -12,10 +12,12 @@ class WeatherViewController: UIViewController {
 
     // MARK: - Outlets
 
+    @IBOutlet weak var tableView: UITableView!
 
     // MARK: - Properties
 
     var viewModel: WeatherViewModel!
+    private var source = WeatherSource()
 
     // MARK: - View life cycle
 
@@ -23,17 +25,21 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = source
+        tableView.dataSource = source
+
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
 
     private func bind(to viewModel: WeatherViewModel) {
+        viewModel.items = { [weak self] items in
+            self?.source.update(with: items)
+            self?.tableView.reloadData()
+        }
     }
 
-    
     @IBAction func menuButton(_ sender: Any) {
             viewModel.didPressBackToMenu()
     }
-
-
 }

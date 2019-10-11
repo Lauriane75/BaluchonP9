@@ -9,7 +9,9 @@
 import Foundation
 
 protocol WeatherRepositoryType: class {
-    func getWeather(callback: @escaping (Weather) -> Void)
+    func getParisWeather(callback: @escaping (Weather) -> Void)
+    func getNewYorkWeather(callback: @escaping (Weather) -> Void)
+
     func showWeather(temperature: String, callback: @escaping (String) -> Void)
 }
 
@@ -28,11 +30,21 @@ final class WeatherRepository: WeatherRepositoryType {
 
     }
 
-    func getWeather(callback: @escaping (Weather) -> Void) {
-        let urlString = "http://api.openweathermap.org/data/2.5/weather?q=Paris&appid=916792210f24330ed8b2f3f603669f4d"
+    func getParisWeather(callback: @escaping (Weather) -> Void) {
+        let urlString = "http://api.openweathermap.org/data/2.5/weather?id=2968815&appid=916792210f24330ed8b2f3f603669f4d"
+
         let url = URL(string: urlString)!
-        client.request(type: Weather.self, requestType: .GET, url: url, cancelledBy: token) { weather in
-            callback(weather)
+        client.request(type: Weather.self, requestType: .GET, url: url, cancelledBy: token) { Parisweather in
+            callback(Parisweather)
+        }
+    }
+
+    func getNewYorkWeather(callback: @escaping (Weather) -> Void) {
+        let urlString = "http://api.openweathermap.org/data/2.5/weather?id=5128638&appid=916792210f24330ed8b2f3f603669f4d"
+
+        let url = URL(string: urlString)!
+        client.request(type: Weather.self, requestType: .GET, url: url, cancelledBy: token) { NewYorkweather in
+            callback(NewYorkweather)
         }
     }
 

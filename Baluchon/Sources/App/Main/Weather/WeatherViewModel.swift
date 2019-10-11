@@ -8,6 +8,14 @@
 
 import Foundation
 
+struct VisibleWeather {
+    let cityName: String
+    let temperature: Double
+    let iconID: Int
+    let temperatureMax: Double
+    let temperatureMin: Double
+}
+
 final class WeatherViewModel {
 
     // MARK: - Properties
@@ -16,6 +24,17 @@ final class WeatherViewModel {
 
     private let repository: WeatherRepositoryType
 
+    private var visibleItems: [Item] = [] {
+        didSet {
+            items?(visibleItems)
+        }
+    }
+
+    enum Item {
+        case parisWeather(visibleParisWeather: VisibleWeather)
+        case newYorkWeather(visibleNewYorkWeather: VisibleWeather)
+    }
+
     // MARK: - Initializer
 
     init(repository: WeatherRepositoryType, delegate: WeatherViewControllerDelegate?) {
@@ -23,53 +42,52 @@ final class WeatherViewModel {
         self.delegate = delegate
     }
 
-//    var requestWeather: [TimeTemperature] = [] {
-//        didSet {
-//            let keys: [String] = requestWeather.map { $0.key}.sorted(by: { $0 < $1 })
-//            self.visibleWeather?(keys)
-//        }
-//    }
+    // MARK: - Outputs
+
+    var items: (([Item]) -> Void)?
 
     // MARK: - Inputs
 
     func viewDidLoad() {
-        self.resultTemperature?("")
-        repository.getWeather(callback: { [weak self] weather in
-            print(weather)
-//            self?.requestWeather(from: weather)
+        repository.getParisWeather(callback: { [weak self] parisWeather in
+
+            DispatchQueue.main.async {
+                self?.visibleItems = WeatherViewModel.initializeItems(with: parisWeather)
+            }
         })
+
+        repository.getNewYorkWeather(callback: { [weak self] newYorkWeather in
+
+            DispatchQueue.main.async {
+                self?.visibleItems = WeatherViewModel.initializeItems(with: newYorkWeather)
+            }
+        })
+
     }
 
-//private func initRequestWeather(from timeWeather: Temperature) {
-//    requestWeather = timeWeather.weather.map {
-//        TimeTemperature((key: $0.key, value: $0.value) }
-//    if let value = requestWeather.first?.value {
-//        selectedRequestWeatherValueText?("\(value)")
-//        }
-//    }
+    private static func initializeItems(with weather: Weather) -> [Item] {
+        let visibleWeather = VisibleWeather(cityName: weather.name,
+                                            temperature: weather.main.temp,
+                                            iconID: weather.id,
+                                            temperatureMax: weather.main.tempMax,
+                                            temperatureMin: weather.main.tempMin)
+
+
+        let item1 = Item.parisWeather(visibleParisWeather: visibleWeather)
+        let item2 = Item.newYorkWeather(visibleNewYorkWeather: visibleWeather)
+
+
+        return [item1, item2]
+    }
 
     func didPressShowWeather(text: String, from origin: String, to destination: String) {
         repository.showWeather(temperature: text, callback: { text in
-            self.resultTemperature?(text)
+
         })
     }
-
 
     func didPressBackToMenu() {
         delegate?.didPressbackToMenu()
     }
-
-    // MARK: - Outputs
-
-    var resultTemperature: ((String) -> Void)?
-
-    var visibleWeather: (([String]) -> Void)?
-
-    var selectedRequestWeatherValueText: ((String) -> Void)?
 }
 
-
-struct TimeTemperature {
-    let key: String
-    let value: Double
-}

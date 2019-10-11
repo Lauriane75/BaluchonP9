@@ -23,6 +23,19 @@ final class ConverterViewModel {
         self.delegate = delegate
     }
 
+    // MARK: - Outputs
+
+    var resultText: ((String) -> Void)?
+
+    var visibleRequestRates: (([String]) -> Void)?
+
+    var visibleResultRates: (([String]) -> Void)?
+
+    var selectedRequestRateValueText: ((String) -> Void)?
+
+    var selectedResultRateValueText: ((String) -> Void)?
+
+
     var requestRates: [Rate] = [] {
         didSet {
             let keys: [String] = requestRates.map { $0.key }.sorted(by: { $0 < $1 })
@@ -83,21 +96,25 @@ final class ConverterViewModel {
         delegate?.didPressbackToMenu()
     }
 
-    // MARK: - Outputs
 
-    var resultText: ((String) -> Void)?
+    private func convertFromEuro(value: Double, rate: Double) -> Double {
+        return value * rate
+    }
 
-    var visibleRequestRates: (([String]) -> Void)?
+    private func convertToEuro(value: Double, rate: Double) -> Double {
+        return value / rate
+    }
 
-    var visibleResultRates: (([String]) -> Void)?
-
-    var selectedRequestRateValueText: ((String) -> Void)?
-
-    var selectedResultRateValueText: ((String) -> Void)?
-
+//    func convert(value: Double, from: String, to: String) -> Double {
+//        return
+//    }
 }
+
+
 
 struct Rate {
     let key: String
     let value: Double
 }
+
+
