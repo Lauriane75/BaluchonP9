@@ -92,11 +92,6 @@ final class ConverterViewModel {
         selectedResultRateValueText?("\(rate.value)")
     }
 
-    func didPressBackToMenu() {
-        delegate?.didPressbackToMenu()
-    }
-
-
     private func convertFromEuro(value: Double, rate: Double) -> Double {
         return value * rate
     }

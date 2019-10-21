@@ -1,5 +1,5 @@
 //
-//  ResultPickerViewDataSource.swift
+//  RequestPickerDataSource.swift
 //  Baluchon
 //
 //  Created by Lauriane Haydari on 08/10/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ResultPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+final class PickerViewDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - Properties
 
@@ -42,5 +42,7 @@ final class ResultPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicker
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         didSelectItemAt?(row)
     }
-
 }
+
+
+

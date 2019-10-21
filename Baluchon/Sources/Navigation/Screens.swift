@@ -24,16 +24,15 @@ final class Screens {
 
 // MARK : - Main
 
-protocol MainViewControllerDelegate: class {
-    func didPressTranslatorButton()
-    func didPressWeatherButton()
-    func didPressConverterButton()
+protocol WeatherViewControllerDelegate: class {
 }
 
 extension Screens {
-    func createMainViewController(delegate: MainViewControllerDelegate?) -> UIViewController {
-        let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        let viewModel = MainViewModel(delegate: delegate)
+
+    func createMainViewController(delegate: WeatherViewControllerDelegate?) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "WeatherViewController") as! WeatherViewController
+        let repository = WeatherRepository(client: context.client)
+        let viewModel = WeatherViewModel(repository: repository, delegate: delegate)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -42,15 +41,9 @@ extension Screens {
 // MARK: - Child
 
 protocol TranslatorViewControllerDelegate: class {
-    func didPressbackToMenu()
-}
-
-protocol WeatherViewControllerDelegate: class {
-    func didPressbackToMenu()
 }
 
 protocol ConverterViewControllerDelegate: class {
-    func didPressbackToMenu()
 }
 
 extension Screens {
@@ -58,14 +51,6 @@ extension Screens {
         let viewController = storyboard.instantiateViewController(withIdentifier: "TranslatorViewController") as! TranslatorViewController
         let repository = TranslatorRepository(client: context.client)
         let viewModel = TranslatorViewModel(repository: repository, delegate: delegate)
-        viewController.viewModel = viewModel
-        return viewController
-    }
-
-    func createWeatherViewController(delegate: WeatherViewControllerDelegate?) -> UIViewController {
-        let viewController = storyboard.instantiateViewController(withIdentifier: "WeatherViewController") as! WeatherViewController
-        let repository = WeatherRepository(client: context.client)
-        let viewModel = WeatherViewModel(repository: repository, delegate: delegate)
         viewController.viewModel = viewModel
         return viewController
     }

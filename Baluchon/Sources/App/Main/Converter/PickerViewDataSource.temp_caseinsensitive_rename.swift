@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RequestPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+final class PickerViewDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - Properties
 

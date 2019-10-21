@@ -23,8 +23,8 @@ class ConverterViewController: UIViewController {
 
     var viewModel: ConverterViewModel!
 
-    private var requestDataSource = RequestPickerDataSource()
-    private var resultDataSource = ResultPickerViewDataSource()
+    private var requestDataSource = PickerViewDataSource()
+    private var resultDataSource = PickerViewDataSource()
 
     // MARK: - View life cycle
 
@@ -44,11 +44,8 @@ class ConverterViewController: UIViewController {
         viewModel.viewDidLoad()
     }
 
-    private func bind(to dataSource: RequestPickerDataSource) {
+    private func bind(to dataSource: PickerViewDataSource) {
         dataSource.didSelectItemAt = viewModel.didSelectRequestRate
-    }
-
-    private func bind(to dataSource: ResultPickerViewDataSource) {
         dataSource.didSelectItemAt = viewModel.didSelectResultRate
     }
 
@@ -73,7 +70,4 @@ class ConverterViewController: UIViewController {
         }
     }
     
-    @IBAction func menuButton(_ sender: Any) {
-        viewModel.didPressBackToMenu()
-    }
 }

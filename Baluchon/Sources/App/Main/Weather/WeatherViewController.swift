@@ -21,7 +21,6 @@ class WeatherViewController: UIViewController {
 
     // MARK: - View life cycle
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +39,5 @@ class WeatherViewController: UIViewController {
     }
 
     @IBAction func menuButton(_ sender: Any) {
-            viewModel.didPressBackToMenu()
     }
 }

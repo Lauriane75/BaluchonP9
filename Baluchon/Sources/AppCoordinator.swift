@@ -18,6 +18,7 @@ final class AppCoordinator {
 
     private var mainCoordinator: MainCoordinator?
 
+
     // MARK: - Initializer
 
     init(appDelegate: AppDelegate, context: Context) {
@@ -32,12 +33,18 @@ final class AppCoordinator {
         appDelegate.window!.rootViewController = UIViewController()
         appDelegate.window!.makeKeyAndVisible()
 
+//         look & learn
+        if ProcessInfo.processInfo.environment["IS_RUNNING_UNIT_TESTS"] == "YES" {
+            return
+        }
+
         showMain()
     }
 
     // MARK: - Private
 
     private func showMain() {
+
         mainCoordinator = MainCoordinator(presenter: appDelegate.window!, context: context)
         mainCoordinator?.start()
     }

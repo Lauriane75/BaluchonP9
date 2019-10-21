@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Translator View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="TranslatorViewController" id="BYZ-38-t0r" customClass="TranslatorViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2e7-Ae-BUg">
-                                <rect key="frame" x="0.0" y="20" width="414" height="646"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="597"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Translate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1q8-a6-EVR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="646"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="597"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -35,140 +35,38 @@
                                     <constraint firstItem="1q8-a6-EVR" firstAttribute="top" secondItem="2e7-Ae-BUg" secondAttribute="top" id="bZX-u0-HSp"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuw-gc-b1L">
-                                <rect key="frame" x="0.0" y="666" width="414" height="70"/>
-                                <color key="backgroundColor" red="0.3219224215" green="0.524802506" blue="0.58041101689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="20"/>
-                                <state key="normal" title="MENU">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="menuButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QlW-zO-tgs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xuw-gc-b1L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="027-R3-b9M"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2e7-Ae-BUg" secondAttribute="bottom" constant="70" id="6Kv-uk-HQm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xuw-gc-b1L" secondAttribute="bottom" id="7YK-lb-0te"/>
-                            <constraint firstItem="xuw-gc-b1L" firstAttribute="top" secondItem="2e7-Ae-BUg" secondAttribute="bottom" id="Exi-9V-USH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2e7-Ae-BUg" secondAttribute="trailing" id="bmZ-eh-FYt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xuw-gc-b1L" secondAttribute="trailing" id="knj-Bh-msN"/>
                             <constraint firstItem="2e7-Ae-BUg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rVY-y0-tNW"/>
                             <constraint firstItem="2e7-Ae-BUg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="y4o-bh-iy6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="translator-icon" id="dP1-ky-OmX"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="173.91304347826087" y="137.94642857142856"/>
         </scene>
-        <!--Main View Controller-->
-        <scene sceneID="MGZ-Ku-EIC">
+        <!--Tab Bar Controller-->
+        <scene sceneID="xaf-RP-Hn2">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="FD6-yb-QwI" customClass="MainViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="V4R-Nc-sqC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QPy-3R-7Xs">
-                                <rect key="frame" x="0.0" y="490.66666666666669" width="414" height="245.33333333333331"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3c-cx-uHP">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="245.33333333333334"/>
-                                        <color key="backgroundColor" red="0.3219224215" green="0.524802506" blue="0.58041101689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="17"/>
-                                        <state key="normal" title="CONVERTER">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didPressConverterButton:" destination="FD6-yb-QwI" eventType="touchUpInside" id="UzO-dO-ZB5"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="n3c-cx-uHP" firstAttribute="top" secondItem="QPy-3R-7Xs" secondAttribute="top" id="2YJ-ru-rQL"/>
-                                    <constraint firstAttribute="trailing" secondItem="n3c-cx-uHP" secondAttribute="trailing" id="Bx5-ld-Mt1"/>
-                                    <constraint firstItem="n3c-cx-uHP" firstAttribute="leading" secondItem="QPy-3R-7Xs" secondAttribute="leading" id="HeD-zN-1t1"/>
-                                    <constraint firstAttribute="bottom" secondItem="n3c-cx-uHP" secondAttribute="bottom" id="zXZ-mZ-vAa"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wxQ-Jb-kPQ">
-                                <rect key="frame" x="0.0" y="245.33333333333331" width="414" height="245.33333333333331"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-lJ-xMA">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="245.33333333333334"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="17"/>
-                                        <state key="normal" title="WEATHER">
-                                            <color key="titleColor" red="0.3219224215" green="0.524802506" blue="0.58041101689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didPressWeatherButton:" destination="FD6-yb-QwI" eventType="touchUpInside" id="kxJ-EM-cPX"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="oNp-lJ-xMA" secondAttribute="trailing" id="AtY-0u-1Xt"/>
-                                    <constraint firstItem="oNp-lJ-xMA" firstAttribute="leading" secondItem="wxQ-Jb-kPQ" secondAttribute="leading" id="Lsl-cw-75b"/>
-                                    <constraint firstItem="oNp-lJ-xMA" firstAttribute="top" secondItem="wxQ-Jb-kPQ" secondAttribute="top" id="bPv-ut-xPk"/>
-                                    <constraint firstAttribute="bottom" secondItem="oNp-lJ-xMA" secondAttribute="bottom" id="vzD-TR-ieG"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fMi-cH-Zhg">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="245.33333333333334"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vf9-9a-rxF">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="245.33333333333334"/>
-                                        <color key="backgroundColor" red="0.3219224215" green="0.524802506" blue="0.58041101689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="17"/>
-                                        <state key="normal" title="TRANSLATOR">
-                                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didPressTranslatorButton:" destination="FD6-yb-QwI" eventType="touchUpInside" id="QU2-ID-kd6"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Vf9-9a-rxF" firstAttribute="leading" secondItem="fMi-cH-Zhg" secondAttribute="leading" id="3eg-kq-Vo9"/>
-                                    <constraint firstItem="Vf9-9a-rxF" firstAttribute="top" secondItem="fMi-cH-Zhg" secondAttribute="top" id="d1f-Kx-Fen"/>
-                                    <constraint firstAttribute="bottom" secondItem="Vf9-9a-rxF" secondAttribute="bottom" id="gHL-L3-Fxo"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vf9-9a-rxF" secondAttribute="trailing" id="jMh-KR-0oi"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="ozg-ar-Ak6" firstAttribute="trailing" secondItem="QPy-3R-7Xs" secondAttribute="trailing" id="2lu-dD-GPv"/>
-                            <constraint firstItem="fMi-cH-Zhg" firstAttribute="top" secondItem="V4R-Nc-sqC" secondAttribute="top" id="Eqk-C6-xRj"/>
-                            <constraint firstItem="fMi-cH-Zhg" firstAttribute="leading" secondItem="ozg-ar-Ak6" secondAttribute="leading" id="TCs-96-6M2"/>
-                            <constraint firstItem="QPy-3R-7Xs" firstAttribute="width" secondItem="wxQ-Jb-kPQ" secondAttribute="width" id="bLc-Rx-vfU"/>
-                            <constraint firstItem="wxQ-Jb-kPQ" firstAttribute="height" secondItem="fMi-cH-Zhg" secondAttribute="height" id="c6P-ux-7dB"/>
-                            <constraint firstItem="ozg-ar-Ak6" firstAttribute="trailing" secondItem="fMi-cH-Zhg" secondAttribute="trailing" id="hct-d6-Ccv"/>
-                            <constraint firstItem="ozg-ar-Ak6" firstAttribute="trailing" secondItem="wxQ-Jb-kPQ" secondAttribute="trailing" id="jE5-Wt-uF2"/>
-                            <constraint firstItem="ozg-ar-Ak6" firstAttribute="bottom" secondItem="QPy-3R-7Xs" secondAttribute="bottom" id="kYN-2e-yDE"/>
-                            <constraint firstItem="QPy-3R-7Xs" firstAttribute="height" secondItem="wxQ-Jb-kPQ" secondAttribute="height" id="rgH-Sb-4ti"/>
-                            <constraint firstItem="wxQ-Jb-kPQ" firstAttribute="leading" secondItem="ozg-ar-Ak6" secondAttribute="leading" id="rtk-nB-3Le"/>
-                            <constraint firstItem="QPy-3R-7Xs" firstAttribute="leading" secondItem="ozg-ar-Ak6" secondAttribute="leading" id="tG5-bJ-exW"/>
-                            <constraint firstItem="QPy-3R-7Xs" firstAttribute="top" secondItem="wxQ-Jb-kPQ" secondAttribute="bottom" id="w5n-Ie-oZj"/>
-                            <constraint firstItem="wxQ-Jb-kPQ" firstAttribute="top" secondItem="fMi-cH-Zhg" secondAttribute="bottom" id="wnt-Ys-BDc"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ozg-ar-Ak6"/>
-                    </view>
-                    <connections>
-                        <outlet property="converterButton" destination="n3c-cx-uHP" id="NnG-xL-gpO"/>
-                        <outlet property="translatorButton" destination="Vf9-9a-rxF" id="ta7-7f-q7a"/>
-                        <outlet property="weatherButton" destination="oNp-lJ-xMA" id="Nig-tO-4Qp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oq1-wX-xgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController storyboardIdentifier="TabBarController" id="7Zl-1w-f34" customClass="TabBarController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" restorationIdentifier="TabBarController" insetsLayoutMarginsFromSafeArea="NO" id="U8v-C7-YaE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GOK-Sv-lib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="-559"/>
+            <point key="canvasLocation" x="899" y="-544"/>
         </scene>
-        <!--Weather View Controller-->
+        <!--Item-->
         <scene sceneID="AXU-yy-Wci">
             <objects>
                 <viewController storyboardIdentifier="WeatherViewController" id="Syy-MY-OGj" customClass="WeatherViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
@@ -177,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QWw-59-VTH">
-                                <rect key="frame" x="0.0" y="20" width="414" height="646"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityWeatherTableViewCell" rowHeight="233" id="c8e-N0-F98" customClass="CityWeatherTableViewCell" customModule="Baluchon" customModuleProvider="target">
@@ -254,42 +152,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXE-ox-Bmr">
-                                <rect key="frame" x="0.0" y="666" width="414" height="70"/>
-                                <color key="backgroundColor" red="0.3219224215" green="0.524802506" blue="0.58041101689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="FEf-Tj-TfH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="20"/>
-                                <state key="normal" title="MENU">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="menuButton:" destination="Syy-MY-OGj" eventType="touchUpInside" id="unG-Dl-jvK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="UXE-ox-Bmr" firstAttribute="top" secondItem="QWw-59-VTH" secondAttribute="bottom" id="4d0-uY-dhx"/>
-                            <constraint firstItem="UXE-ox-Bmr" firstAttribute="leading" secondItem="qLB-m0-0Cn" secondAttribute="leading" id="9iE-qb-9aT"/>
-                            <constraint firstItem="Mbq-4W-2xf" firstAttribute="trailing" secondItem="UXE-ox-Bmr" secondAttribute="trailing" id="UfL-LL-aZP"/>
+                            <constraint firstItem="Mbq-4W-2xf" firstAttribute="bottom" secondItem="QWw-59-VTH" secondAttribute="bottom" id="JzA-eF-q7x"/>
                             <constraint firstItem="QWw-59-VTH" firstAttribute="top" secondItem="Mbq-4W-2xf" secondAttribute="top" id="axE-ZC-wI0"/>
                             <constraint firstItem="QWw-59-VTH" firstAttribute="leading" secondItem="Mbq-4W-2xf" secondAttribute="leading" id="bsq-aQ-cll"/>
-                            <constraint firstItem="UXE-ox-Bmr" firstAttribute="bottom" secondItem="Mbq-4W-2xf" secondAttribute="bottom" id="een-2a-dlf"/>
                             <constraint firstItem="Mbq-4W-2xf" firstAttribute="trailing" secondItem="QWw-59-VTH" secondAttribute="trailing" id="jZZ-Bg-NxX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mbq-4W-2xf"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="weather-icon" id="wKu-Ge-z0o"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="QWw-59-VTH" id="lh4-8G-v8I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDg-49-yfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885.50724637681162" y="136.95652173913044"/>
+            <point key="canvasLocation" x="899" y="129"/>
         </scene>
-        <!--Converter View Controller-->
+        <!--Item-->
         <scene sceneID="Xaa-0V-igo">
             <objects>
                 <viewController storyboardIdentifier="ConverterViewController" id="fjt-a6-3DD" customClass="ConverterViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
@@ -298,25 +181,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EEL-XY-qCm" userLabel="Main Stack View">
-                                <rect key="frame" x="10" y="20" width="394" height="646"/>
+                                <rect key="frame" x="10" y="20" width="394" height="597"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-qJ-Dgv" userLabel="Stack View1">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="323"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="298.66666666666669"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type a value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bx5-02-6li">
-                                                <rect key="frame" x="0.0" y="0.0" width="197" height="323"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="197" height="298.66666666666669"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hoR-Gg-k2f">
-                                                <rect key="frame" x="197" y="0.0" width="197" height="323"/>
+                                                <rect key="frame" x="197" y="0.0" width="197" height="298.66666666666669"/>
                                                 <subviews>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XzA-hm-uhC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="302.66666666666669"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="278"/>
                                                     </pickerView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KC-fr-NYR">
-                                                        <rect key="frame" x="0.0" y="302.66666666666669" width="197" height="20.333333333333314"/>
+                                                        <rect key="frame" x="0.0" y="278" width="197" height="20.666666666666686"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20.5" id="gEM-w2-NUh"/>
                                                         </constraints>
@@ -339,22 +221,22 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9C-3c-bh3" userLabel="Stack View2">
-                                        <rect key="frame" x="0.0" y="323" width="394" height="323"/>
+                                        <rect key="frame" x="0.0" y="298.66666666666674" width="394" height="298.33333333333326"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MO1-ZC-WIa">
-                                                <rect key="frame" x="0.0" y="0.0" width="197" height="323"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="197" height="298.33333333333331"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oxk-XL-SrH">
-                                                <rect key="frame" x="197" y="0.0" width="197" height="323"/>
+                                                <rect key="frame" x="197" y="0.0" width="197" height="298.33333333333331"/>
                                                 <subviews>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcV-9E-aqL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="302.66666666666669"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="278"/>
                                                     </pickerView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M38-da-Cs5">
-                                                        <rect key="frame" x="0.0" y="302.66666666666663" width="197" height="20.333333333333314"/>
+                                                        <rect key="frame" x="0.0" y="277.99999999999994" width="197" height="20.333333333333314"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20.5" id="2SH-w7-9iv"/>
                                                         </constraints>
@@ -391,17 +273,6 @@
                                     <constraint firstItem="9Vf-qJ-Dgv" firstAttribute="height" secondItem="q9C-3c-bh3" secondAttribute="height" id="vfn-v6-brw"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHa-cg-atQ">
-                                <rect key="frame" x="0.0" y="666" width="414" height="70"/>
-                                <color key="backgroundColor" red="0.3219224215" green="0.524802506" blue="0.58041101689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="20"/>
-                                <state key="normal" title="MENU">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="menuButton:" destination="fjt-a6-3DD" eventType="touchUpInside" id="oPH-v2-Rli"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -409,13 +280,11 @@
                             <constraint firstItem="R7E-Vx-UaB" firstAttribute="trailing" secondItem="EEL-XY-qCm" secondAttribute="trailing" constant="10" id="LmV-Ld-tX4"/>
                             <constraint firstItem="EEL-XY-qCm" firstAttribute="leading" secondItem="R7E-Vx-UaB" secondAttribute="leading" constant="10" id="VAm-wg-h6F"/>
                             <constraint firstItem="R7E-Vx-UaB" firstAttribute="bottom" secondItem="EEL-XY-qCm" secondAttribute="bottom" constant="70" id="b4d-xd-sTF"/>
-                            <constraint firstItem="CHa-cg-atQ" firstAttribute="leading" secondItem="sQR-VQ-BX9" secondAttribute="leading" id="bSh-Ky-xwg"/>
-                            <constraint firstItem="R7E-Vx-UaB" firstAttribute="trailing" secondItem="CHa-cg-atQ" secondAttribute="trailing" id="flA-E4-ma2"/>
-                            <constraint firstItem="R7E-Vx-UaB" firstAttribute="bottom" secondItem="CHa-cg-atQ" secondAttribute="bottom" id="rkR-zw-t11"/>
-                            <constraint firstItem="CHa-cg-atQ" firstAttribute="top" secondItem="EEL-XY-qCm" secondAttribute="bottom" id="zuk-0v-LaL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R7E-Vx-UaB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="converter-icon" id="aWR-6k-UQD"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="initialValuetextField" destination="bx5-02-6li" id="xnP-J6-kkJ"/>
                         <outlet property="requestPickerView" destination="XzA-hm-uhC" id="cLB-Yi-2fA"/>
@@ -430,4 +299,9 @@
             <point key="canvasLocation" x="1610" y="141"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="converter-icon" width="25" height="25"/>
+        <image name="translator-icon" width="25" height="25"/>
+        <image name="weather-icon" width="25" height="25"/>
+    </resources>
 </document>

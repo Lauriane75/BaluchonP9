@@ -10,15 +10,13 @@ import UIKit
 
 final class WeatherSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-    typealias Item = WeatherViewModel.Item
-
     // MARK: Private properties
 
-    private var items: [Item] = []
+    private var items: [VisibleWeather] = []
 
     // MARK: Public
 
-    func update(with items: [Item]) {
+    func update(with items: [VisibleWeather]) {
         self.items = items
     }
 
@@ -30,19 +28,11 @@ final class WeatherSource: NSObject, UITableViewDataSource, UITableViewDelegate 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard items.count > indexPath.item else {
-            fatalError()
-        }
-        switch items[indexPath.item] {
-        case .parisWeather(visibleParisWeather: let visibleWeather):
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CityWeatherTableViewCell", for: indexPath) as! CityWeatherTableViewCell
-            cell.configure(with: visibleWeather)
-            return cell
-        case .newYorkWeather(visibleNewYorkWeather: let visibleWeather):
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CityWeatherTableViewCell", for: indexPath) as!
-                CityWeatherTableViewCell
-            cell.configure(with: visibleWeather)
-            return cell
+            fatalError() }
 
-        }
+        let visibleWeather = items[indexPath.item]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityWeatherTableViewCell", for: indexPath) as! CityWeatherTableViewCell
+        cell.configure(with: visibleWeather)
+        return cell
     }
 }

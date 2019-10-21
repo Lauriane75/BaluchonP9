@@ -43,8 +43,5 @@ final class TranslatorViewModel {
         })
     }
 
-    func didPressBackToMenu() {
-        delegate?.didPressbackToMenu()
-    }
 }
 

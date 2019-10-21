@@ -31,8 +31,5 @@ class TranslatorViewController: UIViewController {
     private func bind(to viewModel: TranslatorViewModel) {
     }
 
-    @IBAction func menuButton(_ sender: Any) {
-        viewModel.didPressBackToMenu()
-    }
     
 }
