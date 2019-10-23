@@ -85,9 +85,9 @@ final class ConverterViewModel {
         case .result:
             selectedResultRateValueText?("\(rate.value)")
         }
-        if selectedRequestRateValueText.debugDescription == "1" {
+        if selectedRequestRateValueText.debugDescription == "1.0" {
             print("from euro")
-        } else if selectedRequestRateValueText.debugDescription != "1" {
+        } else if selectedRequestRateValueText.debugDescription != "1.0" {
             print("to euro")
         } else {
             print("error")
