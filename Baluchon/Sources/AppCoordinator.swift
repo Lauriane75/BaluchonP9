@@ -18,12 +18,14 @@ final class AppCoordinator {
 
     private var mainCoordinator: MainCoordinator?
 
+//    private let client: HTTPClient
 
     // MARK: - Initializer
 
     init(appDelegate: AppDelegate, context: Context) {
         self.appDelegate = appDelegate
         self.context = context
+//        self.client = client
     }
 
     // MARK: - Start
@@ -33,7 +35,7 @@ final class AppCoordinator {
         appDelegate.window!.rootViewController = UIViewController()
         appDelegate.window!.makeKeyAndVisible()
 
-//         look & learn
+        // look & learn
         if ProcessInfo.processInfo.environment["IS_RUNNING_UNIT_TESTS"] == "YES" {
             return
         }

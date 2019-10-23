@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConverterViewController: UIViewController {
+class ConverterViewController: UIViewController, CurrencyPickerDelegate {
 
     // MARK: - Outlets
 
@@ -23,34 +23,34 @@ class ConverterViewController: UIViewController {
 
     var viewModel: ConverterViewModel!
 
-    private var requestDataSource = PickerViewDataSource()
-    private var resultDataSource = PickerViewDataSource()
+    private var requestDataSource = CurrencyPickerDataSource()
+    private var resultDataSource = CurrencyPickerDataSource()
 
     // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        requestDataSource.delegate = self
         requestPickerView.dataSource = requestDataSource
         requestPickerView.delegate = requestDataSource
 
+        resultDataSource.delegate = self
         resultPickerView.dataSource = resultDataSource
         resultPickerView.delegate = resultDataSource
         
         bind(to: viewModel)
-        bind(to: requestDataSource)
-        bind(to: resultDataSource)
-        
+
         viewModel.viewDidLoad()
     }
 
-    private func bind(to dataSource: PickerViewDataSource) {
-        dataSource.didSelectItemAt = viewModel.didSelectRequestRate
-        dataSource.didSelectItemAt = viewModel.didSelectResultRate
+    func didSelectItem(for pickerView: UIPickerView, at row: Int) {
+        viewModel.didSelectCurrency(at: row, for: pickerView == requestPickerView ? .request : .result)
+//        viewModel.didPressConvert(value: Bool, origin: <#T##String#>, destination: <#T##String#>)
     }
 
     private func bind(to viewModel: ConverterViewModel) {
-        viewModel.visibleRequestRates = { [weak self] rates in
+        viewModel.visibleRates = { [weak self] rates in
             DispatchQueue.main.async {
                 self?.requestDataSource.update(with: rates)
                 self?.requestPickerView.reloadAllComponents()
@@ -68,6 +68,25 @@ class ConverterViewController: UIViewController {
                 self?.selectedResultRateValueLabel.text = text
             }
         }
+        viewModel.initialValuetextField = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.initialValuetextField.text = text
+            }
+        }
+
+        viewModel.resultText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.resultValueLabel.text = text
+            }
+        }
+        
+    }
+
+    @IBAction func didTapInitialValuetextField(_ sender: Any) {
     }
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        initialValuetextField.resignFirstResponder()
+    }
+
 }

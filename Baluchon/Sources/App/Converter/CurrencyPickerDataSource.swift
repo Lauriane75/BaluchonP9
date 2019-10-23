@@ -8,11 +8,17 @@
 
 import UIKit
 
-final class PickerViewDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+protocol CurrencyPickerDelegate: class {
+    func didSelectItem(for pickerView: UIPickerView, at row: Int)
+}
+
+final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - Properties
 
     private var items: [String] = []
+
+    weak var delegate: CurrencyPickerDelegate?
 
     // MARK: - Public
 
@@ -40,7 +46,8 @@ final class PickerViewDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDa
     // MARK: - UIPickerViewDelegate
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        didSelectItemAt?(row)
+        delegate?.didSelectItem(for: pickerView, at: row)
+
     }
 }
 

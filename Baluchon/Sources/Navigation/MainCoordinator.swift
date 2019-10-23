@@ -54,6 +54,12 @@ final class MainCoordinator: NSObject, UITabBarControllerDelegate {
 
     private var tabBarSource: TabBarSourceType = TabBarSource()
 
+    private var weatherCoordinator: WeatherCoordinator?
+
+    private var converterCoordinator: ConverterCoordinator?
+
+    private var translatorCoordinator: TranslatorCoordinator?
+
     // MARK: - Init
 
     init(presenter: UIWindow, context: Context) {
@@ -76,18 +82,18 @@ final class MainCoordinator: NSObject, UITabBarControllerDelegate {
     }
 
     private func showMainView() {
-        let mainViewController = screens.createMainViewController(delegate: self)
-        presenter.rootViewController = mainViewController
+        weatherCoordinator = WeatherCoordinator(presenter: tabBarSource[.weather], screens: screens)
+        weatherCoordinator?.start()
     }
 
     private func showTranslator() {
-        let translatorViewController = screens.createTranslatorViewController(delegate: self)
-        presenter.rootViewController?.show(translatorViewController, sender: nil)
+        translatorCoordinator = TranslatorCoordinator(presenter: tabBarSource[.translator], screens: screens)
+        translatorCoordinator?.start()
     }
-    
+
     private func showConverter() {
-        let converterViewController = screens.createConverterViewController(delegate: self)
-        presenter.rootViewController?.show(converterViewController, sender: nil)
+        converterCoordinator = ConverterCoordinator(presenter: tabBarSource[.converter], screens: screens)
+        converterCoordinator?.start()
     }
 }
 
