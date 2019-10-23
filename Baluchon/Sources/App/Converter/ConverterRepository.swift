@@ -10,7 +10,7 @@ import Foundation
 
 protocol ConverterRepositoryType: class {
     func getCurrency(callback: @escaping (Currency) -> Void)
-    func convert(value: Double, from: String, to: String, callback: @escaping (String) -> Void)
+    func convert(fromValue: String, from originCurrency: String, to destinateCurrency: String, callback: @escaping (String) -> Void)
 }
 
 final class ConverterRepository: ConverterRepositoryType {
@@ -35,7 +35,7 @@ final class ConverterRepository: ConverterRepositoryType {
         }
     }
 
-    func convert(value: Double, from: String, to: String, callback: @escaping (String) -> Void) {
+    func convert(fromValue: String, from originCurrency: String, to destinateCurrency: String, callback: @escaping (String) -> Void) {
 
     }
 }

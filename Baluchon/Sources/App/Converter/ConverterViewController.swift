@@ -46,6 +46,7 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
 
     func didSelectItem(for pickerView: UIPickerView, at row: Int) {
         viewModel.didSelectCurrency(at: row, for: pickerView == requestPickerView ? .request : .result)
+
 //        viewModel.didPressConvert(value: Bool, origin: <#T##String#>, destination: <#T##String#>)
     }
 
@@ -79,7 +80,6 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
                 self?.resultValueLabel.text = text
             }
         }
-        
     }
 
     @IBAction func didTapInitialValuetextField(_ sender: Any) {

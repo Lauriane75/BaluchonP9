@@ -66,17 +66,16 @@ final class ConverterViewModel {
         })
     }
 
-    func didPressConvert(value: Double, origin: String, destination: String) {
-        repository.convert(value: value, from: origin, to: destination, callback: { text in
+    func didPressConvert(value: String, origin: String, destination: String) {
+        repository.convert(fromValue: value, from: origin, to: destination, callback: { text in
             self.resultText?(text)
         })
     }
 
     func didSelectCurrency(at index: Int, for type: ConverterType) {
+
         guard index < currencyRates.count else { return }
         let rate = currencyRates[index]
-//        let originValue = String(rate.value)
-//        let destinationValue = String(rate.value)
 
         switch type {
         case .request:
@@ -84,8 +83,13 @@ final class ConverterViewModel {
         case .result:
             selectedResultRateValueText?("\(rate.value)")
         }
-//        didPressConvert(value: , origin: originValue, destination: destinationValue)
-
+        if selectedRequestRateValueText.debugDescription == "1" {
+            print("from euro")
+        } else if selectedRequestRateValueText.debugDescription != "1" {
+            print("to euro")
+        } else {
+            print("error")
+        }
     }
 
     // MARK: - Private Functions
@@ -95,45 +99,47 @@ final class ConverterViewModel {
         if let value = currencyRates.first?.value {
             selectedRequestRateValueText?("\(value)")
             selectedResultRateValueText?("\(value)")
+        }
+//        if selectedRequestRateValueText.debugDescription == "1" {
+//            print("from euro")
+//        } else if selectedRequestRateValueText.debugDescription != "1" {
+//            print("to euro")
+//        } else {
+//            print("error")
+//        }
+    }
+
+    func convert(value: Double, from: String, to: String, from currency: Currency) -> Double {
+        currencyRates = currency.rates.map { Rate(key: $0.key, value: $0.value) }
+        let currencyPickerDataSource = CurrencyPickerDataSource()
+        if currencyPickerDataSource.items == ["EUR"] {
+            let rate = Double(selectedResultRateValueText.debugDescription)
+            let valueFromEuro = convertFromEuro(value: value, rate: rate!)
+            let valueConverted = convertToEuro(value: valueFromEuro, rate: rate!)
+
+            return valueConverted
+
+        } else {
+            let rate = Double(selectedRequestRateValueText.debugDescription)
+            let valueToEuro = convertToEuro(value: value, rate: rate!)
+            let valueConverted = convertFromEuro(value: valueToEuro, rate: rate!)
+
+            return valueConverted
 
         }
     }
 
-//    func convertFromEuro(value: Double, rate: Double) -> Double {
-//        return value * rate
-//    }
-//
-//    func convertToEuro(value: Double, rate: Double) -> Double {
-//        return value / rate
-//    }
-//
-//    func convert(value: Double, from: String, to: String, from currency: Currency) -> Double {
-//        if from != "EUR" {
-//            var rate = Double((currency.rates[from])!)
-//            let valueToEuro = convertToEuro(value: value, rate: rate)
-//            rate = Double((currency.rates[to])!)
-//            let convertValue = convertFromEuro(value: valueToEuro, rate: rate)
-//            print(convertValue)
-//
-//            return convertValue
-//
-//        } else {
-//            let rate = Double((currency.rates[to])!)
-//            let convertValue = convertFromEuro(value: value, rate: rate)
-//            print(convertValue)
-//
-//            return convertValue
-//        }
-//    }
 
-//    func showResult() -> Double {
-//        CurrencyService.shared.getCurrency {(currency) in
-//            if let c = currency, let text = self.requestTextField.text, let value = Double(text) {
-//                let result = c.convert(value: value, from: self.fromSymbol, to: self.toSymbol)
-//                self.resultLabel.text = String(result)
-//            }
-//        }
-//    }
+    func convertFromEuro(value: Double, rate: Double) -> Double {
+
+        return value * rate
+    }
+
+    func convertToEuro(value: Double, rate: Double) -> Double {
+        return value / rate
+    }
+
+
 }
 
 

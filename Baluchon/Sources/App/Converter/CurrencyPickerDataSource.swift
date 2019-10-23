@@ -16,7 +16,7 @@ final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerVi
 
     // MARK: - Properties
 
-    private var items: [String] = []
+    var items: [String] = []
 
     weak var delegate: CurrencyPickerDelegate?
 

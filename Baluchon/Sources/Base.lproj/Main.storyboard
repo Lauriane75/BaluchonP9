@@ -33,6 +33,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udz-H6-31F">
                                                 <rect key="frame" x="118.5" y="85" width="118" height="30"/>
                                                 <state key="normal" title="&lt;- -&gt;"/>
+                                                <connections>
+                                                    <action selector="didPressArrowChangeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UQS-4a-m1B"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anglais" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMl-ge-pkD">
                                                 <rect key="frame" x="236.5" y="90" width="118.5" height="20.5"/>
@@ -53,6 +56,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="didTapRequestTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="LY9-oy-zPL"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXK-lD-f98">
                                                 <rect key="frame" x="325" y="0.0" width="30" height="30"/>
@@ -61,6 +67,9 @@
                                                     <constraint firstAttribute="width" constant="30" id="UT0-8S-XR9"/>
                                                 </constraints>
                                                 <state key="normal" title="X"/>
+                                                <connections>
+                                                    <action selector="didPressClearButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S50-Av-xcX"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -90,6 +99,9 @@
                                                     <constraint firstAttribute="width" constant="30" id="D5D-96-v9u"/>
                                                 </constraints>
                                                 <state key="normal" title="-&gt;"/>
+                                                <connections>
+                                                    <action selector="didPressResultTranslationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CJH-hw-fLr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -123,11 +135,28 @@
                             <constraint firstItem="2e7-Ae-BUg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="y4o-bh-iy6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="2g2-fe-EOC" appends="YES" id="Dpm-zp-FBq"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="translator-icon" id="dP1-ky-OmX"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="arrowChangeButton" destination="udz-H6-31F" id="9pB-fX-IyR"/>
+                        <outlet property="clearButton" destination="nXK-lD-f98" id="sS7-L6-QGj"/>
+                        <outlet property="requestLanguageButton" destination="vJY-ad-G8D" id="qGG-4T-wph"/>
+                        <outlet property="requestTextField" destination="oFB-SX-hsg" id="NAZ-cz-VW6"/>
+                        <outlet property="resultArrowButton" destination="a5z-X5-BS2" id="Q8P-Jf-sWJ"/>
+                        <outlet property="resultLanguageButton" destination="QMl-ge-pkD" id="qax-9M-esW"/>
+                        <outlet property="resultTranslationLabel" destination="4MW-RX-K85" id="hY1-hg-OID"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2g2-fe-EOC">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="6Ca-Z4-S1k"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="173.91304347826087" y="136.95652173913044"/>
         </scene>
@@ -268,7 +297,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type a value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bx5-02-6li">
                                                 <rect key="frame" x="0.0" y="0.0" width="177.5" height="264"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <connections>
                                                     <action selector="didTapInitialValuetextField:" destination="fjt-a6-3DD" eventType="editingDidEnd" id="NIv-M9-dMB"/>
                                                 </connections>
