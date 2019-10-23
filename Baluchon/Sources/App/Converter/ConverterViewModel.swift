@@ -54,6 +54,8 @@ final class ConverterViewModel {
         didSet {
             let keys: [String] = currencyRates.map { $0.key }.sorted(by: { $0 < $1 })
             self.visibleRates?(keys)
+//            self.selectedRequestRateValueText
+//            self.selectedResultRateValueText
         }
     }
 
@@ -94,40 +96,42 @@ final class ConverterViewModel {
 
     // MARK: - Private Functions
 
+//    private func initCurrencyRates(from currency: Currency) {
+//        currencyRates = currency.rates.map { Rate(key: $0.key, value: $0.value) }
+//        if let value = currencyRates.first?.value {
+//            selectedRequestRateValueText?("\(value)")
+//            selectedResultRateValueText?("\(value)")
+//        }
+//    }
+
     private func initCurrencyRates(from currency: Currency) {
-        currencyRates = currency.rates.map { Rate(key: $0.key, value: $0.value) }
+        let ordinate = currency.rates.sorted { $0.key < $1.key }
+        currencyRates = ordinate.map { Rate(key: $0.key, value: $0.value) }
         if let value = currencyRates.first?.value {
             selectedRequestRateValueText?("\(value)")
             selectedResultRateValueText?("\(value)")
         }
-//        if selectedRequestRateValueText.debugDescription == "1" {
-//            print("from euro")
-//        } else if selectedRequestRateValueText.debugDescription != "1" {
-//            print("to euro")
+    }
+
+//    func convert(value: Double, from: String, to: String, from currency: Currency) -> Double {
+//        currencyRates = currency.rates.map { Rate(key: $0.key, value: $0.value) }
+//        let currencyPickerDataSource = CurrencyPickerDataSource()
+//        if currencyPickerDataSource.items == ["EUR"] {
+//            let rate = Double(selectedResultRateValueText.debugDescription)
+//            let valueFromEuro = convertFromEuro(value: value, rate: rate!)
+//            let valueConverted = convertToEuro(value: valueFromEuro, rate: rate!)
+//
+//            return valueConverted
+//
 //        } else {
-//            print("error")
+//            let rate = Double(selectedRequestRateValueText.debugDescription)
+//            let valueToEuro = convertToEuro(value: value, rate: rate!)
+//            let valueConverted = convertFromEuro(value: valueToEuro, rate: rate!)
+//
+//            return valueConverted
+//
 //        }
-    }
-
-    func convert(value: Double, from: String, to: String, from currency: Currency) -> Double {
-        currencyRates = currency.rates.map { Rate(key: $0.key, value: $0.value) }
-        let currencyPickerDataSource = CurrencyPickerDataSource()
-        if currencyPickerDataSource.items == ["EUR"] {
-            let rate = Double(selectedResultRateValueText.debugDescription)
-            let valueFromEuro = convertFromEuro(value: value, rate: rate!)
-            let valueConverted = convertToEuro(value: valueFromEuro, rate: rate!)
-
-            return valueConverted
-
-        } else {
-            let rate = Double(selectedRequestRateValueText.debugDescription)
-            let valueToEuro = convertToEuro(value: value, rate: rate!)
-            let valueConverted = convertFromEuro(value: valueToEuro, rate: rate!)
-
-            return valueConverted
-
-        }
-    }
+//    }
 
 
     func convertFromEuro(value: Double, rate: Double) -> Double {
