@@ -42,6 +42,12 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
         bind(to: viewModel)
 
         viewModel.viewDidLoad()
+
+        initialValuetextField.layer.cornerRadius = 20
+        resultValueLabel.layer.cornerRadius = 20
+        requestPickerView.layer.cornerRadius = 20
+        resultPickerView.layer.cornerRadius = 20
+        resultValueLabel.layer.cornerRadius = 20
     }
 
     func didSelectItem(for pickerView: UIPickerView, at row: Int) {

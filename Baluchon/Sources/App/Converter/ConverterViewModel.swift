@@ -97,22 +97,17 @@ final class ConverterViewModel {
         case .request:
             selectedRequestRateValueText?("\(Double(round(100*rate.value)/100))")
             valueOfRequestPickerView = rate.value
-            nameOfRequestPickerView = rate.key
-            print("name request \(valueOfRequestPickerView)")
         case .result:
             selectedResultRateValueText?("\(Double(round(100*rate.value)/100))")
             valueOfResultPickerView = rate.value
-            nameOfResultPickerView = rate.key
-            print("name result \(valueOfResultPickerView)")
-
         }
 
         if valueOfRequestPickerView == 1.0 {
             let valueFromEuro = convertFromEuro(value: valueToConvert, rate: valueOfResultPickerView)
-            result = "\(valueFromEuro)"
+            result = ("\(Double(round(100*valueFromEuro)/100))")
         } else {
             let valueToEuro = convertToEuro(value: valueToConvert, rate: valueOfRequestPickerView)
-            result = "\(valueToEuro)"
+            result = ("\(Double(round(100*valueToEuro)/100))")
         }
     }
 
