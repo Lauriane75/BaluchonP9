@@ -17,15 +17,11 @@ class WeatherViewController: UIViewController {
     // MARK: - Properties
 
     var viewModel: WeatherViewModel!
-
-    weak var delegate: WeatherViewControllerDelegate?
-
     private var source = WeatherSource()
 
     // MARK: - View life cycle
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
 
         tableView.delegate = source

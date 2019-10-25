@@ -28,12 +28,9 @@ final class ConverterRepository: ConverterRepositoryType {
     }
 
     func getCurrency(callback: @escaping (Currency) -> Void) {
-
-        let apiKey = "5f3d531bcfe0d265036a1aa20e889301&format=1"
-        let urlString = "http://data.fixer.io/api/latest?access_key=\(apiKey)"
+        let urlString = "http://data.fixer.io/api/latest?access_key=5f3d531bcfe0d265036a1aa20e889301&format=1"
         let url = URL(string: urlString)!
         client.request(type: Currency.self, requestType: .GET, url: url, cancelledBy: token) { currency in
-
             callback(currency)
         }
     }

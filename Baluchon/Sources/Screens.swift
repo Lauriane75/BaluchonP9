@@ -28,8 +28,7 @@ protocol WeatherViewControllerDelegate: class {
 }
 
 extension Screens {
-
-    func createMainViewController(repository: WeatherRepository, delegate: WeatherViewControllerDelegate?) -> UIViewController {
+    func createMainViewController(delegate: WeatherViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "WeatherViewController") as! WeatherViewController
         let repository = WeatherRepository(client: context.client)
         let viewModel = WeatherViewModel(repository: repository, delegate: delegate)
@@ -47,7 +46,7 @@ protocol ConverterViewControllerDelegate: class {
 }
 
 extension Screens {
-    func createTranslatorViewController(repository: TranslatorRepository, delegate: TranslatorViewControllerDelegate?) -> UIViewController {
+    func createTranslatorViewController(delegate: TranslatorViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "TranslatorViewController") as! TranslatorViewController
         let repository = TranslatorRepository(client: context.client)
         let viewModel = TranslatorViewModel(repository: repository, delegate: delegate)
@@ -55,7 +54,7 @@ extension Screens {
         return viewController
     }
 
-    func createConverterViewController(repository: ConverterRepository, delegate: ConverterViewControllerDelegate?) -> UIViewController {
+    func createConverterViewController(delegate: ConverterViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ConverterViewController") as! ConverterViewController
         let repository = ConverterRepository(client: context.client)
         let viewModel = ConverterViewModel(repository: repository, delegate: delegate)

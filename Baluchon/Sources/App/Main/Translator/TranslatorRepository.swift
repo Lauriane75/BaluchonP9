@@ -10,7 +10,7 @@
 import Foundation
 
 protocol TranslatorRepositoryType: class {
-    func getTranslation(callback: @escaping (EnglishLanguage) -> Void)
+    func getTranslation(callback: @escaping (Translation) -> Void)
     func translate(text: String, from originLanguage: String, to destinationLanguage: String, callback: @escaping (String) -> Void)
 }
 
@@ -30,10 +30,11 @@ final class TranslatorRepository: TranslatorRepositoryType {
     }
 
     // find api url
-    func getTranslation(callback: @escaping (EnglishLanguage) -> Void) {
-        let urlString = "http://data.fixer.io/api/latest?access_key=5f3d531bcfe0d265036a1aa20e889301&format=1"
+    func getTranslation(callback: @escaping (Translation) -> Void) {
+        let apiKey = "AIzaSyAsAeyNFUwWfB9jBeT0U6ZkZl6w7G9lkb4"
+        let urlString = "https://translation.googleapis.com/language/translate/v2?key=\(apiKey)&source=fr&target=en&q=bonjour&format=text"
         let url = URL(string: urlString)!
-        client.request(type: EnglishLanguage.self, requestType: .GET, url: url, cancelledBy: token) { currency in
+        client.request(type: Translation.self, requestType: .GET, url: url, cancelledBy: token) { currency in
             callback(currency)
         }
     }

@@ -9,7 +9,11 @@
 import Foundation
 
 protocol HTTPClientType {
-    func request<T>(type: T.Type, requestType: RequestType, url: URL, cancelledBy token: RequestCancelationToken, completion: @escaping (T) -> Void) where T: Codable
+    func request<T>(type: T.Type,
+                    requestType: RequestType,
+                    url: URL,
+                    cancelledBy token: RequestCancelationToken,
+                    callback: @escaping (T) -> Void) where T: Codable
 }
 
 enum RequestType: String {
@@ -17,30 +21,32 @@ enum RequestType: String {
     case POST = "POST"
 }
 
-class HTTPClient: HTTPClientType {
+final class HTTPClient: HTTPClientType {
 
     private let engine: HTTPEngine
 
-    private let jsonDecoder: JSONDecoder
+    private let decoder: JSONDecoder
 
     init() {
         self.engine = HTTPEngine()
-        self.jsonDecoder = JSONDecoder()
+        self.decoder = JSONDecoder()
     }
 
-    func request<T>(type: T.Type, requestType: RequestType, url: URL, cancelledBy token: RequestCancelationToken, completion: @escaping (T) -> Void) where T: Codable {
+    func request<T>(type: T.Type, requestType: RequestType, url: URL, cancelledBy token: RequestCancelationToken, callback: @escaping (T) -> Void) where T: Codable {
         var request = URLRequest(url: url)
         request.httpMethod = requestType.rawValue
 
-        engine.send(request: request,
-                    cancelledBy: token) { (data, httpUrlResponse, error) in
-                        guard let data = data else { return }
-                        self.decodeJSON(type: T.self, data: data, completion: completion)
+        engine.send(request: request, cancelledBy: token) { (data, response, error) in
+            guard let data = data else { return }
+            self.decodeJSON(type: T.self, data: data, callback: callback)
         }
     }
 
-    private func decodeJSON<T>(type: T.Type, data: Data, completion: @escaping (T) -> Void) where T: Decodable {
-        guard let decodedData = try? jsonDecoder.decode(type.self, from: data) else { print("Decoder was unable to decode: \(type.self)"); return }
-        completion(decodedData)
+    private func decodeJSON<T>(type: T.Type, data: Data, callback: @escaping (T) -> Void) where T: Codable {
+        guard let decodedData = try? decoder.decode(type.self, from: data) else {
+            print("Unable to decode: \(type.self)")
+            return
+        }
+        callback(decodedData)
     }
 }
