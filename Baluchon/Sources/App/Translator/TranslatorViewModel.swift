@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum NextScreen: Equatable {
+    case alert(title: String, message: String)
+}
+
 final class TranslatorViewModel {
 
     // MARK: - Properties
@@ -15,6 +19,14 @@ final class TranslatorViewModel {
     private let delegate: TranslatorViewControllerDelegate?
 
     private let repository: TranslatorRepositoryType
+
+    // MARK: Private properties
+
+    private var requestTranslationText = "" {
+        didSet {
+            requestText?(requestTranslationText)
+        }
+    }
 
     // MARK: - Initializer
 
@@ -26,7 +38,13 @@ final class TranslatorViewModel {
 
     // MARK: - Outputs
 
+    var requestText: ((String) -> Void)?
+
     var resultText: ((String) -> Void)?
+
+    var nextScreen: ((NextScreen) -> Void)?
+
+
 
     // MARK: - Inputs
 
@@ -37,11 +55,40 @@ final class TranslatorViewModel {
 //        })
     }
 
-    func didPressTranslate(text: String, from origin: String, to destination: String) {
+    func didPressResultArrowButton() {
+//        translate(text: <#T##String#>, from: <#T##String#>, to: <#T##String#>)
+    }
+
+
+    func didTapRequestTextField(text : String?) {
+        print(text!)
+    }
+
+    func didPressClearButton() {
+        clear()
+
+    }
+
+    func didPressResultTranslationButton() {
+
+    }
+
+    // MARK: - Private Functions
+
+    private func clear() {
+        requestTranslationText.removeAll()
+    }
+
+    private func translate(text: String, from origin: String, to destination: String) {
         repository.translate(text: text, from: origin, to: destination, callback: { text in
             self.resultText?(text)
         })
     }
+
+
+
+
+
 
 }
 

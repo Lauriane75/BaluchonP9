@@ -8,6 +8,16 @@
 
 import Foundation
 
+enum ConverterType {
+    case result
+    case request
+}
+
+struct Rate {
+    let key: String
+    let value: Double
+}
+
 final class ConverterViewModel {
 
     // MARK: - Properties
@@ -16,8 +26,6 @@ final class ConverterViewModel {
 
     private let repository: ConverterRepositoryType
 
-<<<<<<< 0b78be2007c2c8c01f0f906622406bf8d26a0ae8:BaluchonApp/Baluchon/Sources/App/Main/Converter/ConverterViewModel.swift
-=======
     var valueOfRequestPickerView: Double = 0
 
     var valueOfResultPickerView: Double = 0
@@ -27,7 +35,6 @@ final class ConverterViewModel {
     var nameOfResultPickerView: String = ""
 
 
->>>>>>> Format rate numbers:BaluchonApp/Baluchon/Sources/App/Converter/ConverterViewModel.swift
     // MARK: - Initializer
 
     init(repository: ConverterRepositoryType, delegate: ConverterViewControllerDelegate?) {
@@ -39,26 +46,30 @@ final class ConverterViewModel {
 
     var resultText: ((String) -> Void)?
 
-    var visibleRequestRates: (([String]) -> Void)?
-
-    var visibleResultRates: (([String]) -> Void)?
+    var visibleRates: (([String]) -> Void)?
 
     var selectedRequestRateValueText: ((String) -> Void)?
 
     var selectedResultRateValueText: ((String) -> Void)?
 
+    var initialValuetextField: ((String) -> Void)?
 
-    var requestRates: [Rate] = [] {
+    var currencyRates: [Rate] = [] {
         didSet {
-            let keys: [String] = requestRates.map { $0.key }.sorted(by: { $0 < $1 })
-            self.visibleRequestRates?(keys)
+            let keys: [String] = currencyRates.map { $0.key }.sorted(by: { $0 < $1 })
+            self.visibleRates?(keys)
         }
     }
 
-    var resultRates: [Rate] = [] {
+    private var valueToConvert: Double = 0 {
         didSet {
-            let keys: [String] = resultRates.map { $0.key }.sorted(by: { $0 < $1 })
-            self.visibleResultRates?(keys)
+            initialValuetextField?("\(valueToConvert)")
+        }
+    }
+
+    private var result = "" {
+        didSet {
+            resultText?(result)
         }
     }
 
@@ -67,17 +78,10 @@ final class ConverterViewModel {
     func viewDidLoad() {
         self.resultText?("")
         repository.getCurrency(callback: { [weak self] currency in
-            self?.initRequestRates(from: currency)
-            self?.initResultRates(from: currency)
+            self?.initCurrencyRates(from: currency)
         })
     }
 
-<<<<<<< 0b78be2007c2c8c01f0f906622406bf8d26a0ae8:BaluchonApp/Baluchon/Sources/App/Main/Converter/ConverterViewModel.swift
-    private func initRequestRates(from currency: Currency) {
-        requestRates = currency.rates.map { Rate(key: $0.key, value: $0.value) }
-        if let value = requestRates.first?.value {
-            selectedRequestRateValueText?("\(value)")
-=======
     func didTapInitialValuetextField(valueFromTextField: Double) {
         let value = valueFromTextField
         valueToConvert = value
@@ -101,38 +105,25 @@ final class ConverterViewModel {
             nameOfResultPickerView = rate.key
             print("name result \(valueOfResultPickerView)")
 
->>>>>>> Format rate numbers:BaluchonApp/Baluchon/Sources/App/Converter/ConverterViewModel.swift
         }
-    }
 
-<<<<<<< 0b78be2007c2c8c01f0f906622406bf8d26a0ae8:BaluchonApp/Baluchon/Sources/App/Main/Converter/ConverterViewModel.swift
-    private func initResultRates(from currency: Currency) {
-        resultRates = currency.rates.map { Rate(key: $0.key, value: $0.value) }
-        if let value = resultRates.first?.value {
-            selectedResultRateValueText?("\(value)")
-=======
         if valueOfRequestPickerView == 1.0 {
             let valueFromEuro = convertFromEuro(value: valueToConvert, rate: valueOfResultPickerView)
             result = "\(valueFromEuro)"
         } else {
             let valueToEuro = convertToEuro(value: valueToConvert, rate: valueOfRequestPickerView)
             result = "\(valueToEuro)"
->>>>>>> Format rate numbers:BaluchonApp/Baluchon/Sources/App/Converter/ConverterViewModel.swift
         }
     }
 
-    func didPressConvert(text: String, from origin: String, to destination: String) {
-        repository.convert(fromValue: text, from: origin, to: destination, callback: { text in
+    // MARK: - Private Functions
+
+    func didPressConvert(value: String, origin: String, destination: String) {
+        repository.convert(fromValue: value, from: origin, to: destination, callback: { text in
             self.resultText?(text)
         })
     }
 
-<<<<<<< 0b78be2007c2c8c01f0f906622406bf8d26a0ae8:BaluchonApp/Baluchon/Sources/App/Main/Converter/ConverterViewModel.swift
-    func didSelectRequestRate(at index: Int) {
-        guard index < requestRates.count else { return }
-        let rate = requestRates[index]
-        selectedRequestRateValueText?("\(rate.value)")
-=======
     // MARK: - Private Functions
 
     private func initCurrencyRates(from currency: Currency) {
@@ -142,33 +133,20 @@ final class ConverterViewModel {
             selectedRequestRateValueText?("\(Double(round(100*value)/100))")
             selectedResultRateValueText?("\(Double(round(100*value)/100))")
         }
->>>>>>> Format rate numbers:BaluchonApp/Baluchon/Sources/App/Converter/ConverterViewModel.swift
     }
 
-    func didSelectResultRate(at index: Int) {
-        guard index < resultRates.count else { return }
-        let rate = resultRates[index]
-        selectedResultRateValueText?("\(rate.value)")
-    }
+   private func convertFromEuro(value: Double, rate: Double) -> Double {
 
-    private func convertFromEuro(value: Double, rate: Double) -> Double {
         return value * rate
     }
 
-    private func convertToEuro(value: Double, rate: Double) -> Double {
+   private func convertToEuro(value: Double, rate: Double) -> Double {
         return value / rate
     }
 
-//    func convert(value: Double, from: String, to: String) -> Double {
-//        return
-//    }
 }
 
 
 
-struct Rate {
-    let key: String
-    let value: Double
-}
 
 
