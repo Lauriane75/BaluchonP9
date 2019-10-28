@@ -43,16 +43,18 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
 
         viewModel.viewDidLoad()
 
-        initialValuetextField.layer.cornerRadius = 20
-        resultValueLabel.layer.cornerRadius = 20
-        requestPickerView.layer.cornerRadius = 20
-        resultPickerView.layer.cornerRadius = 20
-        resultValueLabel.layer.cornerRadius = 20
+        cornerRadiusSettings()
+
+//        requestPickerView.selectRow(46, inComponent: 0, animated: true)
+//        resultPickerView.selectRow(149, inComponent: 0, animated: true)
+
     }
 
     func didSelectItem(for pickerView: UIPickerView, at row: Int) {
         viewModel.didSelectCurrency(at: row, for: pickerView == requestPickerView ? .request : .result)
     }
+
+    // MARK: - Private Functions
 
     private func bind(to viewModel: ConverterViewModel) {
 
@@ -85,6 +87,17 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
             }
         }
     }
+
+    fileprivate func cornerRadiusSettings() {
+//        initialValuetextField.layer.cornerRadius = 40
+        resultValueLabel.layer.cornerRadius = 20
+        requestPickerView.layer.cornerRadius = 20
+        resultPickerView.layer.cornerRadius = 20
+        resultValueLabel.layer.cornerRadius = 20
+
+    }
+
+    // MARK: - Test action
 
     @IBAction func didTapInitialValuetextField(_ sender: Any) {
         guard let textValue = initialValuetextField.text else {

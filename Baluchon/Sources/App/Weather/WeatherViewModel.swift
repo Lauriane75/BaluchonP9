@@ -61,7 +61,6 @@ final class WeatherViewModel {
     }
 }
 
-
 extension VisibleWeather {
     init(weather: Weather) {
         self.cityName = weather.name

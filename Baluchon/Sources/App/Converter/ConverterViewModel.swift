@@ -30,10 +30,6 @@ final class ConverterViewModel {
 
     var valueOfResultPickerView: Double = 0
 
-    var nameOfRequestPickerView: String = ""
-
-    var nameOfResultPickerView: String = ""
-
 
     // MARK: - Initializer
 
@@ -54,6 +50,11 @@ final class ConverterViewModel {
 
     var initialValuetextField: ((String) -> Void)?
 
+    var selectedRequestCurrencyName: ((String) -> Void)?
+
+    var selectedResultCurrencyName: ((String) -> Void)?
+
+
     var currencyRates: [Rate] = [] {
         didSet {
             let keys: [String] = currencyRates.map { $0.key }.sorted(by: { $0 < $1 })
@@ -63,7 +64,7 @@ final class ConverterViewModel {
 
     private var valueToConvert: Double = 0 {
         didSet {
-            initialValuetextField?("\(valueToConvert)")
+            initialValuetextField?("Taux de conversion : \(valueToConvert)")
         }
     }
 
@@ -85,7 +86,6 @@ final class ConverterViewModel {
     func didTapInitialValuetextField(valueFromTextField: Double) {
         let value = valueFromTextField
         valueToConvert = value
-        print("V0\(valueToConvert)")
     }
 
     func didSelectCurrency(at index: Int, for type: ConverterType) {
@@ -95,10 +95,11 @@ final class ConverterViewModel {
 
         switch type {
         case .request:
-            selectedRequestRateValueText?("\(Double(round(100*rate.value)/100))")
+            selectedRequestRateValueText?("Taux de conversion : \(Double(round(100*rate.value)/100))")
             valueOfRequestPickerView = rate.value
+
         case .result:
-            selectedResultRateValueText?("\(Double(round(100*rate.value)/100))")
+            selectedResultRateValueText?("Taux de conversion : \(Double(round(100*rate.value)/100))")
             valueOfResultPickerView = rate.value
         }
 
