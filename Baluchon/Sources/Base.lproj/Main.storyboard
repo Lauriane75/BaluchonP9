@@ -191,22 +191,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7aG-yn-4Ad">
-                                                    <rect key="frame" x="8" y="8" width="398" height="216.5"/>
+                                                    <rect key="frame" x="8" y="8" width="304" height="216.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVf-n2-iSq">
-                                                            <rect key="frame" x="8" y="0.0" width="382" height="48"/>
+                                                            <rect key="frame" x="8" y="0.0" width="288" height="48"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14°C" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPP-1z-nrt">
-                                                            <rect key="frame" x="170" y="56" width="58.5" height="48.5"/>
+                                                            <rect key="frame" x="123" y="56" width="58.5" height="48.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="K3t-vh-1Ec">
-                                                            <rect key="frame" x="62.5" y="112.5" width="273" height="48"/>
+                                                            <rect key="frame" x="15.5" y="112.5" width="273" height="48"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvz-p8-qwb">
                                                                     <rect key="frame" x="0.0" y="0.0" width="84" height="48"/>
@@ -223,14 +223,11 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="0Bk-am-J3V">
-                                                            <rect key="frame" x="180.5" y="168.5" width="37" height="48"/>
+                                                            <rect key="frame" x="32" y="168.5" width="240" height="48"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9k-ej-PAk">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="37" height="48"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZfN-Pw-bdm">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="48"/>
+                                                                </imageView>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -249,7 +246,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cityLabel" destination="fVf-n2-iSq" id="kk0-kF-c2x"/>
-                                            <outlet property="iconLabel" destination="J9k-ej-PAk" id="PUu-O6-fFr"/>
+                                            <outlet property="iconImageView" destination="ZfN-Pw-bdm" id="qwM-xu-5cu"/>
                                             <outlet property="tempMaxLabel" destination="3Pr-kg-UyU" id="08U-4c-uPt"/>
                                             <outlet property="tempMinLabel" destination="zvz-p8-qwb" id="7w3-fY-RHH"/>
                                             <outlet property="tempOfTheDayLabel" destination="oPP-1z-nrt" id="pwN-cc-0WA"/>

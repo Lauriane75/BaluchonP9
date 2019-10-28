@@ -53,8 +53,6 @@ final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerVi
 
         setItemName(index: row)
 
-        setItemName(index: row)
-
         var label = UILabel()
 
         if let uiLabel = view {

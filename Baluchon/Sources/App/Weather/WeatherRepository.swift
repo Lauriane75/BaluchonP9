@@ -10,8 +10,6 @@ import Foundation
 
 protocol WeatherRepositoryType: class {
     func getWeather(for city: City, callback: @escaping (Weather) -> Void)
-//    func getNewYorkWeather(callback: @escaping (Weather) -> Void)
-
 }
 
 final class WeatherRepository: WeatherRepositoryType {
@@ -34,6 +32,9 @@ final class WeatherRepository: WeatherRepositoryType {
 
         client.request(type: Weather.self, requestType: .GET, url: url, cancelledBy: token) { weather in
             callback(weather)
+
+//            print(weather.weather.enumerated())
+
         }
     }
 
@@ -50,8 +51,20 @@ final class WeatherRepository: WeatherRepositoryType {
 }
 
 enum City: String {
-    case paris = "2968815"
-    case newYork = "5128638"
+    case paris = "2988507"
+    case newYork = "5128581"
+    case lyon = "2996944"
+    case nantes = "2990969"
+    case strasbourg = "2973783"
+    case bordeaux = "3031582"
+    case toulouse = "2972315"
+    case sacramento = "5389489"
+    case losAngeles = "5368361"
+    case sanDiego = "5391811"
+    case chicago = "4887398"
+    case houston = "4699066"
+    case philadelphia = "4440906"
+    case phoenix = "5308655"
 }
 
 /*

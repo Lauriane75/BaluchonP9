@@ -15,12 +15,12 @@ final class CityWeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var tempMinLabel: UILabel!
     @IBOutlet weak var tempMaxLabel: UILabel!
-    @IBOutlet weak var iconLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var tempOfTheDayLabel: UILabel!
 
     func configure(with visibleWeather: VisibleWeather) {
         cityLabel.text = visibleWeather.cityName
-        iconLabel.text = String(visibleWeather.iconID)
+        iconImageView.image = UIImage(named: String(visibleWeather.iconID))
         tempMinLabel.text = String(visibleWeather.temperatureMin)
         tempMaxLabel.text = String(visibleWeather.temperatureMax)
         tempOfTheDayLabel.text = String(visibleWeather.temperature)

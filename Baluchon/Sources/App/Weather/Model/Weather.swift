@@ -8,21 +8,23 @@
 
 import Foundation
 
+
 // MARK: - Weather
 struct Weather: Codable {
-    let coord: Coord
+//    let coord: Coord
     let weather: [WeatherElement]
-    let base: String
+//    let base: String
     let main: Main
-    let visibility: Int
-    let wind: Wind
-    let clouds: Clouds
+//    let visibility: Int
+//    let wind: Wind
+//    let clouds: Clouds
+//    let icon: String
     let dt: Int
-    let sys: Sys
-    let timezone: Double
-    let id: Int
+//    let sys: Sys
+//    let timezone: Double
+//    let id: Int
     let name: String
-    let cod: Int
+//    let cod: Int
 }
 
 // MARK: - Clouds
@@ -31,9 +33,9 @@ struct Clouds: Codable {
 }
 
 // MARK: - Coord
-struct Coord: Codable {
-    let lon, lat: Double
-}
+//struct Coord: Codable {
+//    let lon, lat: Double
+//}
 
 // MARK: - Main
 struct Main: Codable {
@@ -50,11 +52,11 @@ struct Main: Codable {
 }
 
 // MARK: - Sys
-struct Sys: Codable {
-    let type, id: Int
-    let country: String
-    let sunrise, sunset: Double
-}
+//struct Sys: Codable {
+//    let type, id: Int
+//    let country: String
+//    let sunrise, sunset: Double
+//}
 
 // MARK: - WeatherElement
 struct WeatherElement: Codable {
