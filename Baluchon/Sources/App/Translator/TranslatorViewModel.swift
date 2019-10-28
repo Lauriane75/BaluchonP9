@@ -44,8 +44,6 @@ final class TranslatorViewModel {
 
     var nextScreen: ((NextScreen) -> Void)?
 
-
-
     // MARK: - Inputs
 
     func viewDidLoad() {

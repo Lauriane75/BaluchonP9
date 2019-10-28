@@ -1,5 +1,5 @@
 //
-//  Translation.swift
+//  Translator.swift
 //  Baluchon
 //
 //  Created by Lauriane Haydari on 01/10/2019.
@@ -8,18 +8,18 @@
 
 import Foundation
 
-// MARK: - Translation
-struct Translation: Codable {
+// MARK: - Translator
+struct Translator: Codable {
     let data: DataClass
 }
 
 // MARK: - DataClass
 struct DataClass: Codable {
-    let translations: [TranslationElement]
+    let translations: [Translator]
 }
 
-// MARK: - TranslationElement
-struct TranslationElement: Codable {
+// MARK: - Translation
+struct Translation: Codable {
     let translatedText: String
 }
 

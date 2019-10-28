@@ -71,7 +71,6 @@ class TranslatorViewController: UIViewController {
         viewModel.didPressResultTranslationButton()
     }
     
-    
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         requestTextField.resignFirstResponder()
     }
