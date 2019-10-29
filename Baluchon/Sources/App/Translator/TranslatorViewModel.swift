@@ -83,10 +83,5 @@ final class TranslatorViewModel {
         })
     }
 
-
-
-
-
-
 }
 

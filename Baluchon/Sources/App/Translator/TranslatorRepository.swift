@@ -8,6 +8,7 @@
 
 
 import Foundation
+import SwiftGoogleTranslate
 
 protocol TranslatorRepositoryType: class {
     func getTranslation(callback: @escaping (Translator) -> Void)
@@ -16,6 +17,7 @@ protocol TranslatorRepositoryType: class {
 
 final class TranslatorRepository: TranslatorRepositoryType {
 
+    var translator: SwiftGoogleTranslate
 
     // MARK: - Properties
 
