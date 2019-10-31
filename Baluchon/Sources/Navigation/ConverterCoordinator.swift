@@ -26,10 +26,10 @@ final class ConverterCoordinator {
     // MARK: - Coodinator
 
     func start() {
-        showHome()
+        showConverter()
     }
 
-    private func showHome() {
+    private func showConverter() {
         let client = HTTPClient()
         let repository = ConverterRepository(client: client)
         let viewController = screens.createConverterViewController(repository: repository, delegate: self)

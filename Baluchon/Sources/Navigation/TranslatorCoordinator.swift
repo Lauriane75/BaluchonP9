@@ -25,21 +25,34 @@ final class TranslatorCoordinator {
 
     // MARK: - Coodinator
 
+    private var defaultTranslation = TranslationType.init(originLanguage: (nameLanguage: "French", ISOCode: "fr", text: ""), destinationLanguage: (nameLanguage: "English", ISOCode: "en", text: ""))
+
+
     func start() {
-        showHome()
+        showTranslator(with: defaultTranslation)
     }
 
-    private func showHome() {
+    private func showTranslator(with parameter: TranslationType) {
         let client = HTTPClient()
         let repository = TranslatorRepository(client: client)
-        let viewController = screens.createTranslatorViewController(repository: repository, delegate: self)
+        let viewController = screens.createTranslatorViewController(with: parameter, repository: repository, delegate: self)
         presenter.viewControllers = [viewController]
     }
+
+//    private func showAlert(for type: AlertType) {
+//        let alert = screens.
+//        presenter.visibleViewController?.present(alert, animated: true, completion: nil)
+//    }
+
+
 
 
 }
 
 extension TranslatorCoordinator: TranslatorViewControllerDelegate {
+
+//    func presentAlert(f) {
+//    }
 
 }
 

@@ -12,9 +12,9 @@ class TranslatorViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet weak var requestLanguageButton: UILabel!
-    @IBOutlet weak var arrowChangeButton: UIButton!
-    @IBOutlet weak var resultLanguageButton: UILabel!
+    @IBOutlet weak var requestLanguageButton: UIButton!
+    @IBOutlet weak var arrowTranslateButton: UIButton!
+    @IBOutlet weak var resultLanguageButton: UIButton!
 
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var requestTextField: UITextField!
@@ -38,14 +38,31 @@ class TranslatorViewController: UIViewController {
     }
 
     private func bind(to viewModel: TranslatorViewModel) {
-        viewModel.resultText = { [weak self] text in
+        viewModel.requestText = { [weak self] text in
+            DispatchQueue.main.async {
             self?.requestTextField.text = text
         }
+            viewModel.resultTranslationText = { [weak self] text in
+            DispatchQueue.main.async {
+            self?.resultTranslationLabel.text = text
+        }
+                viewModel.requestLanguageTextButton = { [weak self] text in
+            DispatchQueue.main.async {
+            self?.requestLanguageButton.setTitle(text, for: .normal)
+        }
+                    viewModel.resultLanguageTextButton = { [weak self] text in
+                        DispatchQueue.main.async {
+                            self?.resultLanguageButton.setTitle(text, for: .normal)
+                        }
         viewModel.nextScreen = { [weak self] screen in
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 if case .alert(title: let title, message: let message) = screen {
                     AlertPresenter().presentAlert(on: self, with: title, message: message)
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -68,7 +85,7 @@ class TranslatorViewController: UIViewController {
     }
 
     @IBAction func didPressResultTranslationButton(_ sender: Any) {
-        viewModel.didPressResultTranslationButton()
+        viewModel.didPressResultTranslationButton(for: requestTextField.text!)
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {

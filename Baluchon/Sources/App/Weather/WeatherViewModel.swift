@@ -107,11 +107,6 @@ extension VisibleWeather {
         self.temperatureMax = "\(Int(weather.main.tempMax)) °C max"
         self.temperature = "\(Int(weather.main.temp))°C"
         self.temperatureMin = "\(Int(weather.main.tempMin))°C min"
-
-
     }
 }
-
-//print("icon : \(weather.icon)")
-
 

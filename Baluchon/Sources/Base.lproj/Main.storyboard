@@ -24,25 +24,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MZH-dM-4fo" userLabel="HStack1 View">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Français" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJY-ad-G8D">
-                                                <rect key="frame" x="0.0" y="90" width="100" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0t-WB-zxL">
+                                                <rect key="frame" x="0.0" y="85" width="100" height="30"/>
+                                                <state key="normal" title="Français"/>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udz-H6-31F">
                                                 <rect key="frame" x="100" y="85" width="100" height="30"/>
-                                                <state key="normal" title="&lt;- -&gt;"/>
+                                                <state key="normal" title="==&gt;"/>
                                                 <connections>
                                                     <action selector="didPressArrowChangeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UQS-4a-m1B"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anglais" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMl-ge-pkD">
-                                                <rect key="frame" x="200" y="90" width="100" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDZ-dN-2hA">
+                                                <rect key="frame" x="200" y="85" width="100" height="30"/>
+                                                <state key="normal" title="Anglais"/>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="yc2-fn-7za"/>
@@ -139,12 +135,12 @@
                     <tabBarItem key="tabBarItem" title="Item" image="translator-icon" id="dP1-ky-OmX"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="arrowChangeButton" destination="udz-H6-31F" id="9pB-fX-IyR"/>
+                        <outlet property="arrowTranslateButton" destination="udz-H6-31F" id="9pB-fX-IyR"/>
                         <outlet property="clearButton" destination="nXK-lD-f98" id="sS7-L6-QGj"/>
-                        <outlet property="requestLanguageButton" destination="vJY-ad-G8D" id="qGG-4T-wph"/>
+                        <outlet property="requestLanguageButton" destination="M0t-WB-zxL" id="96Q-e5-9CG"/>
                         <outlet property="requestTextField" destination="oFB-SX-hsg" id="NAZ-cz-VW6"/>
                         <outlet property="resultArrowButton" destination="a5z-X5-BS2" id="Q8P-Jf-sWJ"/>
-                        <outlet property="resultLanguageButton" destination="QMl-ge-pkD" id="qax-9M-esW"/>
+                        <outlet property="resultLanguageButton" destination="UDZ-dN-2hA" id="3TS-oQ-Nu9"/>
                         <outlet property="resultTranslationLabel" destination="4MW-RX-K85" id="hY1-hg-OID"/>
                     </connections>
                 </viewController>

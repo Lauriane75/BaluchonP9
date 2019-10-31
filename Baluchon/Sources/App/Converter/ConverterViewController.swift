@@ -45,9 +45,6 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
 
         cornerRadiusSettings()
 
-//        requestPickerView.selectRow(46, inComponent: 0, animated: true)
-//        resultPickerView.selectRow(149, inComponent: 0, animated: true)
-
     }
 
     func didSelectItem(for pickerView: UIPickerView, at row: Int) {
@@ -66,20 +63,20 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
                 self?.resultPickerView.reloadAllComponents()
             }
             viewModel.selectedRequestRateValueText = { [weak self] text in
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
                     self?.selectedRequestRateValueLabel.text = text
                 }
                 viewModel.selectedResultRateValueText = { [weak self] text in
-                    DispatchQueue.main.async {
-                        self?.selectedResultRateValueLabel.text = text
+                DispatchQueue.main.async {
+                self?.selectedResultRateValueLabel.text = text
                     }
                     viewModel.initialValuetextField = { [weak self] text in
                         DispatchQueue.main.async {
-                            self?.initialValuetextField.text = text
+                        self?.initialValuetextField.text = text
                         }
                         viewModel.resultText = { [weak self] text in
                             DispatchQueue.main.async {
-                                self?.resultValueLabel.text = text
+                        self?.resultValueLabel.text = text
                             }
                         }
                     }
