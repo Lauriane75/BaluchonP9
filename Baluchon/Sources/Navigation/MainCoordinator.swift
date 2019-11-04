@@ -36,11 +36,16 @@ fileprivate class TabBarSource: TabBarSourceType {
         UINavigationController(nibName: nil, bundle: nil),
         UINavigationController(nibName: nil, bundle: nil)
     ]
+    
+    let weatherItem = UIImage(named: "weather-icon")
+    let converterItem = UIImage(named: "converter-icon")
+    let translatorItem = UIImage(named: "translator-icon")
+
 
     init() {
-        self[.weather].tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
-        self[.converter].tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
-        self[.translator].tabBarItem = UITabBarItem(tabBarSystemItem: .contacts,  tag: 2)
+        self[.weather].tabBarItem.image = weatherItem
+        self[.converter].tabBarItem.image = converterItem
+        self[.translator].tabBarItem.image = translatorItem
     }
 }
 
