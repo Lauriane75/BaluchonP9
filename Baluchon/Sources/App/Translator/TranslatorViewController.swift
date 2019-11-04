@@ -72,7 +72,7 @@ class TranslatorViewController: UIViewController {
 
 
     @IBAction func didPressArrowChangeButton(_ sender: Any) {
-//        viewModel.didPressResultArrowButton(text: <#T##String#>, from: <#T##String#>, to: <#T##String#>)
+//        viewModel.didPressResultArrowButton(text: <#T##String#>, from: <#T##String#>, to: <#T##String#>) //  hello
     }
     @IBAction func didTapRequestTextField(_ sender: Any) {
         let text = requestTextField.text
