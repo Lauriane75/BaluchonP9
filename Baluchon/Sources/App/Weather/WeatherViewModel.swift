@@ -11,7 +11,7 @@ import Foundation
 struct VisibleWeather {
     let cityName: String
     let temperature: String
-    var iconID: String
+    let iconID: String
     let temperatureMax: String
     let temperatureMin: String
 }
@@ -98,11 +98,13 @@ final class WeatherViewModel {
 
 extension VisibleWeather {
     init(weather: Weather) {
-        var test = ""
+        var imageName = ""        
+        
         for (_, index) in weather.weather.enumerated() {
-            test =  "\(index.icon)"
+            imageName =  "\(index.icon)"
+            
         }
-        self.iconID = "\(test)"
+        self.iconID = "\(imageName)"
         self.cityName = weather.name
         self.temperatureMax = "\(Int(weather.main.tempMax)) °C max"
         self.temperature = "\(Int(weather.main.temp))°C"

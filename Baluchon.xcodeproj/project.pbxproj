@@ -40,6 +40,8 @@
 		D3D7D5F6235F0D7700D5740C /* ConverterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D7D5F5235F0D7700D5740C /* ConverterCoordinator.swift */; };
 		D3F163DB233A7B6F0031DB39 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F163DA233A7B6F0031DB39 /* Context.swift */; };
 		E59A3FB528BFF338CA4742B7 /* Pods_BaluchonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6986B9250889A1B4CE9365 /* Pods_BaluchonTests.framework */; };
+		F6881BDF23706A77000BD12C /* SelectLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6881BDE23706A77000BD12C /* SelectLanguageViewController.swift */; };
+		F6D4628323706FA50042F210 /* SelectLanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4628223706FA50042F210 /* SelectLanguageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		D3D7D5F5235F0D7700D5740C /* ConverterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCoordinator.swift; sourceTree = "<group>"; };
 		D3F163DA233A7B6F0031DB39 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		E79DB47FA9A43664A2634923 /* Pods-Baluchon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baluchon.debug.xcconfig"; path = "Target Support Files/Pods-Baluchon/Pods-Baluchon.debug.xcconfig"; sourceTree = "<group>"; };
+		F6881BDE23706A77000BD12C /* SelectLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageViewController.swift; sourceTree = "<group>"; };
+		F6D4628223706FA50042F210 /* SelectLanguageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageTableViewCell.swift; sourceTree = "<group>"; };
 		FA3B535017FB9B9D9B9DCD3A /* Pods-BaluchonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaluchonTests.debug.xcconfig"; path = "Target Support Files/Pods-BaluchonTests/Pods-BaluchonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC34E1A418BF1B942D3DA5AC /* Pods-BaluchonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaluchonTests.release.xcconfig"; path = "Target Support Files/Pods-BaluchonTests/Pods-BaluchonTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +241,7 @@
 				D358AD362330CE5E00D84FD4 /* TranslatorViewController.swift */,
 				2F041F042331416200177AC2 /* TranslatorViewModel.swift */,
 				2F041F062331416D00177AC2 /* TranslatorRepository.swift */,
+				F6D4628123706F7C0042F210 /* Cell */,
 				D3FEC621234505E10049D91C /* Model */,
 			);
 			path = Translator;
@@ -307,6 +312,15 @@
 				D31A47C2233BD23B002EA4FF /* Weather.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F6D4628123706F7C0042F210 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F6881BDE23706A77000BD12C /* SelectLanguageViewController.swift */,
+				F6D4628223706FA50042F210 /* SelectLanguageTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,6 +508,7 @@
 				2F041F072331416D00177AC2 /* TranslatorRepository.swift in Sources */,
 				D33C6A11231EBD83003FB721 /* AlertPresenter.swift in Sources */,
 				D358AD442330D74900D84FD4 /* MainCoordinator.swift in Sources */,
+				F6881BDF23706A77000BD12C /* SelectLanguageViewController.swift in Sources */,
 				D3658AFF234CF233005CD724 /* CityWeatherTableViewCell.swift in Sources */,
 				D33C69EC231EBC2E003FB721 /* AppDelegate.swift in Sources */,
 				D387BA9E23325DF5006AE04D /* WeatherViewModel.swift in Sources */,
@@ -504,6 +519,7 @@
 				D358AD3E2330D0EA00D84FD4 /* Screens.swift in Sources */,
 				D358AD372330CE5E00D84FD4 /* TranslatorViewController.swift in Sources */,
 				2F041F052331416200177AC2 /* TranslatorViewModel.swift in Sources */,
+				F6D4628323706FA50042F210 /* SelectLanguageTableViewCell.swift in Sources */,
 				2FCCF1972335267300D199BA /* RequestCancelationToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

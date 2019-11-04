@@ -17,16 +17,11 @@ struct TranslationType {
     var destinationLanguage: (nameLanguage: String, ISOCode: String, text: String)
 }
 
-//enum LanguageType {
-//    case fromRequest
-//    case toResult
-//}
-
 final class TranslatorViewModel {
 
     // MARK: - Properties
 
-    private let delegate: TranslatorViewControllerDelegate?
+//    private let delegate: TranslatorViewControllerDelegate?
 
     private let repository: TranslatorRepositoryType
 
@@ -55,15 +50,15 @@ final class TranslatorViewModel {
 
     // MARK: - Initializer
 
-    init(repository: TranslatorRepositoryType, delegate: TranslatorViewControllerDelegate?, translationType: TranslationType) {
+    init(repository: TranslatorRepositoryType, translationType: TranslationType) {
         self.repository = repository
-        self.delegate = delegate
+//        self.delegate = delegate
         self.translationType = translationType
     }
 
     private func initializeLanguage(with parameter: TranslationType) -> [LanguageParameters] {
-        return [(nameLanguage: parameter.originLanguage.nameLanguage, ISOCode: parameter.originLanguage.ISOCode, text: parameter.originLanguage.text),
-                (nameLanguage: parameter.destinationLanguage.nameLanguage, ISOCode: parameter.destinationLanguage.ISOCode, text: parameter.destinationLanguage.text)
+        return [LanguageParameters(nameLanguage: parameter.originLanguage.nameLanguage, ISOCode: parameter.originLanguage.ISOCode, text: parameter.originLanguage.text),
+                LanguageParameters(nameLanguage: parameter.destinationLanguage.nameLanguage, ISOCode: parameter.destinationLanguage.ISOCode, text: parameter.destinationLanguage.text)
         ]
     }
 
@@ -88,21 +83,24 @@ final class TranslatorViewModel {
     }
 
     func didTapRequestTextField(text : String?) {
-        print(text!)
+        print("Origin text = \(text!)")
     }
 
     func didPressClearButton() {
         clear()
-
     }
 
-    func didPressResultTranslationButton(for requestText: String) {
-        repository.getTranslation(for: requestText, from: language[0].ISOCode, to: language[1].ISOCode) {  [weak self] (text, error) in
+    func didPressTranslatButton(for requestText: String) {
+        repository.getTranslation(for: requestText,
+                                  from: language[0].ISOCode,
+                                  to: language[1].ISOCode) {
+                                    [weak self] (text, error) in
             if let text = text {
                 self?.language[0].text = requestText
                 self?.language[1].text = text
-//            } else if error != nil {
-//                 delegate?.presentAlert
+                print("destination text = \(text)")
+            } else if error != nil {
+                self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
             }
         }
     }
@@ -125,12 +123,6 @@ final class TranslatorViewModel {
         }
         language.swapAt(0, 1)
     }
-
-//    private func translate(text: String, from origin: String, to destination: String) {
-//        repository.translate(text: text, from: origin, to: destination, callback: { text in
-//            self.resultText?(text)
-//        })
-//    }
 
 
 }

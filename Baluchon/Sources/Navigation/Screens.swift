@@ -50,7 +50,7 @@ extension Screens {
     func createTranslatorViewController(with translationType: TranslationType, repository: TranslatorRepository, delegate: TranslatorViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "TranslatorViewController") as! TranslatorViewController
         let repository = TranslatorRepository(client: context.client)
-        let viewModel = TranslatorViewModel(repository: repository, delegate: delegate, translationType: translationType)
+        let viewModel = TranslatorViewModel(repository: repository, translationType: translationType)
         viewController.viewModel = viewModel
         return viewController
     }

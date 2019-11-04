@@ -35,6 +35,7 @@ class TranslatorViewController: UIViewController {
 
         bind(to: viewModel)
         viewModel.viewDidLoad()
+    
     }
 
     private func bind(to viewModel: TranslatorViewModel) {
@@ -42,24 +43,32 @@ class TranslatorViewController: UIViewController {
             DispatchQueue.main.async {
             self?.requestTextField.text = text
         }
-            viewModel.resultTranslationText = { [weak self] text in
+        viewModel.resultText = { [weak self] text in
             DispatchQueue.main.async {
             self?.resultTranslationLabel.text = text
         }
-                viewModel.requestLanguageTextButton = { [weak self] text in
+        viewModel.requestLanguageTextButton = { [weak self] text in
             DispatchQueue.main.async {
             self?.requestLanguageButton.setTitle(text, for: .normal)
         }
-                    viewModel.resultLanguageTextButton = { [weak self] text in
-                        DispatchQueue.main.async {
-                            self?.resultLanguageButton.setTitle(text, for: .normal)
-                        }
+        viewModel.resultLanguageTextButton = { [weak self] text in
+            DispatchQueue.main.async {
+            self?.resultLanguageButton.setTitle(text, for: .normal)
+        }
         viewModel.nextScreen = { [weak self] screen in
             DispatchQueue.main.async {
-                guard let self = self else { return }
-                if case .alert(title: let title, message: let message) = screen {
-                    AlertPresenter().presentAlert(on: self, with: title, message: message)
-                                }
+            guard let self = self else { return }
+            if case .alert(title: let title, message: let message) = screen {
+            AlertPresenter().presentAlert(on: self, with: title, message: message)
+        }
+        viewModel.nextScreen = { [weak self] screen in
+                   DispatchQueue.main.async {
+                       guard let self = self else { return }
+                       if case .alert(title: let title, message: let message) = screen {
+                           AlertPresenter().presentAlert(on: self, with: title, message: message)
+                       }
+                   }
+               }
                             }
                         }
                     }
@@ -68,11 +77,13 @@ class TranslatorViewController: UIViewController {
         }
     }
 
+
     // MARK: - View actions
 
 
-    @IBAction func didPressArrowChangeButton(_ sender: Any) {
-//        viewModel.didPressResultArrowButton(text: <#T##String#>, from: <#T##String#>, to: <#T##String#>) //  hello
+    @IBAction func didPressTranslateButton(_ sender: Any) {
+        viewModel.didPressTranslatButton(for: requestTextField.text!)
+
     }
     @IBAction func didTapRequestTextField(_ sender: Any) {
         let text = requestTextField.text
@@ -83,12 +94,13 @@ class TranslatorViewController: UIViewController {
         viewModel.didPressClearButton()
         requestTextField.text = ""
     }
-
-    @IBAction func didPressResultTranslationButton(_ sender: Any) {
-        viewModel.didPressResultTranslationButton(for: requestTextField.text!)
-    }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         requestTextField.resignFirstResponder()
+        requestLanguageButton.resignFirstResponder()
+        arrowTranslateButton.resignFirstResponder()
+        resultLanguageButton.resignFirstResponder()
+        
+        
     }
 }
