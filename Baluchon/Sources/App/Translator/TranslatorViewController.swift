@@ -27,63 +27,74 @@ class TranslatorViewController: UIViewController {
     var viewModel: TranslatorViewModel!
 
     weak var delegate: TranslatorViewControllerDelegate?
-
+    
     // MARK: - View life cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         bind(to: viewModel)
         viewModel.viewDidLoad()
+        
+        elementCustom()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
+        
+        view.addGestureRecognizer(tap)
+
+        settingNotificationCenter()
+    }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification , object: nil)
     }
 
     private func bind(to viewModel: TranslatorViewModel) {
         viewModel.requestText = { [weak self] text in
             DispatchQueue.main.async {
             self?.requestTextField.text = text
+            }
         }
         viewModel.resultText = { [weak self] text in
             DispatchQueue.main.async {
             self?.resultTranslationLabel.text = text
+            }
         }
         viewModel.requestLanguageTextButton = { [weak self] text in
             DispatchQueue.main.async {
             self?.requestLanguageButton.setTitle(text, for: .normal)
+            }
         }
         viewModel.resultLanguageTextButton = { [weak self] text in
             DispatchQueue.main.async {
             self?.resultLanguageButton.setTitle(text, for: .normal)
+            }
         }
         viewModel.nextScreen = { [weak self] screen in
             DispatchQueue.main.async {
             guard let self = self else { return }
             if case .alert(title: let title, message: let message) = screen {
             AlertPresenter().presentAlert(on: self, with: title, message: message)
+                }
+            }
         }
         viewModel.nextScreen = { [weak self] screen in
-                   DispatchQueue.main.async {
-                       guard let self = self else { return }
-                       if case .alert(title: let title, message: let message) = screen {
-                           AlertPresenter().presentAlert(on: self, with: title, message: message)
-                       }
-                   }
-               }
-                            }
-                        }
-                    }
+            DispatchQueue.main.async {
+            guard let self = self else { return }
+            if case .alert(title: let title, message: let message) = screen {
+            AlertPresenter().presentAlert(on: self, with: title, message: message)
                 }
             }
         }
     }
-
 
     // MARK: - View actions
 
 
     @IBAction func didPressTranslateButton(_ sender: Any) {
         viewModel.didPressTranslatButton(for: requestTextField.text!)
-
     }
     @IBAction func didTapRequestTextField(_ sender: Any) {
         let text = requestTextField.text
@@ -95,12 +106,55 @@ class TranslatorViewController: UIViewController {
         requestTextField.text = ""
     }
     
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        requestTextField.resignFirstResponder()
-        requestLanguageButton.resignFirstResponder()
-        arrowTranslateButton.resignFirstResponder()
-        resultLanguageButton.resignFirstResponder()
-        
-        
+    @IBAction func didSelectRequestLanguageButton(_ sender: Any) {
+        viewModel.didSelectLanguageType(for: .request)
     }
+    
+    @IBAction func didSelectResultLanguageButton(_ sender: Any) {
+        viewModel.didSelectLanguageType(for: .result)
+    }
+    
+    // MARK: - Private Files
+
+    fileprivate func elementCustom() {
+        requestLanguageButton.layer.cornerRadius = 15
+        resultLanguageButton.layer.cornerRadius = 15
+        requestTextField.attributedPlaceholder = NSAttributedString(string: "Entrez votre texte", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "UITabBar.item.tintColor") ?? 0])
+       }
+    
+    @objc private func hideKeyBoard() {
+        requestTextField.resignFirstResponder()
+        clearButton.resignFirstResponder()
+        resultArrowButton.resignFirstResponder()
+
+    }
+    
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           hideKeyBoard()
+            return true
+    }
+    
+    fileprivate func settingNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillChange(notification: Notification) {
+
+        guard let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+                else {
+                    return
+                }
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+
+        if notification.name == UIResponder.keyboardWillShowNotification ||
+                notification.name == UIResponder.keyboardWillChangeFrameNotification {
+                view.frame.origin.y = -(keyboardHeight/2)
+        } else {
+                view.frame.origin.y = 0
+        }
+      }
+
 }

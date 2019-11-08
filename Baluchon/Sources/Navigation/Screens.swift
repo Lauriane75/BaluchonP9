@@ -47,10 +47,10 @@ protocol ConverterViewControllerDelegate: class {
 }
 
 extension Screens {
-    func createTranslatorViewController(with translationType: TranslationType, repository: TranslatorRepository, delegate: TranslatorViewControllerDelegate?) -> UIViewController {
+    func createTranslatorViewController(with translationType: TranslationType, repository: TranslatorRepository, delegate: TranslatorViewModelDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "TranslatorViewController") as! TranslatorViewController
         let repository = TranslatorRepository(client: context.client)
-        let viewModel = TranslatorViewModel(repository: repository, translationType: translationType)
+        let viewModel = TranslatorViewModel(repository: repository, translationType: translationType, delegate: delegate!)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -59,6 +59,16 @@ extension Screens {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ConverterViewController") as! ConverterViewController
         let repository = ConverterRepository(client: context.client)
         let viewModel = ConverterViewModel(repository: repository, delegate: delegate)
+        viewController.viewModel = viewModel
+        return viewController
+    }
+    
+    func createLanguagesViewController(languageType: LanguageType, delegate: SelectLanguageViewModelDelegate?) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "LanguagesViewController") as! SelectLanguagesViewController
+        let repository = SelectLanguageRepository()
+        let viewModel = SelectLanguageViewModel(languageType: languageType,
+                                          repository: repository,
+                                          delegate: delegate)
         viewController.viewModel = viewModel
         return viewController
     }

@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         context = Context(client: client)
         appCoordinator = AppCoordinator(appDelegate: self, context: context)
         appCoordinator?.start()
+        
+
         return true
     }
 }

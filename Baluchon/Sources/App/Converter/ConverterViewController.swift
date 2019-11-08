@@ -62,28 +62,28 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
                 self?.resultDataSource.update(with: rates)
                 self?.resultPickerView.reloadAllComponents()
             }
-            viewModel.selectedRequestRateValueText = { [weak self] text in
-            DispatchQueue.main.async {
-                    self?.selectedRequestRateValueLabel.text = text
-                }
-                viewModel.selectedResultRateValueText = { [weak self] text in
-                DispatchQueue.main.async {
-                self?.selectedResultRateValueLabel.text = text
-                    }
-                    viewModel.initialValuetextField = { [weak self] text in
-                        DispatchQueue.main.async {
-                        self?.initialValuetextField.text = text
-                        }
-                        viewModel.resultText = { [weak self] text in
-                            DispatchQueue.main.async {
-                        self?.resultValueLabel.text = text
-                            }
-                        }
-                    }
-                }
+        }
+        viewModel.selectedRequestRateValueText = { [weak self] text in
+        DispatchQueue.main.async {
+        self?.selectedRequestRateValueLabel.text = text
             }
         }
+        viewModel.selectedResultRateValueText = { [weak self] text in
+        DispatchQueue.main.async {
+        self?.selectedResultRateValueLabel.text = text
+            }
+        }
+        viewModel.initialValuetextField = { [weak self] text in
+        DispatchQueue.main.async {
+        self?.initialValuetextField.text = text
+            }
+        }
+        viewModel.resultText = { [weak self] text in
+        DispatchQueue.main.async {
+        self?.resultValueLabel.text = text
+        }
     }
+}
 
     fileprivate func cornerRadiusSettings() {
 //        initialValuetextField.layer.cornerRadius = 40
@@ -97,6 +97,7 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
     // MARK: - Test action
 
     @IBAction func didTapInitialValuetextField(_ sender: Any) {
+        guard initialValuetextField.text != nil else { return }
         guard let textValue = initialValuetextField.text else {
             return
         }

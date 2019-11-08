@@ -15,11 +15,8 @@ class SelectLanguageTableViewCell: UITableViewCell {
     @IBOutlet weak var languageLabel: UILabel!
     
     // MARK: - Configure
-      
+    
       func configure(with language: String) {
           self.languageLabel.text = language
       }
-
-
-
 }

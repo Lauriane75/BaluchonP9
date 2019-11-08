@@ -64,7 +64,7 @@ final class ConverterViewModel {
 
     private var valueToConvert: Double = 0 {
         didSet {
-            initialValuetextField?("Taux de conversion : \(valueToConvert)")
+            initialValuetextField?("\(valueToConvert)")
         }
     }
 
@@ -87,7 +87,7 @@ final class ConverterViewModel {
         let value = valueFromTextField
         valueToConvert = value
     }
-
+    
     func didSelectCurrency(at index: Int, for type: ConverterType) {
 
         guard index < currencyRates.count else { return }
@@ -102,14 +102,15 @@ final class ConverterViewModel {
             selectedResultRateValueText?("Taux de conversion : \(Double(round(100*rate.value)/100))")
             valueOfResultPickerView = rate.value
         }
-
-        if valueOfRequestPickerView == 1.0 {
-            let valueFromEuro = convertFromEuro(value: valueToConvert, rate: valueOfResultPickerView)
-            result = ("\(Double(round(100*valueFromEuro)/100))")
-        } else {
-            let valueToEuro = convertToEuro(value: valueToConvert, rate: valueOfRequestPickerView)
-            result = ("\(Double(round(100*valueToEuro)/100))")
+        
+        if valueOfRequestPickerView != 0 && valueOfResultPickerView != 0 {
+            
+        let convertedValueResult = convertedValue(valueToConvert: valueToConvert, topRateValue: valueOfRequestPickerView, bottomRateValue: valueOfResultPickerView)
+                
+        result = ("\(Double(round(100*convertedValueResult)/100))")
+            
         }
+        
     }
 
     // MARK: - Private Functions
@@ -131,14 +132,9 @@ final class ConverterViewModel {
         }
     }
 
-   private func convertFromEuro(value: Double, rate: Double) -> Double {
-
-        return value * rate
-    }
-
-   private func convertToEuro(value: Double, rate: Double) -> Double {
-        return value / rate
-    }
+    private func convertedValue(valueToConvert: Double, topRateValue: Double, bottomRateValue: Double) -> Double {
+        return (valueToConvert / topRateValue) * bottomRateValue
+     }
 
 }
 

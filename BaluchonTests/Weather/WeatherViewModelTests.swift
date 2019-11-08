@@ -1,0 +1,57 @@
+//
+//  MainViewModelTests.swift
+//  BaluchonTests
+//
+//  Created by Bertrand BLOC'H on 17/09/2019.
+//  Copyright © 2019 Lauriane Haydari. All rights reserved.
+//
+
+import XCTest
+@testable import Baluchon
+
+final class WeatherViewModelTests: XCTestCase {
+
+//    func testGivenAMainViewModel_WhenViewDidLoad_ThenTranslatorTextIsReturned() {
+//        let viewModel = WeatherViewModel(delegate: nil)
+//        let expectation = self.expectation(description: "Returned weather")
+//
+//        viewModel.translatorText = { text in
+//            XCTAssertEqual(text, "Translator")
+//            expectation.fulfill()
+//        }
+//
+//        viewModel.viewDidLoad()
+//    
+//        waitForExpectations(timeout: 1.0, handler: nil)
+//    }
+//
+//    func testGivenAMainViewModel_WhenDidPressTranslatorButton_ThenDelegateIsCorrectlyReturned() {
+//        let mockDelegate = MockMainViewControllerDelegate()
+//        let viewModel = WeatherViewModel(delegate: mockDelegate)
+//
+//        viewModel.viewDidLoad()
+//
+//        viewModel.didPressTranslatorButton()
+//
+//        XCTAssertTrue(mockDelegate.didPresstranslator)
+//    }
+//}
+//
+//fileprivate final class MockMainViewControllerDelegate: MainViewControllerDelegate {
+//
+//    var didPresstranslator = false
+//    var didPressWeather = false
+//    var didPressConverter = false
+//    
+//    func didPressTranslatorButton() {
+//        didPresstranslator = true
+//    }
+//    
+//    func didPressWeatherButton() {
+//        didPressWeather = true
+//    }
+//    
+//    func didPressConverterButton() {
+//        didPressConverter = true
+//    }
+}

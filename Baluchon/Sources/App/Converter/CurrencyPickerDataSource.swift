@@ -59,8 +59,8 @@ final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerVi
             label = uiLabel as! UILabel
         }
 
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = .white
         label.textAlignment = .center
 
         label.text = frenchName

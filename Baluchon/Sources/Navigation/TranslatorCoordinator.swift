@@ -25,11 +25,11 @@ final class TranslatorCoordinator {
 
     // MARK: - Coodinator
 
-    private var defaultTranslation = TranslationType.init(originLanguage: (nameLanguage: "French", ISOCode: "fr", text: ""), destinationLanguage: (nameLanguage: "English", ISOCode: "en", text: ""))
+    private var initialTranslation = TranslationType.init(initialLanguage: (nameLanguage: "French", ISOCode: "fr", text: ""), destinationLanguage: (nameLanguage: "English", ISOCode: "en", text: ""))
 
 
     func start() {
-        showTranslator(with: defaultTranslation)
+        showTranslator(with: initialTranslation)
     }
 
     private func showTranslator(with parameter: TranslationType) {
@@ -38,21 +38,38 @@ final class TranslatorCoordinator {
         let viewController = screens.createTranslatorViewController(with: parameter, repository: repository, delegate: self)
         presenter.viewControllers = [viewController]
     }
-
-//    private func showAlert(for type: AlertType) {
-//        let alert = screens.
-//        presenter.visibleViewController?.present(alert, animated: true, completion: nil)
-//    }
-
-
-
-
+    
+    private func showLanguageType(with type: LanguageType) {
+        let viewController = screens.createLanguagesViewController(languageType: type, delegate: self)
+        presenter.show(viewController, sender: nil)
+    }
 }
 
-extension TranslatorCoordinator: TranslatorViewControllerDelegate {
-
-//    func presentAlert(f) {
-//    }
-
+extension TranslatorCoordinator: TranslatorViewModelDelegate {
+    func showLanguageChoices(for type: LanguageType) {
+        showLanguageType(with: type)
+    }
+    
 }
+
+extension TranslatorCoordinator: SelectLanguageViewModelDelegate {
+   
+    
+    func didPressLanguageTypeButton(with languageType: SelectLanguageType) {
+        presenter.popViewController(animated: true)
+        switch languageType {
+        case .request(let value, let key):
+            initialTranslation.initialLanguage = (value, key, "")
+        case .result(let value, let key):
+            initialTranslation.destinationLanguage = (value, key, "")
+        }
+        showTranslator(with: initialTranslation)
+    }
+}
+
+enum SelectLanguageType: Equatable {
+       case request(_ value: String, _ key: String)
+       case result(_ value: String, _ key: String)
+   }
+
 

@@ -48,6 +48,7 @@ final class AppCoordinator {
     private func showMain() {
 
         mainCoordinator = MainCoordinator(presenter: appDelegate.window!, context: context)
+        UITabBar.appearance().tintColor = UIColor(named: "UITabBar.item.tintColor")
         mainCoordinator?.start()
     }
 }

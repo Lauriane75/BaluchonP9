@@ -12,8 +12,17 @@ enum NextScreen: Equatable {
     case alert(title: String, message: String)
 }
 
+enum LanguageType {
+    case request
+    case result
+}
+
+protocol TranslatorViewModelDelegate: class {
+    func showLanguageChoices(for type: LanguageType)
+}
+
 struct TranslationType {
-    var originLanguage: (nameLanguage: String, ISOCode: String, text: String)
+    var initialLanguage: (nameLanguage: String, ISOCode: String, text: String)
     var destinationLanguage: (nameLanguage: String, ISOCode: String, text: String)
 }
 
@@ -21,11 +30,11 @@ final class TranslatorViewModel {
 
     // MARK: - Properties
 
-//    private let delegate: TranslatorViewControllerDelegate?
-
     private let repository: TranslatorRepositoryType
 
     private let translationType: TranslationType
+    
+    private weak var delegate: TranslatorViewModelDelegate?
 
     typealias LanguageParameters = (nameLanguage: String, ISOCode: String, text: String)
 
@@ -50,14 +59,14 @@ final class TranslatorViewModel {
 
     // MARK: - Initializer
 
-    init(repository: TranslatorRepositoryType, translationType: TranslationType) {
+    init(repository: TranslatorRepositoryType, translationType: TranslationType, delegate: TranslatorViewModelDelegate) {
         self.repository = repository
-//        self.delegate = delegate
+        self.delegate = delegate
         self.translationType = translationType
     }
 
     private func initializeLanguage(with parameter: TranslationType) -> [LanguageParameters] {
-        return [LanguageParameters(nameLanguage: parameter.originLanguage.nameLanguage, ISOCode: parameter.originLanguage.ISOCode, text: parameter.originLanguage.text),
+        return [LanguageParameters(nameLanguage: parameter.initialLanguage.nameLanguage, ISOCode: parameter.initialLanguage.ISOCode, text: parameter.initialLanguage.text),
                 LanguageParameters(nameLanguage: parameter.destinationLanguage.nameLanguage, ISOCode: parameter.destinationLanguage.ISOCode, text: parameter.destinationLanguage.text)
         ]
     }
@@ -84,6 +93,10 @@ final class TranslatorViewModel {
 
     func didTapRequestTextField(text : String?) {
         print("Origin text = \(text!)")
+    }
+    
+    func didSelectLanguageType(for type: LanguageType) {
+        delegate?.showLanguageChoices(for: type)
     }
 
     func didPressClearButton() {

@@ -44,7 +44,7 @@
 		2CB2924AD9C9F7007A8F1775A2231F9E /* SwiftGoogleTranslate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGoogleTranslate-umbrella.h"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3934970F834FDF688926B982C0EE43A4 /* Pods-Baluchon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Baluchon.debug.xcconfig"; sourceTree = "<group>"; };
-		40EE5F8D6C96E4AE700B4E07449EDBF8 /* SwiftGoogleTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftGoogleTranslate.framework; path = SwiftGoogleTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40EE5F8D6C96E4AE700B4E07449EDBF8 /* SwiftGoogleTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGoogleTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47976F3981DFEBE74FBC3F37CE6CFF21 /* Pods-Baluchon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Baluchon.modulemap"; sourceTree = "<group>"; };
 		4E7180F2C6D71938E9C7C784E92EE51B /* Pods-Baluchon-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Baluchon-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5D7A53E099B913FB2E5BE439BEFD6CE8 /* SwiftGoogleTranslate-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftGoogleTranslate-Info.plist"; sourceTree = "<group>"; };
@@ -53,15 +53,15 @@
 		83D9C0D4942E86B79B5ACBA865394063 /* Pods-BaluchonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BaluchonTests.release.xcconfig"; sourceTree = "<group>"; };
 		85B1C4536B5521E705B7B0ABBAC5427E /* Pods-BaluchonTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BaluchonTests-dummy.m"; sourceTree = "<group>"; };
 		93BCACC31B104C0E3263633FDE17376C /* Pods-Baluchon-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Baluchon-Info.plist"; sourceTree = "<group>"; };
-		9443B3211137C20A8E931C6339CDDE24 /* Pods_BaluchonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BaluchonTests.framework; path = "Pods-BaluchonTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9443B3211137C20A8E931C6339CDDE24 /* Pods_BaluchonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaluchonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CA5CE388E725F567FD928EAC41C4D1 /* Pods-BaluchonTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BaluchonTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A5FD690D87ED20A551C89C3DAE9C179B /* Pods-Baluchon-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Baluchon-acknowledgements.plist"; sourceTree = "<group>"; };
 		A70C6E844E781790F182D955958539CF /* Pods-BaluchonTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BaluchonTests-Info.plist"; sourceTree = "<group>"; };
 		AB78CE9DBA52A4E8F6C0498F176B3227 /* Pods-BaluchonTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BaluchonTests-umbrella.h"; sourceTree = "<group>"; };
 		BD6BE3CC5B9A0815686A763244D95EC5 /* Pods-BaluchonTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BaluchonTests.modulemap"; sourceTree = "<group>"; };
 		C3E272B225DDE78D21B60FCA375E3145 /* Pods-Baluchon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Baluchon-dummy.m"; sourceTree = "<group>"; };
-		CBECF71CBDC3FD49A1293D907AAB4F57 /* Pods_Baluchon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Baluchon.framework; path = "Pods-Baluchon.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBECF71CBDC3FD49A1293D907AAB4F57 /* Pods_Baluchon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baluchon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F0E1DDFDB38A4AB7F9CEB3FDD3EE19 /* Pods-BaluchonTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BaluchonTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		F8736DB766139C46CAFCB04469518B9C /* Pods-Baluchon-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Baluchon-frameworks.sh"; sourceTree = "<group>"; };
 		F8A15AC22E5BDF956542DF3BDC1549DA /* SwiftGoogleTranslate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftGoogleTranslate.modulemap; sourceTree = "<group>"; };
@@ -154,7 +154,6 @@
 				71BAD08079EAD6325D56D5E998F62548 /* SwiftGoogleTranslate.swift */,
 				FA241FF26BED165740F0EBB3A3024244 /* Support Files */,
 			);
-			name = SwiftGoogleTranslate;
 			path = SwiftGoogleTranslate;
 			sourceTree = "<group>";
 		};
@@ -308,6 +307,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 0B5293595F8857DAA5D0AC008D4FA075 /* Products */;
