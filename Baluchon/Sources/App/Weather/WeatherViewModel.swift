@@ -44,8 +44,6 @@ final class WeatherViewModel {
 
     var items: (([VisibleWeather]) -> Void)?
 
-    var weatherString: ((String) -> Void)?
-
     // MARK: - Inputs
     
     func viewDidLoad() {
