@@ -32,12 +32,12 @@ final class ConverterCoordinator {
     private func showConverter() {
         let client = HTTPClient()
         let repository = ConverterRepository(client: client)
-        let viewController = screens.createConverterViewController(repository: repository, delegate: self)
+        let viewController = screens.createConverterViewController(repository: repository)
         presenter.viewControllers = [viewController]
     }
 }
 
-extension ConverterCoordinator: ConverterViewControllerDelegate {
-
-}
+//extension ConverterCoordinator: ConverterViewControllerDelegate {
+//
+//}
 

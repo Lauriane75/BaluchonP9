@@ -43,8 +43,6 @@ extension Screens {
 protocol TranslatorViewControllerDelegate: class {
 }
 
-protocol ConverterViewControllerDelegate: class {
-}
 
 extension Screens {
     func createTranslatorViewController(with translationType: TranslationType, repository: TranslatorRepository, delegate: TranslatorViewModelDelegate?) -> UIViewController {
@@ -55,10 +53,10 @@ extension Screens {
         return viewController
     }
 
-    func createConverterViewController(repository: ConverterRepository, delegate: ConverterViewControllerDelegate?) -> UIViewController {
+    func createConverterViewController(repository: ConverterRepository) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ConverterViewController") as! ConverterViewController
         let repository = ConverterRepository(client: context.client)
-        let viewModel = ConverterViewModel(repository: repository, delegate: delegate)
+        let viewModel = ConverterViewModel(repository: repository)
         viewController.viewModel = viewModel
         return viewController
     }

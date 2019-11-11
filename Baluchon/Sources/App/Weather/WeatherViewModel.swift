@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VisibleWeather {
+struct VisibleWeather: Equatable {
     let cityName: String
     let temperature: String
     let iconID: String
@@ -47,52 +47,60 @@ final class WeatherViewModel {
     var weatherString: ((String) -> Void)?
 
     // MARK: - Inputs
-
+    
     func viewDidLoad() {
+        getWeatherCells()
+    }
+    
+    // MARK: - Private Files
+    
+    func getWeatherCells() {
         repository.getWeather(for: .paris, callback: { parisWeather in
-            self.repository.getWeather(for: .newYork, callback: { newYorkWeather in
-                self.repository.getWeather(for: .lyon, callback: { lyonWeather in
-                    self.repository.getWeather(for: .nantes, callback: { nantesWeather in
-                        self.repository.getWeather(for: .strasbourg, callback: { strasbourgWeather in
-                            self.repository.getWeather(for: .bordeaux, callback: { bordeauxWeather in
-                                self.repository.getWeather(for: .toulouse, callback: { toulouseWeather in
-                                    self.repository.getWeather(for: .sacramento, callback: { sacramentoWeather in
-                                        self.repository.getWeather(for: .losAngeles, callback: { losAngelesWeather in
-                                            self.repository.getWeather(for: .sanDiego, callback: { sanDiegoWeather in
-                                                self.repository.getWeather(for: .chicago, callback: { chicagoWeather in
-                                                    self.repository.getWeather(for: .houston, callback: { houstonWeather in
-                                                        self.repository.getWeather(for: .philadelphia, callback: { philadelphiaWeather in
+            self.visibleItems.append(VisibleWeather(weather: parisWeather))
 
-                                                            self.repository.getWeather(for: .phoenix, callback: { phoenixWeather in
-                                                                self.visibleItems.append(VisibleWeather(weather: parisWeather))
-                                                            self.visibleItems.append(VisibleWeather(weather: newYorkWeather))
-                                                        self.visibleItems.append(VisibleWeather(weather: lyonWeather))
-                                                    self.visibleItems.append(VisibleWeather(weather: nantesWeather))
-                                                self.visibleItems.append(VisibleWeather(weather: strasbourgWeather))
-                                            self.visibleItems.append(VisibleWeather(weather: bordeauxWeather))
-                                        self.visibleItems.append(VisibleWeather(weather: toulouseWeather))
-                                    self.visibleItems.append(VisibleWeather(weather: sacramentoWeather))
-                                self.visibleItems.append(VisibleWeather(weather: losAngelesWeather))
-                            self.visibleItems.append(VisibleWeather(weather: sanDiegoWeather))
-                        self.visibleItems.append(VisibleWeather(weather: chicagoWeather))
-                    self.visibleItems.append(VisibleWeather(weather: houstonWeather))
-                self.visibleItems.append(VisibleWeather(weather: philadelphiaWeather))
+            self.repository.getWeather(for: .newYork, callback: { newYorkWeather in
+            self.visibleItems.append(VisibleWeather(weather: newYorkWeather))
+            })
+            self.repository.getWeather(for: .lyon, callback: { lyonWeather in
+            self.visibleItems.append(VisibleWeather(weather: lyonWeather))
+            })
+            self.repository.getWeather(for: .nantes, callback: { nantesWeather in
+            self.visibleItems.append(VisibleWeather(weather: nantesWeather))
+            })
+            self.repository.getWeather(for: .strasbourg, callback: { strasbourgWeather in
+            self.visibleItems.append(VisibleWeather(weather: strasbourgWeather))
+            })
+            self.repository.getWeather(for: .bordeaux, callback: { bordeauxWeather in
+            self.visibleItems.append(VisibleWeather(weather: bordeauxWeather))
+            })
+            self.repository.getWeather(for: .toulouse, callback: { toulouseWeather in
+            self.visibleItems.append(VisibleWeather(weather: toulouseWeather))
+            })
+            self.repository.getWeather(for: .sacramento, callback: { sacramentoWeather in
+            self.visibleItems.append(VisibleWeather(weather: sacramentoWeather))
+            })
+            self.repository.getWeather(for: .losAngeles, callback: { losAngelesWeather in
+            self.visibleItems.append(VisibleWeather(weather: losAngelesWeather))
+            })
+            self.repository.getWeather(for: .sanDiego, callback: { sanDiegoWeather in
+            self.visibleItems.append(VisibleWeather(weather: sanDiegoWeather))
+            })
+            self.repository.getWeather(for: .chicago, callback: { chicagoWeather in
+            self.visibleItems.append(VisibleWeather(weather: chicagoWeather))
+            })
+            self.repository.getWeather(for: .houston, callback: { houstonWeather in
+            self.visibleItems.append(VisibleWeather(weather: houstonWeather))
+            })
+            self.repository.getWeather(for: .philadelphia, callback: { philadelphiaWeather in
+            self.visibleItems.append(VisibleWeather(weather: philadelphiaWeather))
+            })
+            self.repository.getWeather(for: .phoenix, callback: { phoenixWeather in
             self.visibleItems.append(VisibleWeather(weather: phoenixWeather))
-                                                            })
-                                                        })
-                                                    })
-                                                })
-                                            })
-                                        })
-                                    })
-                                })
-                            })
-                        })
-                    })
-                })
             })
         })
     }
+    
+
 }
 
 

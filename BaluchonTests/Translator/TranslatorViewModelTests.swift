@@ -36,7 +36,7 @@ fileprivate final class MockTranslatorViewModelDelegate: TranslatorViewModelDele
 
 final class TranslatorViewModelTests: XCTestCase {
     
-    func testGivenTranslatorViewModelWhenViewDidLoadThenOriginAndDestionationTextAndTextLanguageAreCorectlyReturned() {
+    func testGivenTranslatorViewWhenViewDidLoadThenRequestTextAndResultTextAndRequestLanguageTextButtonAndResultLanguageTextButtonAreCorectlyReturned() {
         let mockRepository = MockTranslatorRepository()
         let mockDelegate = MockTranslatorViewModelDelegate()
         let translationType = TranslationType(initialLanguage: (nameLanguage: "Français", ISOCode: "fr", text: ""), destinationLanguage: (nameLanguage: "English", ISOCode: "en", text: ""))
@@ -74,7 +74,7 @@ final class TranslatorViewModelTests: XCTestCase {
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     
-    func testGivenTranslatorViewModelWhenDidSelectLanguageThenLanguageTypeOriginIsCorrectlyReturned() {
+    func testGivenTranslatorViewWhenDidSelectRequestLanguageButtonThenLanguageTypeIsCorrectlyReturned() {
         let mockRepository = MockTranslatorRepository()
         let mockDelegate = MockTranslatorViewModelDelegate()
         let translationType = TranslationType(initialLanguage: (nameLanguage: "Français", ISOCode: "fr", text: ""), destinationLanguage: (nameLanguage: "English", ISOCode: "en", text: ""))
@@ -88,21 +88,21 @@ final class TranslatorViewModelTests: XCTestCase {
         XCTAssertEqual(mockDelegate.languagetype, .request)
     }
     
-    func testGivenTranslatorViewModelWhenDidSelectLanguageThenLanguageTypeDestinationIsCorrectlyReturned() {
-        let mockRepository = MockTranslatorRepository()
-        let mockDelegate = MockTranslatorViewModelDelegate()
-        let translationType = TranslationType(initialLanguage: (nameLanguage: "Français", ISOCode: "fr", text: ""), destinationLanguage: (nameLanguage: "English", ISOCode: "en", text: ""))
+    func testGivenTranslatorViewWhenDidSelectResultLanguageButtonThenLanguageTypeIsCorrectlyReturned() {
+           let mockRepository = MockTranslatorRepository()
+           let mockDelegate = MockTranslatorViewModelDelegate()
+           let translationType = TranslationType(initialLanguage: (nameLanguage: "Français", ISOCode: "fr", text: ""), destinationLanguage: (nameLanguage: "English", ISOCode: "en", text: ""))
+           
+           let viewModel = TranslatorViewModel(repository: mockRepository, translationType: translationType, delegate: mockDelegate)
+           
+           viewModel.viewDidLoad()
+           
+           viewModel.didSelectLanguageType(for: LanguageType.result)
+           
+           XCTAssertEqual(mockDelegate.languagetype, .result)
+       }
     
-        let viewModel = TranslatorViewModel(repository: mockRepository, translationType: translationType, delegate: mockDelegate)
-    
-        viewModel.viewDidLoad()
-    
-        viewModel.didSelectLanguageType(for: .result)
-    
-        XCTAssertEqual(mockDelegate.languagetype, .result)
-    }
-    
-    func testGivenATranslatorViewModelWhenDidPressTranslateThenTraductionIsCorrectlyReturned() {
+    func testGivenTranslatorViewFromFrenchToEnglishWhenDidPressTranslateButtonThenTranslationIsCorrectlyReturned() {
         let mockRepository = MockTranslatorRepository()
         let mockDelegate = MockTranslatorViewModelDelegate()
         let translationType = TranslationType(initialLanguage: (nameLanguage: "Français", ISOCode: "fr", text: ""), destinationLanguage: (nameLanguage: "English", ISOCode: "en", text: ""))
@@ -110,13 +110,13 @@ final class TranslatorViewModelTests: XCTestCase {
         let viewModel = TranslatorViewModel(repository: mockRepository, translationType: translationType, delegate: mockDelegate)
         
         mockRepository.isSuccess = true
-        mockRepository.returnedText = "Hello"
+        mockRepository.returnedText = "Hello world"
         let expectation = self.expectation(description: "Returned text")
         
         var counter = 0
         viewModel.resultText = { text in
             if counter == 2 {
-                XCTAssertEqual(text, "Hello")
+                XCTAssertEqual(text, "Hello world")
                 expectation.fulfill()
             }
             counter += 1
@@ -124,7 +124,34 @@ final class TranslatorViewModelTests: XCTestCase {
         
         viewModel.viewDidLoad()
         
-        viewModel.didPressTranslatButton(for: "Bonjour")
+        viewModel.didPressTranslatButton(for: "Bonjour monde")
+        
+        waitForExpectations(timeout: 1.0, handler: nil)
+    }
+    
+    func testGivenTranslatorViewFromEnglishToFrenchWhenDidPressTranslateButtonThenTranslationIsCorrectlyReturned() {
+        let mockRepository = MockTranslatorRepository()
+        let mockDelegate = MockTranslatorViewModelDelegate()
+        let translationType = TranslationType(initialLanguage: (nameLanguage: "English", ISOCode: "en", text: ""), destinationLanguage: (nameLanguage: "Français", ISOCode: "fr", text: ""))
+        
+        let viewModel = TranslatorViewModel(repository: mockRepository, translationType: translationType, delegate: mockDelegate)
+        
+        mockRepository.isSuccess = true
+        mockRepository.returnedText = "Bonjour monde"
+        let expectation = self.expectation(description: "Returned text")
+        
+        var counter = 0
+        viewModel.resultText = { text in
+            if counter == 2 {
+                XCTAssertEqual(text, "Bonjour monde")
+                expectation.fulfill()
+            }
+            counter += 1
+        }
+        
+        viewModel.viewDidLoad()
+        
+        viewModel.didPressTranslatButton(for: "Hello world")
         
         waitForExpectations(timeout: 1.0, handler: nil)
     }

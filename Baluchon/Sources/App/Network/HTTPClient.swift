@@ -23,8 +23,8 @@ class HTTPClient: HTTPClientType {
 
     private let jsonDecoder: JSONDecoder
 
-    init() {
-        self.engine = HTTPEngine()
+    init(engine: HTTPEngine = HTTPEngine.init(configuration: .default)) {
+        self.engine = engine
         self.jsonDecoder = JSONDecoder()
     }
 

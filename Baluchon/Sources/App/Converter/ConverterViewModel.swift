@@ -22,20 +22,24 @@ final class ConverterViewModel {
 
     // MARK: - Properties
 
-    private let delegate: ConverterViewControllerDelegate?
+//    private let delegate: ConverterViewControllerDelegate?
 
     private let repository: ConverterRepositoryType
 
     var valueOfRequestPickerView: Double = 0
 
     var valueOfResultPickerView: Double = 0
+    
+    var currencyOfRequestPickerView: String = ""
+    
+    var currencyOfResultPickerView:String = ""
 
 
     // MARK: - Initializer
 
-    init(repository: ConverterRepositoryType, delegate: ConverterViewControllerDelegate?) {
+    init(repository: ConverterRepositoryType) {
         self.repository = repository
-        self.delegate = delegate
+//        self.delegate = delegate
     }
 
     // MARK: - Outputs
@@ -49,6 +53,8 @@ final class ConverterViewModel {
     var selectedResultRateValueText: ((String) -> Void)?
 
     var initialValuetextField: ((String) -> Void)?
+    
+    var placeHoldertextField: ((String) -> Void)?
 
     var selectedRequestCurrencyName: ((String) -> Void)?
 
@@ -77,9 +83,11 @@ final class ConverterViewModel {
     // MARK: - Inputs
 
     func viewDidLoad() {
-        self.resultText?("")
+        self.resultText?("0.0 €")
+        self.placeHoldertextField?("Entrez une valeur à convertir")
         repository.getCurrency(callback: { [weak self] currency in
             self?.initCurrencyRates(from: currency)
+            }, error: { [weak self] in
         })
     }
 
@@ -97,28 +105,27 @@ final class ConverterViewModel {
         case .request:
             selectedRequestRateValueText?("Taux de conversion : \(Double(round(100*rate.value)/100))")
             valueOfRequestPickerView = rate.value
-
+            currencyOfRequestPickerView = rate.key
+            
         case .result:
             selectedResultRateValueText?("Taux de conversion : \(Double(round(100*rate.value)/100))")
             valueOfResultPickerView = rate.value
+            currencyOfResultPickerView = rate.key
         }
-        
-        if valueOfRequestPickerView != 0 && valueOfResultPickerView != 0 {
-            
-        let convertedValueResult = convertedValue(valueToConvert: valueToConvert, topRateValue: valueOfRequestPickerView, bottomRateValue: valueOfResultPickerView)
                 
-        result = ("\(Double(round(100*convertedValueResult)/100))")
-            
+        let convertedValueResult = convertedValue(valueToConvert: valueToConvert, topRateValue: valueOfRequestPickerView, bottomRateValue: valueOfResultPickerView)
+            if currencyOfResultPickerView == "EUR" {
+                    result = ("\(Double(round(100*convertedValueResult)/100)) €")
+            }
+            if currencyOfResultPickerView == "USD" {
+                    result = ("$ \(Double(round(100*convertedValueResult)/100))")
+            }
+            if currencyOfResultPickerView == "GBP" {
+                    result = ("£ \(Double(round(100*convertedValueResult)/100))")
+            }
+            if currencyOfResultPickerView == "JPY" {
+                    result = ("\(Double(round(100*convertedValueResult)/100)) ¥")
         }
-        
-    }
-
-    // MARK: - Private Functions
-
-    func didPressConvert(value: String, origin: String, destination: String) {
-        repository.convert(fromValue: value, from: origin, to: destination, callback: { text in
-            self.resultText?(text)
-        })
     }
 
     // MARK: - Private Functions

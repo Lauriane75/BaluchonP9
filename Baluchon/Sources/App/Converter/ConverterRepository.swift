@@ -9,8 +9,7 @@
 import Foundation
 
 protocol ConverterRepositoryType: class {
-    func getCurrency(callback: @escaping (Currency) -> Void)
-    func convert(fromValue: String, from originCurrency: String, to destinateCurrency: String, callback: @escaping (String) -> Void)
+    func getCurrency(callback: @escaping (Currency) -> Void, error: @escaping (() -> Void))
 }
 
 final class ConverterRepository: ConverterRepositoryType {
@@ -26,10 +25,9 @@ final class ConverterRepository: ConverterRepositoryType {
     init(client: HTTPClientType) {
         self.client = client
     }
-
-    func getCurrency(callback: @escaping (Currency) -> Void) {
-
-        let apiKey = "5f3d531bcfe0d265036a1aa20e889301&format=1"
+    
+    func getCurrency(callback: @escaping (Currency) -> Void, error: @escaping (() -> Void)) {
+        let apiKey = "5f3d531bcfe0d265036a1aa20e889301&format=1&base=EUR&symbols=EUR,USD,GBP,JPY"
         let urlString = "http://data.fixer.io/api/latest?access_key=\(apiKey)"
         let url = URL(string: urlString)!
         client.request(type: Currency.self, requestType: .GET, url: url, cancelledBy: token) { currency in
@@ -38,9 +36,4 @@ final class ConverterRepository: ConverterRepositoryType {
         }
     }
 
-    func convert(fromValue: String, from originCurrency: String, to destinateCurrency: String, callback: @escaping (String) -> Void) {
-
-    }
 }
-
-//http://data.fixer.io/api/latest?access_key=5f3d531bcfe0d265036a1aa20e889301&format=1

@@ -39,6 +39,7 @@
 		D3D7D5F6235F0D7700D5740C /* ConverterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D7D5F5235F0D7700D5740C /* ConverterCoordinator.swift */; };
 		D3F163DB233A7B6F0031DB39 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F163DA233A7B6F0031DB39 /* Context.swift */; };
 		E59A3FB528BFF338CA4742B7 /* Pods_BaluchonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6986B9250889A1B4CE9365 /* Pods_BaluchonTests.framework */; };
+		F689EC082376F0AA00747170 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F689EC072376F0AA00747170 /* NetworkTests.swift */; };
 		F691CEB52370D4280016B39A /* SelectLanguageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F691CEB42370D4280016B39A /* SelectLanguageDataSource.swift */; };
 		F691CEB72370D44B0016B39A /* SelectLanguageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F691CEB62370D44B0016B39A /* SelectLanguageViewModel.swift */; };
 		F691CEB92370D4B70016B39A /* SelectLanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F691CEB82370D4B70016B39A /* SelectLanguagesViewController.swift */; };
@@ -98,6 +99,7 @@
 		D3D7D5F5235F0D7700D5740C /* ConverterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCoordinator.swift; sourceTree = "<group>"; };
 		D3F163DA233A7B6F0031DB39 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		E79DB47FA9A43664A2634923 /* Pods-Baluchon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baluchon.debug.xcconfig"; path = "Target Support Files/Pods-Baluchon/Pods-Baluchon.debug.xcconfig"; sourceTree = "<group>"; };
+		F689EC072376F0AA00747170 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		F691CEB42370D4280016B39A /* SelectLanguageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageDataSource.swift; sourceTree = "<group>"; };
 		F691CEB62370D44B0016B39A /* SelectLanguageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageViewModel.swift; sourceTree = "<group>"; };
 		F691CEB82370D4B70016B39A /* SelectLanguagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguagesViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		D33C69FF231EBC31003FB721 /* BaluchonTests */ = {
 			isa = PBXGroup;
 			children = (
+				F689EC062376F09000747170 /* Network */,
 				F6DA24972373240C00B74C32 /* Converter */,
 				F6DA24962373240200B74C32 /* Translator */,
 				F6DA2495237323F700B74C32 /* Weather */,
@@ -313,6 +316,14 @@
 				D31A47C2233BD23B002EA4FF /* Weather.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F689EC062376F09000747170 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F689EC072376F0AA00747170 /* NetworkTests.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		F6D4628123706F7C0042F210 /* Cell */ = {
@@ -560,6 +571,7 @@
 			files = (
 				F6DA24992373243A00B74C32 /* TranslatorViewModelTests.swift in Sources */,
 				F6DA249B2373245200B74C32 /* ConverterViewModelTests.swift in Sources */,
+				F689EC082376F0AA00747170 /* NetworkTests.swift in Sources */,
 				2F041F0323313F2C00177AC2 /* WeatherViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

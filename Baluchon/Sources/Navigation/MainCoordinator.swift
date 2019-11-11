@@ -18,7 +18,6 @@ protocol TabBarSourceType {
     var items: [UINavigationController] { get set }
 }
 
-
 extension TabBarSourceType {
     subscript(item: ViewControllerItem) -> UINavigationController {
         get {
@@ -128,11 +127,6 @@ extension MainCoordinator {
             showTranslator()
         }
     }
-}
-
-
-extension MainCoordinator: ConverterViewControllerDelegate {
-
 }
 
 extension MainCoordinator: TranslatorViewControllerDelegate {

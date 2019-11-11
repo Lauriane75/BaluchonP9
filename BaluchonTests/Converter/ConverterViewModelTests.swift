@@ -9,49 +9,81 @@
 import XCTest
 @testable import Baluchon
 
-final class ConverterViewModelTests: XCTestCase {
+final class MockConverterRepository: ConverterRepositoryType {
+    func getCurrency(callback: @escaping (Currency) -> Void, error: @escaping (() -> Void)) {
+        callback(currency)
+    }
+    var currency: Currency!
+    
+    var isSuccess = true
+    var returnedText = ""
+}
 
-//    func testGivenAMainViewModel_WhenViewDidLoad_ThenTranslatorTextIsReturned() {
-//        let viewModel = MainViewModel(delegate: nil)
-//        let expectation = self.expectation(description: "Returned translator text")
-//
-//        viewModel.translatorText = { text in
-//            XCTAssertEqual(text, "Translator")
-//            expectation.fulfill()
-//        }
-//
-//        viewModel.viewDidLoad()
-//
-//        waitForExpectations(timeout: 1.0, handler: nil)
-//    }
-//
-//    func testGivenAMainViewModel_WhenDidPressTranslatorButton_ThenDelegateIsCorrectlyReturned() {
-//        let mockDelegate = MockMainViewControllerDelegate()
-//        let viewModel = MainViewModel(delegate: mockDelegate)
-//
-//        viewModel.viewDidLoad()
-//
-//        viewModel.didPressTranslatorButton()
-//
-//        XCTAssertTrue(mockDelegate.didPresstranslator)
-//    }
-//}
-//
-//fileprivate final class MockMainViewControllerDelegate: MainViewControllerDelegate {
-//
-//    var didPresstranslator = false
-//    var didPressWeather = false
-//    var didPressConverter = false
-//
-//    func didPressTranslatorButton() {
-//        didPresstranslator = true
-//    }
-//
-//    func didPressWeatherButton() {
-//        didPressWeather = true
-//    }
-//
-//    func didPressConverterButton() {
-//        didPressConverter = true
-//    }
+
+final class ConverterViewModelTests: XCTestCase {
+    
+    func testGivenConverterViewModelWhenViewDidLoadThenViewIsCorrectlyLoaded() {
+        let mockConverterRepository = MockConverterRepository()
+        mockConverterRepository.currency = Currency(date: "", rates: ["EUR" : 1.0])
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+        
+        let expectation1 = self.expectation(description: "textFieldPlaceHolder return Entrez une valeur à convertir")
+        let expectation2 = self.expectation(description: "selectedRequestRateValueText return 1.0")
+        let expectation3 = self.expectation(description: "resultText return 0.0 €")
+        let expectation4 = self.expectation(description: "selectedRequestCurrencyName return Euro €")
+        let expectation5 = self.expectation(description: "selectedResultCurrencyName return Euro €")
+        let expectation6 = self.expectation(description: "selectedRequestRateValueText return 1.0")
+
+        viewModel.placeHoldertextField = { text in
+            XCTAssertEqual(text, "Entrez une valeur à convertir")
+            expectation1.fulfill()
+        }
+        viewModel.selectedRequestRateValueText = { text in
+            XCTAssertEqual(text, "1.0")
+            expectation2.fulfill()
+        }
+        viewModel.resultText = { text in
+            XCTAssertEqual(text, "0.0 €")
+            expectation3.fulfill()
+        }
+        viewModel.selectedRequestCurrencyName = { text in
+            XCTAssertEqual(text, "Euro €")
+            expectation4.fulfill()
+        }
+        viewModel.selectedResultCurrencyName = { text in
+            XCTAssertEqual(text, "Euro €")
+            expectation5.fulfill()
+        }
+        viewModel.selectedRequestRateValueText = { text in
+            XCTAssertEqual(text, "1.0")
+            expectation6.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+
+        
+        viewModel.viewDidLoad()
+                                
+    }
+    
+    func testExample() {
+        let mockConverterRepository = MockConverterRepository()
+        mockConverterRepository.currency = Currency(date: "", rates: ["EUR" : 1.0])
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+        
+         let expectation = self.expectation(description: "")
+        
+         viewModel.selectedRequestCurrencyName  = { text in
+                      XCTAssertEqual(text, "Français")
+                      expectation.fulfill()
+                  }
+            
+         viewModel.viewDidLoad()
+    
+         waitForExpectations(timeout: 1.0, handler: nil)
+        
+    }
+    
+    
+    
 }

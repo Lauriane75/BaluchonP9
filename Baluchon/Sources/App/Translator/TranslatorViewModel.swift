@@ -92,7 +92,6 @@ final class TranslatorViewModel {
     }
 
     func didTapRequestTextField(text : String?) {
-        print("Origin text = \(text!)")
     }
     
     func didSelectLanguageType(for type: LanguageType) {
@@ -111,7 +110,6 @@ final class TranslatorViewModel {
             if let text = text {
                 self?.language[0].text = requestText
                 self?.language[1].text = text
-                print("destination text = \(text)")
             } else if error != nil {
                 self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
             }

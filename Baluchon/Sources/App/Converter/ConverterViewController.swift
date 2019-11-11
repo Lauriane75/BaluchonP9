@@ -54,9 +54,19 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
     // MARK: - Private Functions
 
     private func bind(to viewModel: ConverterViewModel) {
-
+        
+        viewModel.initialValuetextField = { [weak self] text in
+                DispatchQueue.main.async {
+                self?.initialValuetextField.text = text
+            }
+        }
+        viewModel.placeHoldertextField = { [weak self] text in
+                DispatchQueue.main.async {
+                self?.initialValuetextField.placeholder = text
+            }
+        }
         viewModel.visibleRates = { [weak self] rates in
-            DispatchQueue.main.async {
+                DispatchQueue.main.async {
                 self?.requestDataSource.update(with: rates)
                 self?.requestPickerView.reloadAllComponents()
                 self?.resultDataSource.update(with: rates)
@@ -64,34 +74,27 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
             }
         }
         viewModel.selectedRequestRateValueText = { [weak self] text in
-        DispatchQueue.main.async {
-        self?.selectedRequestRateValueLabel.text = text
+                DispatchQueue.main.async {
+                self?.selectedRequestRateValueLabel.text = text
             }
         }
         viewModel.selectedResultRateValueText = { [weak self] text in
-        DispatchQueue.main.async {
-        self?.selectedResultRateValueLabel.text = text
-            }
-        }
-        viewModel.initialValuetextField = { [weak self] text in
-        DispatchQueue.main.async {
-        self?.initialValuetextField.text = text
+                DispatchQueue.main.async {
+                self?.selectedResultRateValueLabel.text = text
             }
         }
         viewModel.resultText = { [weak self] text in
-        DispatchQueue.main.async {
-        self?.resultValueLabel.text = text
+                DispatchQueue.main.async {
+                self?.resultValueLabel.text = text
         }
     }
 }
 
     fileprivate func cornerRadiusSettings() {
-//        initialValuetextField.layer.cornerRadius = 40
         resultValueLabel.layer.cornerRadius = 20
         requestPickerView.layer.cornerRadius = 20
         resultPickerView.layer.cornerRadius = 20
         resultValueLabel.layer.cornerRadius = 20
-
     }
 
     // MARK: - Test action
