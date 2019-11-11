@@ -37,9 +37,7 @@ final class SelectLanguagesViewController: UIViewController {
     }
     
     private func bind(to VM: SelectLanguageViewModel) {
-        viewModel.titleText = { [weak self] text in
-            self?.navigationItem.title = text
-        }
+
         viewModel.visibleItems = { [weak self] items in
             DispatchQueue.main.async {
                 self?.dataSource.update(with: items)

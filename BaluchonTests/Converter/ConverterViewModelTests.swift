@@ -61,7 +61,6 @@ final class ConverterViewModelTests: XCTestCase {
         
         waitForExpectations(timeout: 5, handler: nil)
 
-        
         viewModel.viewDidLoad()
                                 
     }

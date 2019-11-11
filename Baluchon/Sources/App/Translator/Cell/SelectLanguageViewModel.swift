@@ -62,15 +62,12 @@ final class SelectLanguageViewModel {
     }
     
     // MARK: - Outputs
-    
-    var titleText: ((String) -> Void)?
-    
+        
     var visibleItems: (([ItemLabel]) -> Void)?
     
     // MARK: - Inputs
     
     func viewDidLoad() {
-        titleText?("Languages")
         repository.requestLanguages { [weak self] (languages) in
             self?.languageItems = SelectLanguageViewModel.initialItems(from: languages)
         }
