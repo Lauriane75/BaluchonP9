@@ -27,12 +27,12 @@ final class ConverterViewModelTests: XCTestCase {
         mockConverterRepository.currency = Currency(date: "", rates: ["EUR" : 1.0])
         let viewModel = ConverterViewModel(repository: mockConverterRepository)
         
-        let expectation1 = self.expectation(description: "textFieldPlaceHolder return Entrez une valeur à convertir")
-        let expectation2 = self.expectation(description: "selectedRequestRateValueText return 1.0")
+        let expectation1 = self.expectation(description: "textFieldPlaceHolder should return Entrez une valeur à convertir")
+        let expectation2 = self.expectation(description: "selectedRequestRateValueText should return 1.0")
         let expectation3 = self.expectation(description: "resultText return 0.0 €")
-        let expectation4 = self.expectation(description: "selectedRequestCurrencyName return Euro €")
-        let expectation5 = self.expectation(description: "selectedResultCurrencyName return Euro €")
-        let expectation6 = self.expectation(description: "selectedRequestRateValueText return 1.0")
+        let expectation4 = self.expectation(description: "selectedRequestCurrencyName should return Euro €")
+        let expectation5 = self.expectation(description: "selectedResultCurrencyName should return Euro €")
+        let expectation6 = self.expectation(description: "selectedRequestRateValueText should return 1.0")
 
         viewModel.placeHoldertextField = { text in
             XCTAssertEqual(text, "Entrez une valeur à convertir")
@@ -71,10 +71,10 @@ final class ConverterViewModelTests: XCTestCase {
         mockConverterRepository.currency = Currency(date: "", rates: ["EUR" : 1.0])
         let viewModel = ConverterViewModel(repository: mockConverterRepository)
         
-         let expectation = self.expectation(description: "")
+         let expectation = self.expectation(description: "selectedRequestCurrencyName should return")
         
          viewModel.selectedRequestCurrencyName  = { text in
-                      XCTAssertEqual(text, "Français")
+                      XCTAssertEqual(text, "Euro €")
                       expectation.fulfill()
                   }
             
@@ -84,6 +84,7 @@ final class ConverterViewModelTests: XCTestCase {
         
     }
     
+
     
     
 }

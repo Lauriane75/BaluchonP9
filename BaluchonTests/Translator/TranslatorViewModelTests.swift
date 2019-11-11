@@ -210,5 +210,29 @@ final class TranslatorViewModelTests: XCTestCase {
         
         waitForExpectations(timeout: 1.0, handler: nil)
     }
+    
+    
+    func test_GivenViewModelWithNoService_WhenViewDidLoadThenAlertError() {
+        let mockRepository = MockTranslatorRepository()
+        let mockDelegate = MockTranslatorViewModelDelegate()
+        let translationType = TranslationType(initialLanguage: (nameLanguage: "English", ISOCode: "en", text: ""), destinationLanguage: (nameLanguage: "Spanish", ISOCode: "sp", text: ""))
+               
+        let viewModel = TranslatorViewModel(repository: mockRepository, translationType: translationType, delegate: mockDelegate)
+        let expectation = self.expectation(description: "No service connection")
+        
+        mockRepository.isSuccess = false
+
+        viewModel.nextScreen = { screen in
+            XCTAssertEqual(screen, .alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+            expectation.fulfill()
+        }
+        viewModel.viewDidLoad()
+        
+        viewModel.didPressTranslatButton(for: "Hello")
+        
+        waitForExpectations(timeout: 1.0, handler: nil)
+    }
+    
+    
 
 }
