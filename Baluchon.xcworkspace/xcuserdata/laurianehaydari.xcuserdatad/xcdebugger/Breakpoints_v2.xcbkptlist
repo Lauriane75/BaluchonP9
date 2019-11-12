@@ -3,4 +3,69 @@
    uuid = "6E540CA0-FAC0-4979-82C8-26E240B309CD"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57FE7BAC-E6A9-483C-A84F-23E603D73E3B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Baluchon/Sources/App/Translator/Cell/SelectLanguagesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "bind(to:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "57FE7BAC-E6A9-483C-A84F-23E603D73E3B - 8f360bbee6c94df7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Baluchon.SelectLanguagesViewController.(bind in _6B323987DF1CDF372B34FEE4005DCBFA)(to: Baluchon.SelectLanguageViewModel) -&gt; ()"
+                  moduleName = "Baluchon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laurianehaydari/Documents/E%CC%81ducatif/Formation%20IOS/Openclassrooms/projets/projet9/BaluchonP9/Baluchon/Sources/App/Translator/Cell/SelectLanguagesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "57FE7BAC-E6A9-483C-A84F-23E603D73E3B - 799cc72c8d98b7f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Baluchon.SelectLanguageViewModel.ItemLabel&gt;) -&gt; () in Baluchon.SelectLanguagesViewController.(bind in _6B323987DF1CDF372B34FEE4005DCBFA)(to: Baluchon.SelectLanguageViewModel) -&gt; ()"
+                  moduleName = "Baluchon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laurianehaydari/Documents/E%CC%81ducatif/Formation%20IOS/Openclassrooms/projets/projet9/BaluchonP9/Baluchon/Sources/App/Translator/Cell/SelectLanguagesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "143">
+               </Location>
+               <Location
+                  uuid = "57FE7BAC-E6A9-483C-A84F-23E603D73E3B - f34d23413303d98e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Array&lt;Baluchon.SelectLanguageViewModel.ItemLabel&gt;) -&gt; () in Baluchon.SelectLanguagesViewController.(bind in _6B323987DF1CDF372B34FEE4005DCBFA)(to: Baluchon.SelectLanguageViewModel) -&gt; ()"
+                  moduleName = "Baluchon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laurianehaydari/Documents/E%CC%81ducatif/Formation%20IOS/Openclassrooms/projets/projet9/BaluchonP9/Baluchon/Sources/App/Translator/Cell/SelectLanguagesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "95">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -11,10 +11,10 @@ import XCTest
 
 fileprivate final class MockSelectLanguageRepository: SelectLanguageRepositoryType {
     
-    var result: [Language] = []
+    var configuration: [Language] = []
     
     func requestLanguages(callback: @escaping ([Language]) -> Void) {
-        callback(result)
+        callback(configuration)
     }
 }
 
@@ -31,6 +31,7 @@ final class SelectLanguageViewModelTests: XCTestCase {
     
     func test_GivenViewModel_WhenViewDidLoad_ThenRequestVisibleItemsIsCorrectlyReturned() {
         let mockRepository = MockSelectLanguageRepository()
+        mockRepository.configuration = [Language(key: "fr", value: "French")]
         let delegate = MockSelectLanguageViewControllerDelegate()
         let viewModel = SelectLanguageViewModel(languageType: .request,
                                           repository: mockRepository,
@@ -51,6 +52,7 @@ final class SelectLanguageViewModelTests: XCTestCase {
    
     func test_GivenViewModel_WhenViewDidLoad_ThenResultVisibleItemsIsCorrectlyReturned() {
         let mockRepository = MockSelectLanguageRepository()
+        mockRepository.configuration = [Language(key: "en", value: "English")]
         let delegate = MockSelectLanguageViewControllerDelegate()
         let viewModel = SelectLanguageViewModel(languageType: .result,
                                           repository: mockRepository,
@@ -69,18 +71,62 @@ final class SelectLanguageViewModelTests: XCTestCase {
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     
-    func test_GivenASelectLanguageViewmodel_WhenViewDidDidSelectitemForRequestThenDelegateIsCoreectlyCalled() {
-           let mockRepository = MockSelectLanguageRepository()
-           let delegate = MockSelectLanguageViewControllerDelegate()
-           let viewModel = SelectLanguageViewModel(languageType: .result,
+    func test_GivenSelectLanguageViewmodel_WhenViewDidDidSelectitemForRequestThenDelegateIsCoreectlyCalled() {
+        let mockRepository = MockSelectLanguageRepository()
+        mockRepository.configuration = [Language(key: "fr", value: "French")]
+        let delegate = MockSelectLanguageViewControllerDelegate()
+        let viewModel = SelectLanguageViewModel(languageType: .request,
+                                                   repository: mockRepository,
+                                                   delegate: delegate)
+        viewModel.viewDidLoad()
+
+        viewModel.didSelectItem(at: 0)
+          
+        XCTAssertEqual(delegate.language, SelectLanguageType.request("French", "fr"))
+
+          }
+    
+    func test_GivenSelectLanguageViewmodel_WhenViewDidDidSelectitemForResultThenDelegateIsCoreectlyCalled() {
+        let mockRepository = MockSelectLanguageRepository()
+        mockRepository.configuration = [Language(key: "en", value: "English")]
+        let delegate = MockSelectLanguageViewControllerDelegate()
+        let viewModel = SelectLanguageViewModel(languageType: .result,
                                              repository: mockRepository,
                                              delegate: delegate)
         viewModel.viewDidLoad()
 
         viewModel.didSelectItem(at: 0)
     
-        XCTAssertEqual(delegate.language, SelectLanguageType.request("French", "Fr"))
+        XCTAssertEqual(delegate.language, SelectLanguageType.result("English", "en"))
+    }
+    
+    func test_GivenSelectLanguageViewmodel_WhenViewDidDidSelectitemForRequestAtInvalidIndex_ThenDelagateIsNotCalled() {
+        let mockRepository = MockSelectLanguageRepository()
+        mockRepository.configuration = [Language(key: "fr", value: "French")]
+        let delegate = MockSelectLanguageViewControllerDelegate()
+        let viewModel = SelectLanguageViewModel(languageType: .request,
+                                                      repository:         mockRepository,
+                                                      delegate: delegate)
+        viewModel.viewDidLoad()
 
+        viewModel.didSelectItem(at: 100)
+             
+        XCTAssertEqual(delegate.language, nil)
+
+        }
+    
+    func test_GivenSelectLanguageViewmodel_WhenViewDidDidSelectitemForResultAtInvalidIndex_ThenDelagateIsNotCalled() {
+        let mockRepository = MockSelectLanguageRepository()
+        mockRepository.configuration = [Language(key: "en", value: "English")]
+        let delegate = MockSelectLanguageViewControllerDelegate()
+        let viewModel = SelectLanguageViewModel(languageType: .result,
+                                             repository: mockRepository,
+                                             delegate: delegate)
+        viewModel.viewDidLoad()
+
+        viewModel.didSelectItem(at: 100)
+    
+        XCTAssertEqual(delegate.language, nil)
     }
     
 }

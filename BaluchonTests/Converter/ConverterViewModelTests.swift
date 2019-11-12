@@ -70,7 +70,7 @@ final class ConverterViewModelTests: XCTestCase {
         mockConverterRepository.currency = Currency(date: "", rates: ["EUR" : 1.0])
         let viewModel = ConverterViewModel(repository: mockConverterRepository)
         
-         let expectation = self.expectation(description: "selectedRequestCurrencyName should return")
+        let expectation = self.expectation(description: "selectedRequestCurrencyName should return")
         
          viewModel.selectedRequestCurrencyName  = { text in
                       XCTAssertEqual(text, "Euro €")
@@ -80,7 +80,6 @@ final class ConverterViewModelTests: XCTestCase {
          viewModel.viewDidLoad()
     
          waitForExpectations(timeout: 1.0, handler: nil)
-        
     }
     
 

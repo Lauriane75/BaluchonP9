@@ -37,13 +37,26 @@ final class WeatherViewModelTests: XCTestCase {
         
         let expectation = self.expectation(description: "Paris weather request is correctly returned")
         
-        let expectedResult = [VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min")]
+        let expectedResult =
+            [VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min")]
+//                ,
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
+//            VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min")]
 
         viewModel.items = { items in
             XCTAssertEqual(items, expectedResult)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
             expectation.fulfill()
-            })
         }
 
         viewModel.viewDidLoad()
