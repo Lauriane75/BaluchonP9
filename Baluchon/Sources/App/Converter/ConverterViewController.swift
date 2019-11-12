@@ -47,7 +47,7 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
 
     }
 
-    func didSelectItem(for pickerView: UIPickerView, at row: Int) {
+    func didSelectItemPickerView(for pickerView: UIPickerView, at row: Int) {
         viewModel.didSelectCurrency(at: row, for: pickerView == requestPickerView ? .request : .result)
     }
 

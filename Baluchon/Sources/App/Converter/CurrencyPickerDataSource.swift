@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CurrencyPickerDelegate: class {
-    func didSelectItem(for pickerView: UIPickerView, at row: Int)
+    func didSelectItemPickerView(for pickerView: UIPickerView, at row: Int)
 }
 
 final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -44,7 +44,7 @@ final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        delegate?.didSelectItem(for: pickerView, at: row)
+        delegate?.didSelectItemPickerView(for: pickerView, at: row)
 
         name = items[row]
 
@@ -62,7 +62,7 @@ final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerVi
     // MARK: - UIPickerViewDelegate
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int, name: String) {
-        delegate?.didSelectItem(for: pickerView, at: row)
+        delegate?.didSelectItemPickerView(for: pickerView, at: row)
 
     }
 

@@ -127,6 +127,9 @@ final class ConverterViewModel {
                     result = ("\(Double(round(100*convertedValueResult)/100)) ¥")
         }
     }
+    
+    
+    
 
     // MARK: - Private Functions
 

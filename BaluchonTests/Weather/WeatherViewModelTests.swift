@@ -42,6 +42,7 @@ final class WeatherViewModelTests: XCTestCase {
             VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min"),
             VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "04d", temperatureMax: "6 °C max", temperatureMin: "3°C min")
         ]
+        
 
         viewModel.items = { items in
         XCTAssertEqual(items, expectedResult)
@@ -51,6 +52,7 @@ final class WeatherViewModelTests: XCTestCase {
         }
         
         viewModel.viewDidLoad()
+
     
         waitForExpectations(timeout: 2.0, handler: nil)
     }
