@@ -42,6 +42,4 @@ class WeatherViewController: UIViewController {
         }
     }
 
-    @IBAction func menuButton(_ sender: Any) {
-    }
 }

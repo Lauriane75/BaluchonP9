@@ -101,16 +101,6 @@ final class MainCoordinator: NSObject, UITabBarControllerDelegate {
     }
 }
 
-extension MainCoordinator: WeatherViewControllerDelegate {
-
-    func didPressTranslatorButton() {
-        showTranslator()
-    }
-    func didPressConverterButton() {
-        showConverter()
-    }
-}
-
 extension MainCoordinator {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex

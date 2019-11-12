@@ -54,7 +54,7 @@ final class ConverterViewModel {
 
     var initialValuetextField: ((String) -> Void)?
     
-    var placeHoldertextField: ((String) -> Void)?
+    var placeHolderTextField: ((String) -> Void)?
 
     var selectedRequestCurrencyName: ((String) -> Void)?
 
@@ -84,7 +84,7 @@ final class ConverterViewModel {
 
     func viewDidLoad() {
         self.resultText?("0.0 €")
-        self.placeHoldertextField?("Entrez une valeur à convertir")
+        self.placeHolderTextField?("Entrez une valeur à convertir")
         repository.getCurrency(callback: { [weak self] currency in
             self?.initCurrencyRates(from: currency)
             }, error: { [weak self] in

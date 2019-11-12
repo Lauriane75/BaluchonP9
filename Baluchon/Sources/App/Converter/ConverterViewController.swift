@@ -60,7 +60,7 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
                 self?.initialValuetextField.text = text
             }
         }
-        viewModel.placeHoldertextField = { [weak self] text in
+        viewModel.placeHolderTextField = { [weak self] text in
                 DispatchQueue.main.async {
                 self?.initialValuetextField.placeholder = text
             }

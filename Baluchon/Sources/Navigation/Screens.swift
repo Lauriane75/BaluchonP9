@@ -29,10 +29,10 @@ protocol WeatherViewControllerDelegate: class {
 
 extension Screens {
 
-    func createMainViewController(repository: WeatherRepository, delegate: WeatherViewControllerDelegate?) -> UIViewController {
+    func createMainViewController(repository: WeatherRepository) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "WeatherViewController") as! WeatherViewController
         let repository = WeatherRepository(client: context.client)
-        let viewModel = WeatherViewModel(repository: repository, delegate: delegate)
+        let viewModel = WeatherViewModel(repository: repository)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -61,7 +61,7 @@ extension Screens {
         return viewController
     }
     
-    func createLanguagesViewController(languageType: LanguageType, delegate: SelectLanguageViewModelDelegate?) -> UIViewController {
+    func createSelectLanguagesViewController(languageType: LanguageType, delegate: SelectLanguageViewModelDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "LanguagesViewController") as! SelectLanguagesViewController
         let repository = SelectLanguageRepository()
         let viewModel = SelectLanguageViewModel(languageType: languageType,

@@ -40,7 +40,7 @@ final class TranslatorCoordinator {
     }
     
     private func showLanguageType(with type: LanguageType) {
-        let viewController = screens.createLanguagesViewController(languageType: type, delegate: self)
+        let viewController = screens.createSelectLanguagesViewController(languageType: type, delegate: self)
         presenter.show(viewController, sender: nil)
     }
 }

@@ -34,7 +34,7 @@ final class ConverterViewModelTests: XCTestCase {
         let expectation5 = self.expectation(description: "selectedResultCurrencyName should return Euro €")
         let expectation6 = self.expectation(description: "selectedRequestRateValueText should return 1.0")
 
-        viewModel.placeHoldertextField = { text in
+        viewModel.placeHolderTextField = { text in
             XCTAssertEqual(text, "Entrez une valeur à convertir")
             expectation1.fulfill()
         }

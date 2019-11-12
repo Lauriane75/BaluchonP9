@@ -37,7 +37,3 @@ final class ConverterCoordinator {
     }
 }
 
-//extension ConverterCoordinator: ConverterViewControllerDelegate {
-//
-//}
-
