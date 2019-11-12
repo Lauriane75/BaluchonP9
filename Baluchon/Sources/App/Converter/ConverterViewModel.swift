@@ -55,11 +55,7 @@ final class ConverterViewModel {
     var initialValuetextField: ((String) -> Void)?
     
     var placeHolderTextField: ((String) -> Void)?
-
-    var selectedRequestCurrencyName: ((String) -> Void)?
-
-    var selectedResultCurrencyName: ((String) -> Void)?
-
+    
 
     var currencyRates: [Rate] = [] {
         didSet {

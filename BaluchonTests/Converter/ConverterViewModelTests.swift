@@ -71,42 +71,6 @@ final class ConverterViewModelTests: XCTestCase {
                                 
         }
     
-    func test_GivenConverterViewModel_WhenViewDidLoad_ThenselectedRequestCurrencyNameIsCorrectlyLoaded() {
-            let mockConverterRepository = MockConverterRepository()
-            let viewModel = ConverterViewModel(repository: mockConverterRepository)
-
-            let expectation = self.expectation(description: "selectedRequestCurrencyName should return Euro €")
- 
-          
-            viewModel.selectedRequestCurrencyName = { text in
-                XCTAssertEqual(text, "Euro €")
-                expectation.fulfill()
-            }
-  
-            viewModel.viewDidLoad()
-            
-            waitForExpectations(timeout: 1, handler: nil)
-                                
-        }
-    
-    func test_GivenConverterViewModel_WhenViewDidLoad_ThenselectedResultCurrencyNameIsCorrectlyLoaded() {
-               let mockConverterRepository = MockConverterRepository()
-               let viewModel = ConverterViewModel(repository: mockConverterRepository)
-
-      
-               let expectation = self.expectation(description: "selectedResultCurrencyName should return Euro €")
-            
-               viewModel.selectedResultCurrencyName = { text in
-                   XCTAssertEqual(text, "Euro €")
-                   expectation.fulfill()
-               }
-     
-               viewModel.viewDidLoad()
-               
-               waitForExpectations(timeout: 1, handler: nil)
-                                   
-           }
-    
     func test_GivenConverterViewModel_WhenViewDidLoad_ThenselectedResultRateValueTextIsCorrectlyLoaded() {
                 let mockConverterRepository = MockConverterRepository()
                 let viewModel = ConverterViewModel(repository: mockConverterRepository)
@@ -120,26 +84,6 @@ final class ConverterViewModelTests: XCTestCase {
                 viewModel.viewDidLoad()
                 
                 waitForExpectations(timeout: 1, handler: nil)
-                                    
         }
-    
-    func testExample() {
-        let mockConverterRepository = MockConverterRepository()
-        let viewModel = ConverterViewModel(repository: mockConverterRepository)
-        
-        let expectation = self.expectation(description: "selectedRequestCurrencyName should return")
-        
-         viewModel.selectedRequestCurrencyName  = { text in
-                      XCTAssertEqual(text, "Euro €")
-                      expectation.fulfill()
-                  }
-            
-         viewModel.viewDidLoad()
-    
-         waitForExpectations(timeout: 1.0, handler: nil)
-    }
-    
-
-    
     
 }

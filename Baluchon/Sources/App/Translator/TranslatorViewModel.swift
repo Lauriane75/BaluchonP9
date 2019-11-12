@@ -81,8 +81,6 @@ final class TranslatorViewModel {
 
     var resultLanguageTextButton: ((String) -> Void)?
 
-    var resultTranslationText: ((String) -> Void)?
-
     var nextScreen: ((NextScreen) -> Void)?
 
     // MARK: - Inputs

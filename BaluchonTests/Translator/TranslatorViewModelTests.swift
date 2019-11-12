@@ -211,7 +211,6 @@ final class TranslatorViewModelTests: XCTestCase {
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     
-    
     func test_GivenViewModelWithNoService_WhenViewDidLoadThenAlertError() {
         let mockRepository = MockTranslatorRepository()
         let mockDelegate = MockTranslatorViewModelDelegate()
