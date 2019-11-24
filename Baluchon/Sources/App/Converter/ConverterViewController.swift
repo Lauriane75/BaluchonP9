@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConverterViewController: UIViewController, CurrencyPickerDelegate {
+class ConverterViewController: UIViewController {
 
     // MARK: - Outlets
 
@@ -23,35 +23,29 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
 
     var viewModel: ConverterViewModel!
 
-    private var requestDataSource = CurrencyPickerDataSource()
-    private var resultDataSource = CurrencyPickerDataSource()
+    private var requestDataSource = RequestPickerViewDataSource()
+    private var resultDataSource = ResultPickerViewDataSource()
 
     // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        requestDataSource.delegate = self
         requestPickerView.dataSource = requestDataSource
         requestPickerView.delegate = requestDataSource
 
-        resultDataSource.delegate = self
         resultPickerView.dataSource = resultDataSource
         resultPickerView.delegate = resultDataSource
         
         bind(to: viewModel)
+        bind(to: requestDataSource)
+        bind(to: resultDataSource)
 
         viewModel.viewDidLoad()
 
         cornerRadiusSettings()
 
     }
-
-    func didSelectItemPickerView(for pickerView: UIPickerView, at row: Int) {
-        viewModel.didSelectCurrency(at: row, for: pickerView == requestPickerView ? .request : .result)
-    }
-
-    // MARK: - Private Functions
 
     private func bind(to viewModel: ConverterViewModel) {
         
@@ -65,20 +59,24 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
                 self?.initialValuetextField.placeholder = text
             }
         }
-        viewModel.visibleRates = { [weak self] rates in
-                DispatchQueue.main.async {
+        viewModel.visibleRequestCurrencyName = { [weak self] rates in
+               DispatchQueue.main.async {
                 self?.requestDataSource.update(with: rates)
                 self?.requestPickerView.reloadAllComponents()
+            }
+        }
+        viewModel.visibleResultCurrencyName = { [weak self] rates in
+                DispatchQueue.main.async {
                 self?.resultDataSource.update(with: rates)
                 self?.resultPickerView.reloadAllComponents()
             }
         }
-        viewModel.selectedRequestRateValueText = { [weak self] text in
+        viewModel.selectedRequestRateValue = { [weak self] text in
                 DispatchQueue.main.async {
                 self?.selectedRequestRateValueLabel.text = text
             }
         }
-        viewModel.selectedResultRateValueText = { [weak self] text in
+        viewModel.selectedResultRateValue = { [weak self] text in
                 DispatchQueue.main.async {
                 self?.selectedResultRateValueLabel.text = text
             }
@@ -97,6 +95,15 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
             }
         }
 }
+    
+    private func bind(to dataSource: RequestPickerViewDataSource) {
+        dataSource.didSelectItemAt = viewModel.didSelectRequestRate
+   
+      }
+
+    private func bind(to dataSource: ResultPickerViewDataSource) {
+        dataSource.didSelectItemAt = viewModel.didSelectResultRate
+      }
 
     fileprivate func cornerRadiusSettings() {
         resultValueLabel.layer.cornerRadius = 20
@@ -120,3 +127,13 @@ class ConverterViewController: UIViewController, CurrencyPickerDelegate {
     }
 
 }
+
+//    func didSelectItemPickerView(for pickerView: UIPickerView, at row: Int) {
+//        viewModel.didSelectCurrency(at: row, for: pickerView == requestPickerView ? .request : .result)
+//    }
+
+    // MARK: - Private Functions
+
+//    private func bind(to source: CurrencyPickerDataSource) {
+////        source.didSelectItemAt = viewModel.
+//    }

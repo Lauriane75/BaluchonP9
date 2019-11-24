@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class WeatherSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class WeatherDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     typealias Item = WeatherViewModel.Item
 

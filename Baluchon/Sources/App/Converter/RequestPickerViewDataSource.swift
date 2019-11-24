@@ -8,11 +8,7 @@
 
 import UIKit
 
-protocol CurrencyPickerDelegate: class {
-    func didSelectItemPickerView(for pickerView: UIPickerView, at row: Int)
-}
-
-final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+final class RequestPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - Properties
 
@@ -21,8 +17,6 @@ final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerVi
     var name: String = ""
 
     var frenchName: String = ""
-
-    weak var delegate: CurrencyPickerDelegate?
 
     // MARK: - Public
 
@@ -44,7 +38,6 @@ final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        delegate?.didSelectItemPickerView(for: pickerView, at: row)
 
         name = items[row]
 
@@ -61,9 +54,8 @@ final class CurrencyPickerDataSource: NSObject, UIPickerViewDelegate, UIPickerVi
 
     // MARK: - UIPickerViewDelegate
 
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int, name: String) {
-        delegate?.didSelectItemPickerView(for: pickerView, at: row)
-
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {        
+        didSelectItemAt?(row)
     }
 
     // MARK: - Private Functions

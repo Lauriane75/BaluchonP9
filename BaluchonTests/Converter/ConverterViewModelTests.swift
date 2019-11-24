@@ -39,10 +39,10 @@ final class ConverterViewModelTests: XCTestCase {
         let mockConverterRepository = MockConverterRepository()
         let viewModel = ConverterViewModel(repository: mockConverterRepository)
         
-        let expectation = self.expectation(description: "textFieldPlaceHolder should return Entrez une valeur à convertir")
+        let expectation = self.expectation(description: "textFieldPlaceHolder should return Entrez une valeur à convertir et swipez votre devise")
 
         viewModel.placeHolderTextField = { text in
-            XCTAssertEqual(text, "Entrez une valeur à convertir")
+            XCTAssertEqual(text, "Entrez une valeur à convertir et swipez votre devise")
             expectation.fulfill()
         }
 
@@ -60,7 +60,7 @@ final class ConverterViewModelTests: XCTestCase {
             let expectation = self.expectation(description: "selectedRequestRateValueText should return 1.0")
 
       
-            viewModel.selectedRequestRateValueText = { text in
+            viewModel.selectedRequestRateValue = { text in
                 XCTAssertEqual(text, "1.0")
                 expectation.fulfill()
             }
@@ -77,7 +77,7 @@ final class ConverterViewModelTests: XCTestCase {
 
                 let expectation = self.expectation(description: "selectedResultRateValueText should return 1.0")
            
-                viewModel.selectedResultRateValueText = { text in
+                viewModel.selectedResultRateValue = { text in
                     XCTAssertEqual(text, "1.0")
                     expectation.fulfill()
                 }

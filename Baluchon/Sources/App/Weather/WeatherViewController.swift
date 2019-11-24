@@ -20,7 +20,7 @@ class WeatherViewController: UIViewController {
 
     weak var delegate: WeatherViewControllerDelegate?
 
-    private var source = WeatherSource()
+    private var source = WeatherDataSource()
 
     // MARK: - View life cycle
 

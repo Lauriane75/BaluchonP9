@@ -25,11 +25,6 @@
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0t-WB-zxL">
                                                 <rect key="frame" x="0.0" y="83" width="100" height="34"/>
                                                 <color key="backgroundColor" red="0.33919420838356018" green="0.53422820568084717" blue="0.57863390445709229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="9ul-ox-QvN">
-                                                        <variation key="heightClass=regular-widthClass=regular" constant="70"/>
-                                                    </constraint>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Français">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,11 +48,6 @@
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDZ-dN-2hA">
                                                 <rect key="frame" x="200" y="83" width="100" height="34"/>
                                                 <color key="backgroundColor" red="0.37319283349999999" green="0.53368731940000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="9BO-To-BjG">
-                                                        <variation key="heightClass=regular-widthClass=regular" constant="70"/>
-                                                    </constraint>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Anglais">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
