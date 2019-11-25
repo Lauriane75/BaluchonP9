@@ -9,9 +9,7 @@
 import Foundation
 
 struct Currency: Codable {
-//    let success = true
-//    let timestamp = 1571841846
     let base = "EUR"
-    let date: String
+//    let date: String
     let rates: [String: Double]
 }

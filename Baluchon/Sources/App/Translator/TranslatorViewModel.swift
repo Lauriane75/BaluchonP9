@@ -116,8 +116,7 @@ final class TranslatorViewModel {
         requestTranslationText.removeAll()
     }
 
-
-    func showTranslation(with requestText: String?, and resultText: String?) {
+    private func showTranslation(with requestText: String?, and resultText: String?) {
         guard language.count == 2 else {return}
 
         if let requestText = requestText {

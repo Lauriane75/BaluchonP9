@@ -32,7 +32,6 @@ final class HTTPEngine {
                 callback(data, nil, URLSessionEngineError.invalidURLResponseType)
             }
         }
-
         task.resume()
         token.willDealocate = {
             task.cancel()

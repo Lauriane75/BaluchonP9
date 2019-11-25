@@ -57,7 +57,7 @@ final class SelectLanguageViewModel {
     private class func initialItems(from languages: [Language]) -> [LanguageItem] {
         return languages.map {
             return .language(LanguageConfiguration(nameLanguage: $0.value,
-                                                            ISOCode: $0.key))
+                                                   ISOCode: $0.key))
         }
     }
     
@@ -66,7 +66,6 @@ final class SelectLanguageViewModel {
     var visibleItems: (([ItemLabel]) -> Void)?
     
     var nextScreen: ((NextScreen) -> Void)?
-
     
     // MARK: - Inputs
     

@@ -69,35 +69,34 @@ final class WeatherViewModel {
             self.weatherItems = WeatherViewModel.self.initialize(parisWeather, newYorkWeather, nantesWeather, bordeauxWeather, lyonWeather, losAngelesWeather, chicagoWeather, houstonWeather)
             }
         }, error: { [weak self] in
-                self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+            self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
         })
                 
         }, error: { [weak self] in
             self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
         })
         }, error: { [weak self] in
-        self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+            self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
         })
         }, error: { [weak self] in
-        self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+            self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
         })
         }, error: { [weak self] in
-        self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+            self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
         })
         }, error: { [weak self] in
-        self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+            self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
         })
         }, error: { [weak self] in
-        self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+            self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
         })
         }, error: { [weak self] in
-        self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+            self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
         })
     }
 
     
     // MARK: - Private Files
-        
         
     private static func initialize(_ weather1: Weather, _ weather2: Weather, _ weather3: Weather, _ weather4: Weather, _ weather5: Weather, _ weather6: Weather, _ weather7: Weather, _ weather8: Weather) -> [WeatherItem] {
         var weatherItems: [WeatherItem] = []

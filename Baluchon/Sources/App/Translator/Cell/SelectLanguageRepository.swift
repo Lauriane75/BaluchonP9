@@ -20,11 +20,11 @@ protocol SelectLanguageRepositoryType: class {
 
 final class SelectLanguageRepository: SelectLanguageRepositoryType {
     
-      // MARK: - Properties
+    // MARK: - Properties
     
     private var translator: SwiftGoogleTranslate
 
-     // MARK: - Initializer
+    // MARK: - Initializer
     
     init() {
         translator = SwiftGoogleTranslate.shared

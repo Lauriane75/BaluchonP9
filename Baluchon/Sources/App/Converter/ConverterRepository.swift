@@ -32,7 +32,7 @@ final class ConverterRepository: ConverterRepositoryType {
         let url = URL(string: urlString)!
         client.request(type: Currency.self, requestType: .GET, url: url, cancelledBy: token) { currency in
 
-            callback(currency)
+        callback(currency)
         }
     }
 

@@ -44,7 +44,6 @@ extension Screens {
 protocol TranslatorViewControllerDelegate: class {
 }
 
-
 extension Screens {
     func createTranslatorViewController(with translationType: TranslationType, repository: TranslatorRepository, delegate: TranslatorViewModelDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "TranslatorViewController") as! TranslatorViewController

@@ -18,11 +18,13 @@ class ConverterViewController: UIViewController {
     @IBOutlet private weak var resultPickerView: UIPickerView!
     @IBOutlet private weak var selectedRequestRateValueLabel: UILabel!
     @IBOutlet weak var selectedResultRateValueLabel: UILabel!
-
+    
     // MARK: - Properties
-
+    
     var viewModel: ConverterViewModel!
 
+    // MARK: - Private properties
+    
     private var requestDataSource = RequestPickerViewDataSource()
     private var resultDataSource = ResultPickerViewDataSource()
 
@@ -42,13 +44,13 @@ class ConverterViewController: UIViewController {
         bind(to: resultDataSource)
 
         viewModel.viewDidLoad()
-
-        cornerRadiusSettings()
-
+        
+        elementsCustomCornerRadius()
+        
+        initialValuetextField.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.green ])
     }
 
     private func bind(to viewModel: ConverterViewModel) {
-        
         viewModel.initialValuetextField = { [weak self] text in
                 DispatchQueue.main.async {
                 self?.initialValuetextField.text = text
@@ -91,21 +93,20 @@ class ConverterViewController: UIViewController {
             guard let self = self else { return }
             if case .alert(title: let title, message: let message) = screen {
             AlertPresenter().presentAlert(on: self, with: title, message: message)
-                }
             }
         }
+    }
 }
     
     private func bind(to dataSource: RequestPickerViewDataSource) {
         dataSource.didSelectItemAt = viewModel.didSelectRequestRate
-   
       }
 
     private func bind(to dataSource: ResultPickerViewDataSource) {
         dataSource.didSelectItemAt = viewModel.didSelectResultRate
       }
 
-    fileprivate func cornerRadiusSettings() {
+    private func elementsCustomCornerRadius() {
         resultValueLabel.layer.cornerRadius = 20
         requestPickerView.layer.cornerRadius = 20
         resultPickerView.layer.cornerRadius = 20
@@ -125,15 +126,5 @@ class ConverterViewController: UIViewController {
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         initialValuetextField.resignFirstResponder()
     }
-
 }
 
-//    func didSelectItemPickerView(for pickerView: UIPickerView, at row: Int) {
-//        viewModel.didSelectCurrency(at: row, for: pickerView == requestPickerView ? .request : .result)
-//    }
-
-    // MARK: - Private Functions
-
-//    private func bind(to source: CurrencyPickerDataSource) {
-////        source.didSelectItemAt = viewModel.
-//    }

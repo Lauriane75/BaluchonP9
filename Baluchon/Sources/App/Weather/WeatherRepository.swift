@@ -35,7 +35,6 @@ final class WeatherRepository: WeatherRepositoryType {
             callback(weather)
         }
     }
-
 }
 
 enum City: String {

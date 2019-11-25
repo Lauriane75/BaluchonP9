@@ -15,10 +15,8 @@ class TranslatorViewController: UIViewController {
     @IBOutlet weak var requestLanguageButton: UIButton!
     @IBOutlet weak var arrowTranslateButton: UIButton!
     @IBOutlet weak var resultLanguageButton: UIButton!
-
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var requestTextField: UITextField!
-
     @IBOutlet weak var resultArrowButton: UIButton!
     @IBOutlet weak var resultTranslationLabel: UILabel!
 
@@ -36,7 +34,7 @@ class TranslatorViewController: UIViewController {
         bind(to: viewModel)
         viewModel.viewDidLoad()
         
-        elementCustom()
+        elementsCustom()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
         
@@ -108,10 +106,12 @@ class TranslatorViewController: UIViewController {
     
     // MARK: - Private Files
 
-    fileprivate func elementCustom() {
+    fileprivate func elementsCustom() {
         requestLanguageButton.layer.cornerRadius = 15
         resultLanguageButton.layer.cornerRadius = 15
-        requestTextField.attributedPlaceholder = NSAttributedString(string: "Entrez votre texte", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "UITabBar.item.tintColor") ?? 0])
+        requestTextField.attributedPlaceholder = NSAttributedString(string:
+            "Entrez votre texte", attributes:
+            [NSAttributedString.Key.foregroundColor: UIColor(named: "UITabBar.item.tintColor") ?? 0])
        }
     
     @objc private func hideKeyBoard() {

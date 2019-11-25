@@ -14,14 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var appCoordinator: AppCoordinator?
     var context: Context!
-//    var client: HTTPClient
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let client = HTTPClient()
         context = Context(client: client)
         appCoordinator = AppCoordinator(appDelegate: self, context: context)
         appCoordinator?.start()
-        
 
         return true
     }

@@ -14,9 +14,12 @@ final class SelectLanguagesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    // MARK: - Privates var
+    // MARK: - Properties
+
     var viewModel: SelectLanguageViewModel!
     
+    // MARK: - Private properties
+        
     private let dataSource = SelectLanguageDataSource()
     
     // MARK: - View life cycle
@@ -52,6 +55,5 @@ final class SelectLanguagesViewController: UIViewController {
                 }
             }
         }
-        
     }
 }
