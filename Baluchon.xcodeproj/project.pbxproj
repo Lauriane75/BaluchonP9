@@ -48,7 +48,19 @@
 		F6D4628323706FA50042F210 /* SelectLanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4628223706FA50042F210 /* SelectLanguageTableViewCell.swift */; };
 		F6DA24992373243A00B74C32 /* TranslatorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA24982373243A00B74C32 /* TranslatorViewModelTests.swift */; };
 		F6DA249B2373245200B74C32 /* ConverterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA249A2373245200B74C32 /* ConverterViewModelTests.swift */; };
-		F6F418C8238C0A8400FD82E6 /* BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418C7238C0A8400FD82E6 /* BaluchonUITests.swift */; };
+		F6F418D4238C0B6800FD82E6 /* AppStarting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418D3238C0B6800FD82E6 /* AppStarting.swift */; };
+		F6F418D6238C0B8A00FD82E6 /* UITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418D5238C0B8A00FD82E6 /* UITestCase.swift */; };
+		F6F418D8238C0BA100FD82E6 /* RootViewStarting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418D7238C0BA100FD82E6 /* RootViewStarting.swift */; };
+		F6F418DA238C0BD000FD82E6 /* StartUpConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418D9238C0BD000FD82E6 /* StartUpConfigurable.swift */; };
+		F6F418DC238C0C1800FD82E6 /* WeatherViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418DB238C0C1800FD82E6 /* WeatherViewUITests.swift */; };
+		F6F418DE238C0C2C00FD82E6 /* TranslatorViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418DD238C0C2C00FD82E6 /* TranslatorViewUITests.swift */; };
+		F6F418E1238C0C4700FD82E6 /* LanguagesViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418E0238C0C4700FD82E6 /* LanguagesViewUITests.swift */; };
+		F6F418E3238C0C5700FD82E6 /* ConverterViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418E2238C0C5700FD82E6 /* ConverterViewUITests.swift */; };
+		F6F418E5238C0C9500FD82E6 /* WeatherViewVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418E4238C0C9500FD82E6 /* WeatherViewVerifying.swift */; };
+		F6F418E7238C0CF200FD82E6 /* TranslatorViewVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418E6238C0CF200FD82E6 /* TranslatorViewVerifying.swift */; };
+		F6F418E9238C0D1900FD82E6 /* LanguageViewVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418E8238C0D1900FD82E6 /* LanguageViewVerifying.swift */; };
+		F6F418EB238C0D4400FD82E6 /* ConverterViewVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418EA238C0D4400FD82E6 /* ConverterViewVerifying.swift */; };
+		F6F418EE238C0EA700FD82E6 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F418ED238C0EA700FD82E6 /* Accessibility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,8 +130,20 @@
 		F6DA24982373243A00B74C32 /* TranslatorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewModelTests.swift; sourceTree = "<group>"; };
 		F6DA249A2373245200B74C32 /* ConverterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModelTests.swift; sourceTree = "<group>"; };
 		F6F418C5238C0A8400FD82E6 /* BaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6F418C7238C0A8400FD82E6 /* BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITests.swift; sourceTree = "<group>"; };
 		F6F418C9238C0A8400FD82E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6F418D3238C0B6800FD82E6 /* AppStarting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStarting.swift; sourceTree = "<group>"; };
+		F6F418D5238C0B8A00FD82E6 /* UITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestCase.swift; sourceTree = "<group>"; };
+		F6F418D7238C0BA100FD82E6 /* RootViewStarting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewStarting.swift; sourceTree = "<group>"; };
+		F6F418D9238C0BD000FD82E6 /* StartUpConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpConfigurable.swift; sourceTree = "<group>"; };
+		F6F418DB238C0C1800FD82E6 /* WeatherViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewUITests.swift; sourceTree = "<group>"; };
+		F6F418DD238C0C2C00FD82E6 /* TranslatorViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewUITests.swift; sourceTree = "<group>"; };
+		F6F418E0238C0C4700FD82E6 /* LanguagesViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewUITests.swift; sourceTree = "<group>"; };
+		F6F418E2238C0C5700FD82E6 /* ConverterViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewUITests.swift; sourceTree = "<group>"; };
+		F6F418E4238C0C9500FD82E6 /* WeatherViewVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewVerifying.swift; sourceTree = "<group>"; };
+		F6F418E6238C0CF200FD82E6 /* TranslatorViewVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewVerifying.swift; sourceTree = "<group>"; };
+		F6F418E8238C0D1900FD82E6 /* LanguageViewVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewVerifying.swift; sourceTree = "<group>"; };
+		F6F418EA238C0D4400FD82E6 /* ConverterViewVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewVerifying.swift; sourceTree = "<group>"; };
+		F6F418ED238C0EA700FD82E6 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		FA3B535017FB9B9D9B9DCD3A /* Pods-BaluchonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaluchonTests.debug.xcconfig"; path = "Target Support Files/Pods-BaluchonTests/Pods-BaluchonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC34E1A418BF1B942D3DA5AC /* Pods-BaluchonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaluchonTests.release.xcconfig"; path = "Target Support Files/Pods-BaluchonTests/Pods-BaluchonTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -380,10 +404,70 @@
 		F6F418C6238C0A8400FD82E6 /* BaluchonUITests */ = {
 			isa = PBXGroup;
 			children = (
-				F6F418C7238C0A8400FD82E6 /* BaluchonUITests.swift */,
+				F6F418D0238C0B3F00FD82E6 /* Weather */,
+				F6F418D1238C0B4400FD82E6 /* Converter */,
+				F6F418D2238C0B4E00FD82E6 /* Translator */,
+				F6F418CF238C0B3300FD82E6 /* Starting */,
 				F6F418C9238C0A8400FD82E6 /* Info.plist */,
 			);
 			path = BaluchonUITests;
+			sourceTree = "<group>";
+		};
+		F6F418CF238C0B3300FD82E6 /* Starting */ = {
+			isa = PBXGroup;
+			children = (
+				F6F418EC238C0E9A00FD82E6 /* Accessibility */,
+				F6F418D3238C0B6800FD82E6 /* AppStarting.swift */,
+				F6F418D5238C0B8A00FD82E6 /* UITestCase.swift */,
+				F6F418D7238C0BA100FD82E6 /* RootViewStarting.swift */,
+				F6F418D9238C0BD000FD82E6 /* StartUpConfigurable.swift */,
+			);
+			path = Starting;
+			sourceTree = "<group>";
+		};
+		F6F418D0238C0B3F00FD82E6 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				F6F418DB238C0C1800FD82E6 /* WeatherViewUITests.swift */,
+				F6F418E4238C0C9500FD82E6 /* WeatherViewVerifying.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		F6F418D1238C0B4400FD82E6 /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				F6F418E2238C0C5700FD82E6 /* ConverterViewUITests.swift */,
+				F6F418EA238C0D4400FD82E6 /* ConverterViewVerifying.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		F6F418D2238C0B4E00FD82E6 /* Translator */ = {
+			isa = PBXGroup;
+			children = (
+				F6F418DD238C0C2C00FD82E6 /* TranslatorViewUITests.swift */,
+				F6F418E6238C0CF200FD82E6 /* TranslatorViewVerifying.swift */,
+				F6F418DF238C0C3100FD82E6 /* Languages */,
+			);
+			path = Translator;
+			sourceTree = "<group>";
+		};
+		F6F418DF238C0C3100FD82E6 /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				F6F418E0238C0C4700FD82E6 /* LanguagesViewUITests.swift */,
+				F6F418E8238C0D1900FD82E6 /* LanguageViewVerifying.swift */,
+			);
+			path = Languages;
+			sourceTree = "<group>";
+		};
+		F6F418EC238C0E9A00FD82E6 /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				F6F418ED238C0EA700FD82E6 /* Accessibility.swift */,
+			);
+			path = Accessibility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -635,7 +719,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6F418C8238C0A8400FD82E6 /* BaluchonUITests.swift in Sources */,
+				F6F418E7238C0CF200FD82E6 /* TranslatorViewVerifying.swift in Sources */,
+				F6F418E1238C0C4700FD82E6 /* LanguagesViewUITests.swift in Sources */,
+				F6F418EE238C0EA700FD82E6 /* Accessibility.swift in Sources */,
+				F6F418E3238C0C5700FD82E6 /* ConverterViewUITests.swift in Sources */,
+				F6F418DC238C0C1800FD82E6 /* WeatherViewUITests.swift in Sources */,
+				F6F418D8238C0BA100FD82E6 /* RootViewStarting.swift in Sources */,
+				F6F418DA238C0BD000FD82E6 /* StartUpConfigurable.swift in Sources */,
+				F6F418E5238C0C9500FD82E6 /* WeatherViewVerifying.swift in Sources */,
+				F6F418D4238C0B6800FD82E6 /* AppStarting.swift in Sources */,
+				F6F418E9238C0D1900FD82E6 /* LanguageViewVerifying.swift in Sources */,
+				F6F418EB238C0D4400FD82E6 /* ConverterViewVerifying.swift in Sources */,
+				F6F418DE238C0C2C00FD82E6 /* TranslatorViewUITests.swift in Sources */,
+				F6F418D6238C0B8A00FD82E6 /* UITestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

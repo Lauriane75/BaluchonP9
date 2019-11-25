@@ -14,9 +14,9 @@ final class MockConverterRepository: ConverterRepositoryType {
         callback(Currency(rates: ["EUR" : 1.0]))
     }
     var currency: Currency!
+    var isSuccess = true
 
 }
-
 
 final class ConverterViewModelTests: XCTestCase {
     
@@ -128,6 +128,27 @@ final class ConverterViewModelTests: XCTestCase {
             viewModel.didTapInitialValuetextField(valueFromTextField: 10)
             waitForExpectations(timeout: 1.0, handler: nil)
     }
+    
+//    func test_GivenViewModelWithNoService_WhenViewDidLoadThenAlertError() {
+//        let mockConverterRepository = MockConverterRepository()
+//        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+//
+//        let expectation = self.expectation(description: "No service connection")
+//
+//        mockConverterRepository.isSuccess = false
+//
+//        viewModel.nextScreen = { screen in
+//            XCTAssertEqual(screen, .alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+//            expectation.fulfill()
+//        }
+//
+//        viewModel.viewDidLoad()
+//
+////        viewModel.didTapInitialValuetextField(valueFromTextField: 10)
+//
+//        waitForExpectations(timeout: 1.0, handler: nil)
+//      }
+    
 //    
 //    func test_GivenConverterViewModel_WhenDidSelectRequestRateThenSelectedRequestRateValueIsCorrectyReturned() {
 //        let mockConverterRepository = MockConverterRepository()
