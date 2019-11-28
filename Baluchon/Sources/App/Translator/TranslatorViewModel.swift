@@ -38,7 +38,7 @@ final class TranslatorViewModel {
 
     private var requestTranslationText = "" {
         didSet {
-            requestText?(requestTranslationText)
+            requestPlaceHolderTextField?(requestTranslationText)
         }
     }
 
@@ -46,7 +46,7 @@ final class TranslatorViewModel {
         didSet {
             let origin = self.language[0]
             requestLanguageTextButton?(origin.nameLanguage)
-            requestText?(origin.text)
+            requestTextField?(origin.text)
             let destination = self.language[1]
             resultLanguageTextButton?(destination.nameLanguage)
             resultText?(destination.text)
@@ -62,20 +62,26 @@ final class TranslatorViewModel {
     }
 
     private func initializeLanguage(with parameter: TranslationType) -> [LanguageParameters] {
-        return [LanguageParameters(nameLanguage: parameter.initialLanguage.nameLanguage, ISOCode: parameter.initialLanguage.ISOCode, text: parameter.initialLanguage.text),
-                LanguageParameters(nameLanguage: parameter.destinationLanguage.nameLanguage, ISOCode: parameter.destinationLanguage.ISOCode, text: parameter.destinationLanguage.text)
+        return [LanguageParameters(nameLanguage:parameter.initialLanguage.nameLanguage,
+                                ISOCode: parameter.initialLanguage.ISOCode,
+                                text: parameter.initialLanguage.text),
+            LanguageParameters(nameLanguage: parameter.destinationLanguage.nameLanguage,
+                               ISOCode:parameter.destinationLanguage.ISOCode,
+                               text: parameter.destinationLanguage.text)
         ]
     }
 
     // MARK: - Outputs
-
-    var requestText: ((String) -> Void)?
-
-    var resultText: ((String) -> Void)?
-
+    
     var requestLanguageTextButton: ((String) -> Void)?
 
     var resultLanguageTextButton: ((String) -> Void)?
+    
+    var requestPlaceHolderTextField: ((String) -> Void)?
+
+    var requestTextField: ((String) -> Void)?
+
+    var resultText: ((String) -> Void)?
 
     var nextScreen: ((NextScreen) -> Void)?
 

@@ -41,6 +41,8 @@ class TranslatorViewController: UIViewController {
         view.addGestureRecognizer(tap)
 
         settingNotificationCenter()
+        
+//        requestTextField.placeholder = "Que voulez-vous traduire ?"
     }
     
     deinit {
@@ -50,7 +52,7 @@ class TranslatorViewController: UIViewController {
     }
 
     private func bind(to viewModel: TranslatorViewModel) {
-        viewModel.requestText = { [weak self] text in
+        viewModel.requestTextField = { [weak self] text in
             DispatchQueue.main.async {
             self?.requestTextField.text = text
             }
@@ -87,7 +89,7 @@ class TranslatorViewController: UIViewController {
         viewModel.didPressTranslatButton(for: requestTextField.text!)
     }
     @IBAction func didTapRequestTextField(_ sender: Any) {
-        let text = requestTextField.text
+        guard let text = self.requestTextField.text else { return }
         viewModel.didTapRequestTextField(text: text)
     }
 
@@ -110,8 +112,8 @@ class TranslatorViewController: UIViewController {
         requestLanguageButton.layer.cornerRadius = 15
         resultLanguageButton.layer.cornerRadius = 15
         requestTextField.attributedPlaceholder = NSAttributedString(string:
-            "Entrez votre texte", attributes:
-            [NSAttributedString.Key.foregroundColor: UIColor(named: "UITabBar.item.tintColor") ?? 0])
+            "Que voulez-vous traduire ?", attributes:
+            [NSAttributedString.Key.foregroundColor: UIColor(named: "Translator-placeHolder") ?? 0])
        }
     
     @objc private func hideKeyBoard() {

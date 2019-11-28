@@ -49,7 +49,7 @@ final class TranslatorViewModelTests: XCTestCase {
         let expectation4 = self.expectation(description: "Returned Text Language")
         
         
-        viewModel.requestText = { text in
+        viewModel.requestPlaceHolderTextField = { text in
             XCTAssertEqual(text, "")
             expectation1.fulfill()
         }

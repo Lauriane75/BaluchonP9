@@ -12,6 +12,7 @@ class ConverterViewController: UIViewController {
 
     // MARK: - Outlets
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private weak var initialValuetextField: UITextField!
     @IBOutlet private weak var resultValueLabel: UILabel!
     @IBOutlet private weak var requestPickerView: UIPickerView!
@@ -51,6 +52,9 @@ class ConverterViewController: UIViewController {
     }
 
     private func bind(to viewModel: ConverterViewModel) {
+        viewModel.titleLabel = { [weak self] text in
+            self?.titleLabel.text = text
+        }
         viewModel.initialValuetextField = { [weak self] text in
                 DispatchQueue.main.async {
                 self?.initialValuetextField.text = text

@@ -34,6 +34,8 @@ final class ConverterViewModel {
     }
 
     // MARK: - Outputs
+    
+    var titleLabel: ((String) -> Void)?
 
     var resultText: ((String) -> Void)?
 
@@ -81,8 +83,9 @@ final class ConverterViewModel {
     // MARK: - Inputs
 
     func viewDidLoad() {
+        self.titleLabel?("Entrez une valeur à convertir et swipez votre devise")
         self.resultText?("0.0 €")
-        self.placeHolderTextField?("Entrez une valeur à convertir et swipez votre devise")
+        self.placeHolderTextField?("Exemple : 100")
         repository.getCurrency(callback: { [weak self] currency in
             self?.initRequestRates(from: currency)
             self?.initResultRates(from: currency)
