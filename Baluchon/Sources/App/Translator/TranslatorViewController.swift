@@ -41,8 +41,6 @@ class TranslatorViewController: UIViewController {
         view.addGestureRecognizer(tap)
 
         settingNotificationCenter()
-        
-//        requestTextField.placeholder = "Que voulez-vous traduire ?"
     }
     
     deinit {
@@ -136,10 +134,7 @@ class TranslatorViewController: UIViewController {
     
     @objc private func keyboardWillChange(notification: Notification) {
 
-        guard let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-                else {
-                    return
-                }
+        guard let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as?          NSValue else { return }
         let keyboardRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keyboardRectangle.height
 
@@ -149,6 +144,6 @@ class TranslatorViewController: UIViewController {
         } else {
                 view.frame.origin.y = 0
         }
-      }
+    }
 
 }
