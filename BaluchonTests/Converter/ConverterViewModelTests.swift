@@ -56,7 +56,7 @@ final class ConverterViewModelTests: XCTestCase {
            let expectation = self.expectation(description: "textFieldPlaceHolder should return Entrez une valeur à convertir et swipez votre devise")
 
            viewModel.placeHolderTextField = { text in
-               XCTAssertEqual(text, "Entrez une valeur à convertir et swipez votre devise")
+               XCTAssertEqual(text, "Exemple : 100")
                expectation.fulfill()
            }
 
