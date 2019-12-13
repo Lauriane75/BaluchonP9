@@ -145,7 +145,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2e7-Ae-BUg" secondAttribute="bottom" constant="20" id="6Kv-uk-HQm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2e7-Ae-BUg" secondAttribute="trailing" constant="10" id="bmZ-eh-FYt"/>
@@ -240,9 +240,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QWw-59-VTH">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Pti-1M-qsu">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QWw-59-VTH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.33919420839999997" green="0.53422820569999996" blue="0.57863390449999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityWeatherTableViewCell" rowHeight="233" id="c8e-N0-F98" customClass="CityWeatherTableViewCell" customModule="Baluchon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="233"/>
@@ -319,11 +322,13 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.33919420839999997" green="0.53422820569999996" blue="0.57863390449999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Pti-1M-qsu" firstAttribute="centerX" secondItem="qLB-m0-0Cn" secondAttribute="centerX" id="1Ha-bN-6Je"/>
                             <constraint firstItem="Mbq-4W-2xf" firstAttribute="bottom" secondItem="QWw-59-VTH" secondAttribute="bottom" id="JzA-eF-q7x"/>
                             <constraint firstItem="QWw-59-VTH" firstAttribute="top" secondItem="Mbq-4W-2xf" secondAttribute="top" id="axE-ZC-wI0"/>
                             <constraint firstItem="QWw-59-VTH" firstAttribute="leading" secondItem="Mbq-4W-2xf" secondAttribute="leading" id="bsq-aQ-cll"/>
+                            <constraint firstItem="Pti-1M-qsu" firstAttribute="centerY" secondItem="qLB-m0-0Cn" secondAttribute="centerY" id="gdq-FI-4yW"/>
                             <constraint firstItem="Mbq-4W-2xf" firstAttribute="trailing" secondItem="QWw-59-VTH" secondAttribute="trailing" id="jZZ-Bg-NxX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mbq-4W-2xf"/>
@@ -331,6 +336,7 @@
                     <tabBarItem key="tabBarItem" title="" image="weather-icon" id="wKu-Ge-z0o"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Pti-1M-qsu" id="mSa-Ak-xCk"/>
                         <outlet property="tableView" destination="QWw-59-VTH" id="lh4-8G-v8I"/>
                     </connections>
                 </viewController>

@@ -19,9 +19,9 @@ final class ConverterViewModel {
 
     private let repository: ConverterRepositoryType
 
-    var valueOfRequestPickerView: Double = 0
+    var valueOfRequestPickerView: Double = 1
 
-    var valueOfResultPickerView: Double = 0
+    var valueOfResultPickerView: Double = 1
     
     var currencyOfRequestPickerView: String = ""
     
@@ -87,12 +87,26 @@ final class ConverterViewModel {
         self.resultText?("0.0 €")
         self.placeHolderTextField?("Exemple : 100")
         repository.getCurrency(callback: { [weak self] currency in
-            self?.initRequestRates(from: currency)
-            self?.initResultRates(from: currency)
+            DispatchQueue.main.async {
+                self?.initRequestRates(from: currency)
+                self?.initResultRates(from: currency)
+            }
             }, error: { [weak self] in
+                DispatchQueue.main.async {
             self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+                }
         })
     }
+    
+   /* func getCurrent(completion: @escaping (Swift.Result<Rate, Error>) -> Void) {
+        URLSession.shared.dataTask(with: URL()) { (_, _, error) in
+            if success {
+            completion(Rate())
+            } else {
+                completion(error)
+            }
+        }
+    }*/
 
     func didTapInitialValuetextField(valueFromTextField: Double) {
         let value = valueFromTextField

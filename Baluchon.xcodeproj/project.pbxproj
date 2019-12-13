@@ -284,8 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				D358AD342330CE4300D84FD4 /* WeatherViewController.swift */,
-				D31DCFCC234F92D4008C2910 /* WeatherDataSource.swift */,
 				D387BA9D23325DF5006AE04D /* WeatherViewModel.swift */,
+				D31DCFCC234F92D4008C2910 /* WeatherDataSource.swift */,
 				D387BA9F23325E07006AE04D /* WeatherRepository.swift */,
 				D3658AFD234CF223005CD724 /* Cell */,
 				D3FEC622234505FC0049D91C /* Model */,

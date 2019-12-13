@@ -9,57 +9,86 @@
 import XCTest
 @testable import Baluchon
 
-private final class WeatherRemoteMock {
-    
-    let visibleWeather: [VisibleWeather]
-    
-    init(weathers: [VisibleWeather]) {
-        self.visibleWeather = weathers
-    }
-    
-    func getWeather(completion: ([VisibleWeather]) -> Void) {
-        completion(self.visibleWeather)
-    }
+private final class MockWeatherViewControllerDelegate: WeatherViewControllerDelegate {
 
 }
 
-class WeatherViewModel: UIViewController {
-    var loadWeather: ((([VisibleWeather]) -> Void) -> Void)?
+final class MockWeatherRepository: WeatherRepositoryType {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        loadWeather? { weathers in
-            // Display weathers
-            print(weathers)
+    var isSuccess = true
+    var weather: Weather!
+    
+    func getWeather(for city: City, callback: @escaping (Weather) -> Void, error: @escaping (() -> Void)) {
+        if isSuccess {
+            callback(weather)
+        } else {
+            error()
         }
     }
 }
 
+//final class MockWeatherRepository: WeatherRepositoryType {
+//
+//    var isSuccess = true
+//    var weather: Weather!
+//
+//    func getWeather(for city: City, callback: @escaping (Weather) -> Void, error: @escaping (() -> Void)) {
+//        if isSuccess {
+//            callback(weather)
+////            callback(Weather(weather: [WeatherElement(icon: "804")], main: Main(temp: 5.14, tempMin: 3.89, tempMax: 6.11), name: "Paris"))
+//        } else {
+//            error()
+//        }
+//    }
+//}
 
-private final class MockWeatherViewControllerDelegate: WeatherViewControllerDelegate {
-    
-}
+
 
 final class WeatherViewModelTests: XCTestCase {
+    
     func testWeather_viewDidLoad() {
         
-        let expectedWeathers = [VisibleWeather(cityName: "Paris", temperature: "5.14", iconID: "804", temperatureMax: "6.11", temperatureMin: "3.89"), VisibleWeather(cityName: "Paris", temperature: "5.14", iconID: "804", temperatureMax: "6.11", temperatureMin: "3.89")]
+//        let expectedResult: [WeatherViewModel.Item] = [.weatherElements(weather: VisibleWeather(cityName: "Paris", temperature: "5.14", iconID: "804", temperatureMax: "6.11", temperatureMin: "3.89"))]
         
-        let weatherVM = WeatherViewModel()
-        let weatherMock = WeatherRemoteMock(weathers: expectedWeathers)
-        weatherVM.loadWeather = weatherMock.getWeather
-        
-        let exp = expectation(description: "Wait for weather completion")
-        
-        weatherVM.loadWeather? { receivedWeathers in
-            XCTAssertEqual(expectedWeathers, receivedWeathers)
-            exp.fulfill()
+        let mockRepository = MockWeatherRepository()
+        let viewModel = WeatherViewModel(repository: mockRepository, delegate: nil)
+        let expectation1 = expectation(description: "Wait for weather completion")
+            
+        viewModel.items = { items in
+            
         }
         
-        weatherVM.viewDidLoad()
-        wait(for: [exp], timeout: 1.0)
+        viewModel.viewDidLoad()
+        
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
 }
-    
+
+//final class WeatherViewModelTests: XCTestCase {
+//
+//    func testWeather_viewDidLoad() {
+//
+////        let expectedResult: [WeatherViewModel.Item] = [.weatherElements(weather: VisibleWeather(cityName: "Paris", temperature: "5.14", iconID: "804", temperatureMax: "6.11", temperatureMin: "3.89"))]
+//
+//        let mockWeatherRepository = MockWeatherRepository()
+//        let viewModel = WeatherViewModel(repository: mockWeatherRepository, delegate: nil)
+////        let expectation1 = expectation(description: "Wait for weather completion")
+//
+////        var counter = 0
+//
+//        viewModel.items = { items in
+//
+////            if counter == 1 {
+////                XCTAssertEqual(items, expectedResult)
+////                expectation1.fulfill()
+////            }
+////            counter += 1
+//        }
+//
+//        viewModel.viewDidLoad()
+//
+//        waitForExpectations(timeout: 1, handler: nil)
+//    }
+//}
+
 

@@ -10,12 +10,12 @@ import XCTest
 
 class ConverterViewUITests: UITestCase, RootViewStarting, ConverterViewVerifying {
 
-     func testVerifyingConverterView() {
-           // Show view
-           showConverterView()
-           // Wait
-           converterViewWaitForExistence()
-           // Check view
-           XCTAssertTrue(converterViewExists())
-       }
+//     func testVerifyingConverterView() {
+//           // Show view
+//           showConverterView()
+//           // Wait
+//           converterViewWaitForExistence()
+//           // Check view
+//           XCTAssertTrue(converterViewExists())
+//       }
 }
