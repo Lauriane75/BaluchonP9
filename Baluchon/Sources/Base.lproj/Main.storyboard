@@ -67,9 +67,9 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you want to translate ?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oFB-SX-hsg">
                                                 <rect key="frame" x="0.0" y="0.0" width="270" height="99"/>
-                                                <color key="backgroundColor" red="0.37319283349999999" green="0.53368731940000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.87051171059999999" green="0.87063723800000004" blue="0.87048423289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="didTapRequestTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="LY9-oy-zPL"/>
@@ -367,11 +367,12 @@
                                                             <constraint firstAttribute="height" constant="60" id="V4O-1O-kNO"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="17"/>
-                                                        <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="bx5-02-6li">
                                                         <rect key="frame" x="0.0" y="60" width="280" height="50"/>
+                                                        <color key="backgroundColor" red="0.87051171059999999" green="0.87063723800000004" blue="0.87048423289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="0BZ-IO-9Tt"/>
                                                         </constraints>
@@ -384,7 +385,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="De" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBh-dq-l0j" userLabel="From">
                                                         <rect key="frame" x="0.0" y="110" width="280" height="43"/>
                                                         <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
-                                                        <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -450,7 +451,7 @@
                                                             <constraint firstAttribute="height" constant="50" id="xex-RJ-ro4"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
-                                                        <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ts2-LK-727" userLabel="Picker Bottom Stack View">
@@ -499,7 +500,7 @@
                                                             <constraint firstAttribute="height" constant="60" id="5nW-Pg-Opk"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="20"/>
-                                                        <color key="textColor" red="0.43328565359999999" green="0.86201006170000005" blue="0.59035760159999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" red="0.37319283349999999" green="0.53368731940000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -533,7 +534,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EEL-XY-qCm" firstAttribute="leading" secondItem="R7E-Vx-UaB" secondAttribute="leading" constant="20" id="KXL-hm-oav"/>
                             <constraint firstItem="EEL-XY-qCm" firstAttribute="top" secondItem="R7E-Vx-UaB" secondAttribute="top" constant="20" id="Zu5-5P-bAq"/>

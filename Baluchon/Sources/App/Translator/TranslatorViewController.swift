@@ -109,9 +109,9 @@ class TranslatorViewController: UIViewController {
     fileprivate func elementsCustom() {
         requestLanguageButton.layer.cornerRadius = 15
         resultLanguageButton.layer.cornerRadius = 15
-        requestTextField.attributedPlaceholder = NSAttributedString(string:
-            "Que voulez-vous traduire ?", attributes:
-            [NSAttributedString.Key.foregroundColor: UIColor(named: "Translator-placeHolder") ?? 0])
+//        requestTextField.attributedPlaceholder = NSAttributedString(string:
+//            "Que voulez-vous traduire ?", attributes:
+//            [NSAttributedString.Key.foregroundColor: UIColor(named: "Translator-placeHolder") ?? 0])
        }
     
     @objc private func hideKeyBoard() {
