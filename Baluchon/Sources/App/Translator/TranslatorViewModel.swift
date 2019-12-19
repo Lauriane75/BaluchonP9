@@ -38,7 +38,7 @@ final class TranslatorViewModel {
 
     private var requestTranslationText = "" {
         didSet {
-            requestPlaceHolderTextField?(requestTranslationText)
+            requestTextField?(requestTranslationText)
         }
     }
 
@@ -77,8 +77,6 @@ final class TranslatorViewModel {
 
     var resultLanguageTextButton: ((String) -> Void)?
     
-    var requestPlaceHolderTextField: ((String) -> Void)?
-
     var requestTextField: ((String) -> Void)?
 
     var resultText: ((String) -> Void)?

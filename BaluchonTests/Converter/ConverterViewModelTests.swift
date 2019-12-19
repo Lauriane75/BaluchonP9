@@ -16,132 +16,63 @@ final class MockConverterRepository: ConverterRepositoryType {
     
     func getCurrency(callback: @escaping (Currency) -> Void, error: @escaping (() -> Void)) {
         if isSuccess {
-            callback(Currency(rates: ["EUR" : 1.0]))
+            callback(Currency(date: "2019-12-18", rates: ["EUR" : 1.0]))
         } else {
             error()
         }
     }
-    
 }
 
 final class ConverterViewModelTests: XCTestCase {
     
-    func test_GivenConverterViewModel_WhenViewDidLoad_ThenselectedRequestRateValueIsCorrectlyLoaded() {
-        let mockConverterRepository = MockConverterRepository()
-        let viewModel = ConverterViewModel(repository: mockConverterRepository)
-        let expectation = self.expectation(description: "selectedRequestRateValue should return 1.0")
+    let repository = MockConverterRepository()
+    
+    func test_Given_ConverterViewModel_When_ViewDidLoad_Then_ReactivePropertiesAreDisplayed() {
+        let viewModel = ConverterViewModel(repository: repository)
         
+        viewModel.viewDidLoad()
+        
+        viewModel.titleLabel = { text in
+            XCTAssertEqual(text, "Entrez une valeur à convertir et swipez votre devise")
+        }
         viewModel.selectedRequestRateValue = { text in
             XCTAssertEqual(text, "1.0")
-            expectation.fulfill()
         }
-        viewModel.viewDidLoad()
-        
-        waitForExpectations(timeout: 1, handler: nil)
-    }
-    
-    func test_GivenConverterViewModel_WhenViewDidLoad_ThenselectedResultRateValueIsCorrectlyLoaded() {
-        let mockConverterRepository = MockConverterRepository()
-        let viewModel = ConverterViewModel(repository: mockConverterRepository)
-        
-        let expectation = self.expectation(description: "selectedResultRateValue should return 1.0")
-        
         viewModel.selectedResultRateValue = { text in
             XCTAssertEqual(text, "1.0")
-            expectation.fulfill()
         }
-        viewModel.viewDidLoad()
-        
-        waitForExpectations(timeout: 1, handler: nil)
-    }
-    
-    func test_GivenConverterViewModel_WhenViewDidLoad_ThentextFieldPlaceHolderIsCorrectlyLoaded() {
-        let mockConverterRepository = MockConverterRepository()
-        let viewModel = ConverterViewModel(repository: mockConverterRepository)
-        
-        let expectation = self.expectation(description: "textFieldPlaceHolder should return Entrez une valeur à convertir et swipez votre devise")
-        
         viewModel.placeHolderTextField = { text in
             XCTAssertEqual(text, "Exemple : 100")
-            expectation.fulfill()
         }
-        
-        viewModel.viewDidLoad()
-        
-        waitForExpectations(timeout: 1, handler: nil)
-        
-    }
-    
-    func test_GivenConverterViewModel_WhenViewDidLoad_ThenResultTextIsCorrectlyLoaded() {
-        let mockConverterRepository = MockConverterRepository()
-        let viewModel = ConverterViewModel(repository: mockConverterRepository)
-        
-        
-        let expectation = self.expectation(description: "resultText return 0.0 €")
         viewModel.resultText = { text in
             XCTAssertEqual(text, "0.0 €")
-            expectation.fulfill()
         }
-        
-        viewModel.viewDidLoad()
-        
-        waitForExpectations(timeout: 1, handler: nil)
-        
-    }
-    
-    func test_GivenConverterViewModel_WhenViewDidLoad_ThenVisibleRequestCurrencyNameIsCorrectlyLoaded() {
-        let mockConverterRepository = MockConverterRepository()
-        let viewModel = ConverterViewModel(repository: mockConverterRepository)
-        
-        let expectation = self.expectation(description: "visibleRequestCurrencyName return EUR")
         viewModel.visibleRequestCurrencyName = { text in
             XCTAssertEqual(text, ["EUR"])
-            expectation.fulfill()
         }
-        
-        viewModel.viewDidLoad()
-        
-        waitForExpectations(timeout: 1, handler: nil)
-    }
-    
-    func test_GivenConverterViewModel_WhenViewDidLoad_ThenVisibleResultCurrencyNameIsCorrectlyLoaded() {
-        let mockConverterRepository = MockConverterRepository()
-        let viewModel = ConverterViewModel(repository: mockConverterRepository)
-        
-        let expectation = self.expectation(description: "visibleResultCurrencyName return EUR")
         viewModel.visibleResultCurrencyName = { text in
             XCTAssertEqual(text, ["EUR"])
-            expectation.fulfill()
         }
+    }
+    
+    func test_Given_ConverterViewModel_When_TapAValue_Then_InitialValueTextFieldIsCorrectyReturned() {
+        let viewModel = ConverterViewModel(repository: repository)
         
         viewModel.viewDidLoad()
         
-        waitForExpectations(timeout: 1, handler: nil)
-    }
-    
-    func test_GivenConverterViewModel_WhenTapAValueThenInitialValueTextFieldTextIsCorrectyReturned() {
-        let mockConverterRepository = MockConverterRepository()
-        let viewModel = ConverterViewModel(repository: mockConverterRepository)
-        
-        let expectation = self.expectation(description: "Initial value textField is correctly returned")
+        viewModel.didTapInitialValuetextField(valueFromTextField: 10)
         
         viewModel.initialValuetextField = { initialValue in
             XCTAssertEqual(initialValue, "10.0")
-            expectation.fulfill()
         }
-        
-        viewModel.viewDidLoad()
-        viewModel.didTapInitialValuetextField(valueFromTextField: 10)
-        waitForExpectations(timeout: 1.0, handler: nil)
     }
     
-    func test_GivenViewModelWithNoService_WhenViewDidLoadThenAlertError() {
-        let mockConverterRepository = MockConverterRepository()
-        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+    func test_Given_ViewModelWithNoService_When_ViewDidLoad_Then_AlertError() {
+        let viewModel = ConverterViewModel(repository: repository)
         
         let expectation = self.expectation(description: "No service connection")
         
-        mockConverterRepository.isSuccess = false
+        repository.isSuccess = false
         
         viewModel.nextScreen = { screen in
             XCTAssertEqual(screen, .alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
@@ -153,37 +84,37 @@ final class ConverterViewModelTests: XCTestCase {
     }
     
     
-    func test_GivenConverterViewModel_WhenDidSelectRequestRateThenSelectedRequestRateValueIsCorrectyReturned() {
+    func test_Given_ConverterViewModel_When_DidSelectRequestRate_Then_SelectedRequestRateValueIsCorrectyReturned() {
         let mockConverterRepository = MockConverterRepository()
         let viewModel = ConverterViewModel(repository: mockConverterRepository)
         
-        let expectation = self.expectation(description: "selectedRequestRateValue correctly returned")
+        let expectation = self.expectation(description: "SelectedRequestRateValue Is Correcty Returned")
         
         var counter = 0
         
         viewModel.selectedRequestRateValue = { value in
-            
             if counter == 1 {
                 XCTAssertEqual(value, "Taux de conversion : 1.0")
                 expectation.fulfill()
             }
             counter += 1
-            
         }
         
         viewModel.viewDidLoad()
         
         viewModel.didSelectRequestRate(at: 0)
+        
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     
-    func test_GivenConverterViewModel_WhenDidSelectRequestRateThenSelectedResulttRateValueIsCorrectyReturned() {
+    func test_Given_ConverterViewModel_When_DidSelectRequestRateEUR_Then_SelectedResultRateValueIsCorrectyReturned() {
         let mockConverterRepository = MockConverterRepository()
         let viewModel = ConverterViewModel(repository: mockConverterRepository)
         
-        let expectation = self.expectation(description: "selectedResultRateValue correctly returned")
+        let expectation = self.expectation(description: "SelectedResultRateValue Is Correcty Returned")
         
         var counter = 0
+        
         viewModel.selectedResultRateValue = { value in
             if counter == 1 {
                 XCTAssertEqual(value, "Taux de conversion : 1.0")
@@ -193,58 +124,196 @@ final class ConverterViewModelTests: XCTestCase {
         }
         
         viewModel.viewDidLoad()
-        
         viewModel.didSelectResultRate(at: 0)
         
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     
+//    func test_Given_ConverterViewModel_When_DidSelectRequestRateGBP_Then_SelectedRequestRateValueIsCorrectyReturned() {
+//        let mockConverterRepository = MockConverterRepository()
+//        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+//        
+//        let expectation = self.expectation(description: "SelectedResultRateValue Is Correcty Returned")
+//        var counter = 0
+//        
+//        viewModel.selectedRequestRateValue = { value in
+//            if counter == 1 {
+//                XCTAssertEqual(value, "Taux de conversion : 0.85")
+//                expectation.fulfill()
+//            }
+//            counter += 1
+//        }
+//        
+//        viewModel.viewDidLoad()
+//        
+//        viewModel.didSelectRequestRate(at: 1)
+//        
+//        waitForExpectations(timeout: 1.0, handler: nil)
+//    }
     
-    func test_GivenConverterViewModel_EnterAValueToConvert_ThenTheValueIsConverted() {
+    func test_Given_ConverterViewModel_When_DidSelectRequestRateGBP_Then_SelectedResulttRateValueIsCorrectyReturned() {
         let mockConverterRepository = MockConverterRepository()
         let viewModel = ConverterViewModel(repository: mockConverterRepository)
         
-        let expectation1 = self.expectation(description: "selectedRequestRateValue should return 1.0")
-        let expectation2 = self.expectation(description: "selectedResultRateValue should return 1.0")
-        let expectation3 = self.expectation(description: "resultText should return 10 €")
+        viewModel.viewDidLoad()
+        viewModel.didSelectResultRate(at: 1)
         
-        var counter1 = 0
-        
-        viewModel.selectedRequestRateValue = { text in
-            if counter1 == 1 {
-                XCTAssertEqual(text, "Taux de conversion : 1.0")
-                expectation1.fulfill()
-            }
-            counter1 += 1
+        viewModel.selectedResultRateValue = { value in
+            XCTAssertEqual(value, "Taux de conversion : 0.85")
         }
+    }
+    
+    func test_Given_ConverterViewModel_When_DidSelectRequestRateJPY_Then_SelectedRequestRateValueIsCorrectyReturned() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
         
-        var counter2 = 0
+        viewModel.viewDidLoad()
         
-        viewModel.selectedResultRateValue = { text in
-            if counter2 == 1 {
-            XCTAssertEqual(text, "Taux de conversion : 1.0")
-            expectation2.fulfill()
-            }
-            counter2 += 1
+        viewModel.didSelectRequestRate(at: 2)
+        
+        viewModel.selectedRequestRateValue = { value in
+            XCTAssertEqual(value, "Taux de conversion : 121.84")
         }
+    }
+    
+    func test_Given_ConverterViewModel_When_DidSelectRequestRateJPY_Then_SelectedResulttRateValueIsCorrectyReturned() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
         
-        var counter3 = 0
+        viewModel.viewDidLoad()
+        viewModel.didSelectResultRate(at: 2)
         
-        viewModel.resultText = { text in
-            if counter3 == 1 {
-                XCTAssertEqual(text, "10.0 €")
-                expectation3.fulfill()
-                
-            }
-        counter3 += 1
+        viewModel.selectedResultRateValue = { value in
+            XCTAssertEqual(value, "Taux de conversion : 121.84")
         }
+    }
+    
+    func test_Given_ConverterViewModel_When_DidSelectRequestRateUSD_Then_SelectedRequestRateValueIsCorrectyReturned() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+        
+        viewModel.viewDidLoad()
+        
+        viewModel.didSelectRequestRate(at: 3)
+        
+        viewModel.selectedRequestRateValue = { value in
+            XCTAssertEqual(value, "Taux de conversion : 1.11")
+        }
+    }
+    
+    func test_GivenConverterViewModel_When_DidSelectRequestRateUSD_Then_SelectedResulttRateValueIsCorrectyReturned() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+        
+        viewModel.viewDidLoad()
+        viewModel.didSelectResultRate(at: 3)
+        
+        viewModel.selectedResultRateValue = { value in
+            XCTAssertEqual(value, "Taux de conversion : 1.11")
+        }
+    }
+    
+    func test_Given_RequestRateIsEURAndResultRateIsEUR_When_EnterAValueToConvert_Then_ValueIsConverted() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
         
         viewModel.viewDidLoad()
         viewModel.didTapInitialValuetextField(valueFromTextField: 10)
         viewModel.didSelectRequestRate(at: 0)
         viewModel.didSelectResultRate(at: 0)
         
-        waitForExpectations(timeout: 1, handler: nil)
+        viewModel.resultText = { text in
+            XCTAssertEqual(text, "10.0 €")
+        }
     }
     
+    func test_Given_RequestRateIsGBPAndResultRateIsEUR_When_EnterAValueToConvert_Then_ValueIsConverted() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+        
+        viewModel.viewDidLoad()
+        viewModel.didTapInitialValuetextField(valueFromTextField: 10)
+        viewModel.didSelectRequestRate(at: 1)
+        
+        viewModel.resultText = { text in
+            XCTAssertEqual(text, "11.76 €")
+        }
+    }
+    
+    
+    func test_Given_RequestRateIsEURAndResultRateIsGBP_When_EnterAValueToConvert_Then_ValueIsConverted() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+        
+        viewModel.viewDidLoad()
+        viewModel.didTapInitialValuetextField(valueFromTextField: 10)
+        viewModel.didSelectResultRate(at: 1)
+        
+        viewModel.resultText = { text in
+            XCTAssertEqual(text, "£ 8.5")
+        }
+    }
+    
+    func test_Given_RequestRateIsJPYAndResultRateIsEUR_When_EnterAValueToConvert_Then_ValueIsConverted() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+        
+        viewModel.viewDidLoad()
+        viewModel.didTapInitialValuetextField(valueFromTextField: 10)
+        viewModel.didSelectRequestRate(at: 2)
+        
+        viewModel.resultText = { text in
+            XCTAssertEqual(text, "0.08 €")
+        }
+    }
+    
+    
+    func test_Given_RequestRateIsEURAndResultRateIsJPY_When_EnterAValueToConvert_Then_ValueIsConverted() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+        
+        viewModel.viewDidLoad()
+        viewModel.didTapInitialValuetextField(valueFromTextField: 10)
+        viewModel.didSelectResultRate(at: 2)
+        
+        viewModel.resultText = { text in
+            XCTAssertEqual(text, "1217.9 ¥")
+        }
+    }
+    
+    func test_Given_RequestRateIsUSDAndResultRateIsEUR_When_EnterAValueToConvert_Then_ValueIsConverted() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+        
+        viewModel.viewDidLoad()
+        viewModel.didTapInitialValuetextField(valueFromTextField: 10)
+        viewModel.didSelectRequestRate(at: 3)
+        
+        viewModel.resultText = { text in
+            XCTAssertEqual(text, "9.0 €")
+        }
+    }
+    
+    
+    func test_Given_RequestRateIsEURAndResultRateIsUSD_When_EnterAValueToConvert_Then_ValueIsConverted() {
+        let mockConverterRepository = MockConverterRepository()
+        let viewModel = ConverterViewModel(repository: mockConverterRepository)
+        
+        viewModel.viewDidLoad()
+        viewModel.didTapInitialValuetextField(valueFromTextField: 10)
+        
+        viewModel.initialValuetextField = { text in
+            XCTAssertEqual(text, "10")
+        }
+        
+        viewModel.didSelectResultRate(at: 3)
+        
+        viewModel.selectedResultRateValue = { text in
+            XCTAssertEqual(text, "1.11")
+        }
+        
+        viewModel.resultText = { text in
+            XCTAssertEqual(text, "$ 11.12")
+        }
+    }
 }

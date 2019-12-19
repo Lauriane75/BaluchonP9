@@ -13,27 +13,33 @@ protocol ConverterRepositoryType: class {
 }
 
 final class ConverterRepository: ConverterRepositoryType {
-
+    
     // MARK: - Properties
-
+    
     private let client: HTTPClientType
-
+    
     private let token = RequestCancelationToken()
-
+    
     // MARK: - Initializer
-
+    
     init(client: HTTPClientType) {
         self.client = client
     }
     
     func getCurrency(callback: @escaping (Currency) -> Void, error: @escaping (() -> Void)) {
+        
         let apiKey = "5f3d531bcfe0d265036a1aa20e889301&format=1&base=EUR&symbols=EUR,USD,GBP,JPY"
         let urlString = "http://data.fixer.io/api/latest?access_key=\(apiKey)"
-        let url = URL(string: urlString)!
-        client.request(type: Currency.self, requestType: .GET, url: url, cancelledBy: token) { currency in
-
-        callback(currency)
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        client.request(type: Currency.self, requestType: .GET, url: url, cancelledBy: token) { response in
+            
+            let item: Currency = Currency(date: response.date, rates: response.rates)
+            
+            callback(item)
         }
     }
-
+    
+    
 }

@@ -6,7 +6,7 @@ target 'Baluchon' do
   use_frameworks!
 
 pod 'SwiftGoogleTranslate'
-
+pod 'SwiftLint'
   # Pods for Baluchon
 
   target 'BaluchonTests' do

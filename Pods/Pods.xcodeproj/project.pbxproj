@@ -6,17 +6,29 @@
 	objectVersion = 51;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		01121D1FC673180167C53B91CFE0CD7E /* SwiftGoogleTranslate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF9C786495D1FDEEB61300FDE408F78 /* SwiftGoogleTranslate-dummy.m */; };
-		0C420054DD02D7902E55D38CDD5D7EA3 /* SwiftGoogleTranslate-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB2924AD9C9F7007A8F1775A2231F9E /* SwiftGoogleTranslate-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01121D1FC673180167C53B91CFE0CD7E /* SwiftGoogleTranslate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD958EBD68C9C6CF6CA0C3A34264B68 /* SwiftGoogleTranslate-dummy.m */; };
+		0C420054DD02D7902E55D38CDD5D7EA3 /* SwiftGoogleTranslate-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F127AB5CF8EA13667ADCCCB31C39BBC5 /* SwiftGoogleTranslate-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19F9BA63536357CF0E359A0E77C71334 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		32FB34C6B4F274EB84FB33702EEA52EE /* Pods-BaluchonTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AB78CE9DBA52A4E8F6C0498F176B3227 /* Pods-BaluchonTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54DD2420D0A9BD69B7D4B8A7C1C21D57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		7F52F10204C3F0F0EE77072647191250 /* SwiftGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BAD08079EAD6325D56D5E998F62548 /* SwiftGoogleTranslate.swift */; };
-		B743349292DD3E7C92A76CB9257F18EF /* Pods-Baluchon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E272B225DDE78D21B60FCA375E3145 /* Pods-Baluchon-dummy.m */; };
+		62075D3A5AE08685D757A6F721D024E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		7F52F10204C3F0F0EE77072647191250 /* SwiftGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC911F9E4F85E7D5F6426EBE943CB64C /* SwiftGoogleTranslate.swift */; };
 		CB47821AF0EA8E2788754E80CCB0996C /* Pods-BaluchonTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B1C4536B5521E705B7B0ABBAC5427E /* Pods-BaluchonTests-dummy.m */; };
-		CB7685E00C9E3470ADEAFD888FA8C6B3 /* Pods-Baluchon-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D6014256F070386DD349AA0BFDD4F0 /* Pods-Baluchon-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EEA19E974647FF2659C7F99F9A78AFED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		D84F8241B6B2D68B946E74790E2397F7 /* Pods-Baluchon-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D6014256F070386DD349AA0BFDD4F0 /* Pods-Baluchon-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EAB27BA7A43F826E76B1A230FCA73495 /* Pods-Baluchon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E272B225DDE78D21B60FCA375E3145 /* Pods-Baluchon-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,53 +39,61 @@
 			remoteGlobalIDString = CE073E95002D49E4659B8D01022F4D92;
 			remoteInfo = "Pods-Baluchon";
 		};
-		46B4D3ADFD0E2D0EFC57A47ECD6AF573 /* PBXContainerItemProxy */ = {
+		91F5B702984C57FAC37E568ECBB1C67C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CBDEC8A4DA7B5EB8EBE537B9C369D098;
 			remoteInfo = SwiftGoogleTranslate;
 		};
+		C226ED26C643F956A807FD971DCCE04F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09DBED9BA64432726F3C1966576788FA /* SwiftGoogleTranslate-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGoogleTranslate-prefix.pch"; sourceTree = "<group>"; };
 		24D6014256F070386DD349AA0BFDD4F0 /* Pods-Baluchon-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Baluchon-umbrella.h"; sourceTree = "<group>"; };
 		291F8E6024E79BCEB956943E176B2D56 /* Pods-Baluchon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Baluchon.release.xcconfig"; sourceTree = "<group>"; };
 		2B13698B30EB3BDC2D07D3710EA45835 /* Pods-BaluchonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BaluchonTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2CB2924AD9C9F7007A8F1775A2231F9E /* SwiftGoogleTranslate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGoogleTranslate-umbrella.h"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3934970F834FDF688926B982C0EE43A4 /* Pods-Baluchon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Baluchon.debug.xcconfig"; sourceTree = "<group>"; };
-		40EE5F8D6C96E4AE700B4E07449EDBF8 /* SwiftGoogleTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGoogleTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40EE5F8D6C96E4AE700B4E07449EDBF8 /* SwiftGoogleTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftGoogleTranslate.framework; path = SwiftGoogleTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47976F3981DFEBE74FBC3F37CE6CFF21 /* Pods-Baluchon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Baluchon.modulemap"; sourceTree = "<group>"; };
+		48BE41C26AE138707DFB14A439E823F5 /* SwiftGoogleTranslate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftGoogleTranslate.modulemap; sourceTree = "<group>"; };
 		4E7180F2C6D71938E9C7C784E92EE51B /* Pods-Baluchon-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Baluchon-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5D7A53E099B913FB2E5BE439BEFD6CE8 /* SwiftGoogleTranslate-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftGoogleTranslate-Info.plist"; sourceTree = "<group>"; };
-		6304E49EE042FD91450DBF81B377E505 /* SwiftGoogleTranslate.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGoogleTranslate.xcconfig; sourceTree = "<group>"; };
-		71BAD08079EAD6325D56D5E998F62548 /* SwiftGoogleTranslate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftGoogleTranslate.swift; path = SwiftGoogleTranslate/Sources/SwiftGoogleTranslate.swift; sourceTree = "<group>"; };
 		83D9C0D4942E86B79B5ACBA865394063 /* Pods-BaluchonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BaluchonTests.release.xcconfig"; sourceTree = "<group>"; };
 		85B1C4536B5521E705B7B0ABBAC5427E /* Pods-BaluchonTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BaluchonTests-dummy.m"; sourceTree = "<group>"; };
+		8CD958EBD68C9C6CF6CA0C3A34264B68 /* SwiftGoogleTranslate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftGoogleTranslate-dummy.m"; sourceTree = "<group>"; };
 		93BCACC31B104C0E3263633FDE17376C /* Pods-Baluchon-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Baluchon-Info.plist"; sourceTree = "<group>"; };
-		9443B3211137C20A8E931C6339CDDE24 /* Pods_BaluchonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaluchonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9443B3211137C20A8E931C6339CDDE24 /* Pods_BaluchonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BaluchonTests.framework; path = "Pods-BaluchonTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CA5CE388E725F567FD928EAC41C4D1 /* Pods-BaluchonTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BaluchonTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9AA5FA8E47FA44F95A43BDE299F13287 /* SwiftGoogleTranslate-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGoogleTranslate-prefix.pch"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A5FD690D87ED20A551C89C3DAE9C179B /* Pods-Baluchon-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Baluchon-acknowledgements.plist"; sourceTree = "<group>"; };
 		A70C6E844E781790F182D955958539CF /* Pods-BaluchonTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BaluchonTests-Info.plist"; sourceTree = "<group>"; };
 		AB78CE9DBA52A4E8F6C0498F176B3227 /* Pods-BaluchonTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BaluchonTests-umbrella.h"; sourceTree = "<group>"; };
+		AC911F9E4F85E7D5F6426EBE943CB64C /* SwiftGoogleTranslate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftGoogleTranslate.swift; path = SwiftGoogleTranslate/Sources/SwiftGoogleTranslate.swift; sourceTree = "<group>"; };
 		BD6BE3CC5B9A0815686A763244D95EC5 /* Pods-BaluchonTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BaluchonTests.modulemap"; sourceTree = "<group>"; };
 		C3E272B225DDE78D21B60FCA375E3145 /* Pods-Baluchon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Baluchon-dummy.m"; sourceTree = "<group>"; };
-		CBECF71CBDC3FD49A1293D907AAB4F57 /* Pods_Baluchon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baluchon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBECF71CBDC3FD49A1293D907AAB4F57 /* Pods_Baluchon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Baluchon.framework; path = "Pods-Baluchon.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FFBFC4AB8C7C0BFD454F6B960BB2C2 /* SwiftGoogleTranslate-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftGoogleTranslate-Info.plist"; sourceTree = "<group>"; };
+		EE77B164713023475E2C1A5A921BA023 /* SwiftGoogleTranslate.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGoogleTranslate.xcconfig; sourceTree = "<group>"; };
+		F127AB5CF8EA13667ADCCCB31C39BBC5 /* SwiftGoogleTranslate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGoogleTranslate-umbrella.h"; sourceTree = "<group>"; };
 		F3F0E1DDFDB38A4AB7F9CEB3FDD3EE19 /* Pods-BaluchonTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BaluchonTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		F8736DB766139C46CAFCB04469518B9C /* Pods-Baluchon-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Baluchon-frameworks.sh"; sourceTree = "<group>"; };
-		F8A15AC22E5BDF956542DF3BDC1549DA /* SwiftGoogleTranslate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftGoogleTranslate.modulemap; sourceTree = "<group>"; };
-		FFF9C786495D1FDEEB61300FDE408F78 /* SwiftGoogleTranslate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftGoogleTranslate-dummy.m"; sourceTree = "<group>"; };
+		FE2ECBD776166CDF46308932FD40497F /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0E3EFAE2AA0CE3C83A5A66970B5D25B6 /* Frameworks */ = {
+		2CDC22AA15DBFD3F5C3A962D8BC81910 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEA19E974647FF2659C7F99F9A78AFED /* Foundation.framework in Frameworks */,
+				62075D3A5AE08685D757A6F721D024E0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +116,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08E68D56B0E0A7344A7A50370D07F230 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				48BE41C26AE138707DFB14A439E823F5 /* SwiftGoogleTranslate.modulemap */,
+				EE77B164713023475E2C1A5A921BA023 /* SwiftGoogleTranslate.xcconfig */,
+				8CD958EBD68C9C6CF6CA0C3A34264B68 /* SwiftGoogleTranslate-dummy.m */,
+				D9FFBFC4AB8C7C0BFD454F6B960BB2C2 /* SwiftGoogleTranslate-Info.plist */,
+				9AA5FA8E47FA44F95A43BDE299F13287 /* SwiftGoogleTranslate-prefix.pch */,
+				F127AB5CF8EA13667ADCCCB31C39BBC5 /* SwiftGoogleTranslate-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftGoogleTranslate";
+			sourceTree = "<group>";
+		};
 		0B5293595F8857DAA5D0AC008D4FA075 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +138,15 @@
 				40EE5F8D6C96E4AE700B4E07449EDBF8 /* SwiftGoogleTranslate.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2040A154D955AA03A94E8AF03690A9AA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FE2ECBD776166CDF46308932FD40497F /* SwiftLint.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
 			sourceTree = "<group>";
 		};
 		70627D926EECCA62957BA7F7A44D9637 /* Pods-Baluchon */ = {
@@ -121,6 +164,16 @@
 			);
 			name = "Pods-Baluchon";
 			path = "Target Support Files/Pods-Baluchon";
+			sourceTree = "<group>";
+		};
+		7840BC5410F9813E793E1D39881105CB /* SwiftGoogleTranslate */ = {
+			isa = PBXGroup;
+			children = (
+				AC911F9E4F85E7D5F6426EBE943CB64C /* SwiftGoogleTranslate.swift */,
+				08E68D56B0E0A7344A7A50370D07F230 /* Support Files */,
+			);
+			name = SwiftGoogleTranslate;
+			path = SwiftGoogleTranslate;
 			sourceTree = "<group>";
 		};
 		8E26ADDF6F288A6924FEF076C303A4BA /* Pods-BaluchonTests */ = {
@@ -148,13 +201,13 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		BF5E8687E83E2E6E03569683CD00CABE /* SwiftGoogleTranslate */ = {
+		A7F4E434300BB8403AB1D75C277EA55C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				71BAD08079EAD6325D56D5E998F62548 /* SwiftGoogleTranslate.swift */,
-				FA241FF26BED165740F0EBB3A3024244 /* Support Files */,
+				7840BC5410F9813E793E1D39881105CB /* SwiftGoogleTranslate */,
+				C2289B31BF21BA1F8ABEF051163455A5 /* SwiftLint */,
 			);
-			path = SwiftGoogleTranslate;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -165,12 +218,13 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		CE809C5DF829B52E75F426FEF07CA6FC /* Pods */ = {
+		C2289B31BF21BA1F8ABEF051163455A5 /* SwiftLint */ = {
 			isa = PBXGroup;
 			children = (
-				BF5E8687E83E2E6E03569683CD00CABE /* SwiftGoogleTranslate */,
+				2040A154D955AA03A94E8AF03690A9AA /* Support Files */,
 			);
-			name = Pods;
+			name = SwiftLint;
+			path = SwiftLint;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -178,7 +232,7 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				CE809C5DF829B52E75F426FEF07CA6FC /* Pods */,
+				A7F4E434300BB8403AB1D75C277EA55C /* Pods */,
 				0B5293595F8857DAA5D0AC008D4FA075 /* Products */,
 				9276149BBA2E375B83D1E1D4526AA294 /* Targets Support Files */,
 			);
@@ -192,23 +246,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FA241FF26BED165740F0EBB3A3024244 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F8A15AC22E5BDF956542DF3BDC1549DA /* SwiftGoogleTranslate.modulemap */,
-				6304E49EE042FD91450DBF81B377E505 /* SwiftGoogleTranslate.xcconfig */,
-				FFF9C786495D1FDEEB61300FDE408F78 /* SwiftGoogleTranslate-dummy.m */,
-				5D7A53E099B913FB2E5BE439BEFD6CE8 /* SwiftGoogleTranslate-Info.plist */,
-				09DBED9BA64432726F3C1966576788FA /* SwiftGoogleTranslate-prefix.pch */,
-				2CB2924AD9C9F7007A8F1775A2231F9E /* SwiftGoogleTranslate-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftGoogleTranslate";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		02A39E9836F69725A3730DDA46D94F08 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D84F8241B6B2D68B946E74790E2397F7 /* Pods-Baluchon-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BAFE4F51C3E74762A01CCFD32F0CA56 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -222,14 +270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C420054DD02D7902E55D38CDD5D7EA3 /* SwiftGoogleTranslate-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F026ED6DD4FE308374F5717D1BCA2611 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CB7685E00C9E3470ADEAFD888FA8C6B3 /* Pods-Baluchon-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,17 +296,18 @@
 		};
 		CE073E95002D49E4659B8D01022F4D92 /* Pods-Baluchon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 49648F161C6CA5831355AA3C27980ECE /* Build configuration list for PBXNativeTarget "Pods-Baluchon" */;
+			buildConfigurationList = CABA1568688047927B00908B334B6AE0 /* Build configuration list for PBXNativeTarget "Pods-Baluchon" */;
 			buildPhases = (
-				F026ED6DD4FE308374F5717D1BCA2611 /* Headers */,
-				27BC2A0BEA44BB0F2412D5041252EAEC /* Sources */,
-				0E3EFAE2AA0CE3C83A5A66970B5D25B6 /* Frameworks */,
-				1F6E21236DEFBB707F7B1E28964C1E37 /* Resources */,
+				02A39E9836F69725A3730DDA46D94F08 /* Headers */,
+				248275C526EF7CE3E692C7C88FFE8484 /* Sources */,
+				2CDC22AA15DBFD3F5C3A962D8BC81910 /* Frameworks */,
+				C5D11C60A1AA5EFEF4F90246479C48C3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				973A5B428E3F24E258BC6F05249CAFEC /* PBXTargetDependency */,
+				4B6782BF7540B87AC9A6BC3F71CD3BF4 /* PBXTargetDependency */,
+				2E5C1505761C9209B1EB7CDDC26B8B33 /* PBXTargetDependency */,
 			);
 			name = "Pods-Baluchon";
 			productName = "Pods-Baluchon";
@@ -317,18 +358,12 @@
 				CE073E95002D49E4659B8D01022F4D92 /* Pods-Baluchon */,
 				E96BA2B4741EDBA3AC142397EC46B249 /* Pods-BaluchonTests */,
 				CBDEC8A4DA7B5EB8EBE537B9C369D098 /* SwiftGoogleTranslate */,
+				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1F6E21236DEFBB707F7B1E28964C1E37 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5E46B038280BE501D424FCFEE9626211 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,14 +378,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C5D11C60A1AA5EFEF4F90246479C48C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		27BC2A0BEA44BB0F2412D5041252EAEC /* Sources */ = {
+		248275C526EF7CE3E692C7C88FFE8484 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B743349292DD3E7C92A76CB9257F18EF /* Pods-Baluchon-dummy.m in Sources */,
+				EAB27BA7A43F826E76B1A230FCA73495 /* Pods-Baluchon-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,92 +422,21 @@
 			target = CE073E95002D49E4659B8D01022F4D92 /* Pods-Baluchon */;
 			targetProxy = 340345D94A02633CF24B50B3889E0199 /* PBXContainerItemProxy */;
 		};
-		973A5B428E3F24E258BC6F05249CAFEC /* PBXTargetDependency */ = {
+		2E5C1505761C9209B1EB7CDDC26B8B33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = C226ED26C643F956A807FD971DCCE04F /* PBXContainerItemProxy */;
+		};
+		4B6782BF7540B87AC9A6BC3F71CD3BF4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftGoogleTranslate;
 			target = CBDEC8A4DA7B5EB8EBE537B9C369D098 /* SwiftGoogleTranslate */;
-			targetProxy = 46B4D3ADFD0E2D0EFC57A47ECD6AF573 /* PBXContainerItemProxy */;
+			targetProxy = 91F5B702984C57FAC37E568ECBB1C67C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0459C2EF58E4715E6A2968C78AD8D7D0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3934970F834FDF688926B982C0EE43A4 /* Pods-Baluchon.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Baluchon/Pods-Baluchon-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Baluchon/Pods-Baluchon.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		1C410942074B7502F48091EAFA55AB6E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 291F8E6024E79BCEB956943E176B2D56 /* Pods-Baluchon.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Baluchon/Pods-Baluchon-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Baluchon/Pods-Baluchon.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		3E72C525DD04AA456E2CD4AFF507CBE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B13698B30EB3BDC2D07D3710EA45835 /* Pods-BaluchonTests.debug.xcconfig */;
@@ -491,6 +462,44 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-BaluchonTests/Pods-BaluchonTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5DAD057C9A1E1DEDAB30CEAAAE428ABC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3934970F834FDF688926B982C0EE43A4 /* Pods-Baluchon.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Baluchon/Pods-Baluchon-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Baluchon/Pods-Baluchon.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -568,9 +577,65 @@
 			};
 			name = Debug;
 		};
+		6D63BE22576C4D323E4E78E9359694FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 291F8E6024E79BCEB956943E176B2D56 /* Pods-Baluchon.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Baluchon/Pods-Baluchon-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Baluchon/Pods-Baluchon.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		84D7C4574E8F0F3095623F0E06F5B402 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE2ECBD776166CDF46308932FD40497F /* SwiftLint.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		97C078B19B0E842E153F414ACFA28B4B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6304E49EE042FD91450DBF81B377E505 /* SwiftGoogleTranslate.xcconfig */;
+			baseConfigurationReference = EE77B164713023475E2C1A5A921BA023 /* SwiftGoogleTranslate.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -704,7 +769,7 @@
 		};
 		B75D13E75560D930CD0A852DBB113DEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6304E49EE042FD91450DBF81B377E505 /* SwiftGoogleTranslate.xcconfig */;
+			baseConfigurationReference = EE77B164713023475E2C1A5A921BA023 /* SwiftGoogleTranslate.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -738,6 +803,22 @@
 			};
 			name = Release;
 		};
+		DEED47E09AF743F48544C1C4FEADEF47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE2ECBD776166CDF46308932FD40497F /* SwiftLint.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -746,15 +827,6 @@
 			buildConfigurations = (
 				6410F571BA8C1AEC6A19403F1B61B0B5 /* Debug */,
 				A27713CB74E99AF202AADC23200A32F4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		49648F161C6CA5831355AA3C27980ECE /* Build configuration list for PBXNativeTarget "Pods-Baluchon" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0459C2EF58E4715E6A2968C78AD8D7D0 /* Debug */,
-				1C410942074B7502F48091EAFA55AB6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -773,6 +845,24 @@
 			buildConfigurations = (
 				3E72C525DD04AA456E2CD4AFF507CBE6 /* Debug */,
 				98E21F5F549D7981B3DAEB606A56E463 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEED47E09AF743F48544C1C4FEADEF47 /* Debug */,
+				84D7C4574E8F0F3095623F0E06F5B402 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CABA1568688047927B00908B334B6AE0 /* Build configuration list for PBXNativeTarget "Pods-Baluchon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DAD057C9A1E1DEDAB30CEAAAE428ABC /* Debug */,
+				6D63BE22576C4D323E4E78E9359694FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

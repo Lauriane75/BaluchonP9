@@ -66,7 +66,9 @@ final class RequestPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicke
         }
         
         label.font = UIFont.systemFont(ofSize: 18)
+        
         label.textColor = .white
+        
         label.textAlignment = .center
     }
 

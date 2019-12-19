@@ -32,7 +32,7 @@ final class WeatherDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
         guard indexPath.item < items.count else { fatalError() }
         switch items[indexPath.item] {
         case .weatherElements(weather: let visibleWeather):
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CityWeatherTableViewCell", for: indexPath) as! CityWeatherTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as! WeatherTableViewCell
         cell.configure(with: visibleWeather)
         return cell
         }

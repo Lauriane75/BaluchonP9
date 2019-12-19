@@ -14,39 +14,39 @@ struct Rate {
 }
 
 final class ConverterViewModel {
-
+    
     // MARK: - Properties
-
+    
     private let repository: ConverterRepositoryType
-
+    
     var valueOfRequestPickerView: Double = 1
-
+    
     var valueOfResultPickerView: Double = 1
     
     var currencyOfRequestPickerView: String = ""
     
     var currencyOfResultPickerView:String = ""
-
+    
     // MARK: - Initializer
-
+    
     init(repository: ConverterRepositoryType) {
         self.repository = repository
     }
-
+    
     // MARK: - Outputs
     
     var titleLabel: ((String) -> Void)?
-
+    
     var resultText: ((String) -> Void)?
-
+    
     var visibleRequestCurrencyName: (([String]) -> Void)?
     
     var visibleResultCurrencyName: (([String]) -> Void)?
-
+    
     var selectedRequestRateValue: ((String) -> Void)?
-
+    
     var selectedResultRateValue: ((String) -> Void)?
-
+    
     var initialValuetextField: ((String) -> Void)?
     
     var placeHolderTextField: ((String) -> Void)?
@@ -60,28 +60,28 @@ final class ConverterViewModel {
             self.visibleRequestCurrencyName?(keys)
         }
     }
-
+    
     var resultRates: [Rate] = [] {
         didSet {
             let keys: [String] = resultRates.map { $0.key }.sorted(by: { $0 < $1 })
             self.visibleResultCurrencyName?(keys)
         }
     }
-
+    
     private var valueToConvert: Double = 0 {
         didSet {
             initialValuetextField?("\(valueToConvert)")
         }
     }
-
+    
     private var result = "" {
         didSet {
             resultText?(result)
         }
     }
-
+    
     // MARK: - Inputs
-
+    
     func viewDidLoad() {
         self.titleLabel?("Entrez une valeur à convertir et swipez votre devise")
         self.resultText?("0.0 €")
@@ -90,24 +90,17 @@ final class ConverterViewModel {
             DispatchQueue.main.async {
                 self?.initRequestRates(from: currency)
                 self?.initResultRates(from: currency)
+                self?.didSelectRequestRate(at: 0)
+                self?.didSelectResultRate(at: 0)
             }
             }, error: { [weak self] in
                 DispatchQueue.main.async {
-            self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+                    self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
                 }
         })
     }
     
-   /* func getCurrent(completion: @escaping (Swift.Result<Rate, Error>) -> Void) {
-        URLSession.shared.dataTask(with: URL()) { (_, _, error) in
-            if success {
-            completion(Rate())
-            } else {
-                completion(error)
-            }
-        }
-    }*/
-
+    
     func didTapInitialValuetextField(valueFromTextField: Double) {
         let value = valueFromTextField
         valueToConvert = value
@@ -124,7 +117,7 @@ final class ConverterViewModel {
         
         convert()
     }
-
+    
     func didSelectResultRate(at index: Int) {
         guard index < resultRates.count else { return }
         let rate = resultRates[index]
@@ -136,42 +129,42 @@ final class ConverterViewModel {
         
         convert()
     }
-
+    
     // MARK: - Private Functions
     
     private func initRequestRates(from currency: Currency) {
-    let sorted = currency.rates.sorted { $0.key < $1.key }
-    requestRates = sorted.map { Rate(key: $0.key, value: $0.value) }
-    if let value = requestRates.first?.value {
-    selectedRequestRateValue?("\(Double(round(100*value)/100))")
+        let sorted = currency.rates.sorted { $0.key < $1.key }
+        requestRates = sorted.map { Rate(key: $0.key, value: $0.value) }
+        if let value = requestRates.first?.value {
+            selectedRequestRateValue?("\(Double(round(100*value)/100))")
         }
     }
-
+    
     private func initResultRates(from currency: Currency) {
-    let sorted = currency.rates.sorted { $0.key < $1.key }
-    resultRates = sorted.map { Rate(key: $0.key, value: $0.value) }
+        let sorted = currency.rates.sorted { $0.key < $1.key }
+        resultRates = sorted.map { Rate(key: $0.key, value: $0.value) }
         if let value = resultRates.first?.value {
             selectedResultRateValue?("\(Double(round(100*value)/100))")
         }
     }
-
+    
     private func convertedValue(valueToConvert: Double, topRateValue: Double, bottomRateValue: Double) -> Double {
         return (valueToConvert / topRateValue) * bottomRateValue
-     }
+    }
     
     fileprivate func convert() {
-          let convertedValueResult = convertedValue(valueToConvert: valueToConvert, topRateValue: valueOfRequestPickerView, bottomRateValue: valueOfResultPickerView)
-          if currencyOfResultPickerView == "EUR" && valueOfResultPickerView == 1 {
-              result = ("\(Double(round(100*convertedValueResult)/100)) €")
-          }
-          if currencyOfResultPickerView == "USD" {
-              result = ("$ \(Double(round(100*convertedValueResult)/100))")
-          }
-          if currencyOfResultPickerView == "GBP" {
-              result = ("£ \(Double(round(100*convertedValueResult)/100))")
-          }
-          if currencyOfResultPickerView == "JPY" {
-              result = ("\(Double(round(100*convertedValueResult)/100)) ¥")
-          }
-      }
+        let convertedValueResult = convertedValue(valueToConvert: valueToConvert, topRateValue: valueOfRequestPickerView, bottomRateValue: valueOfResultPickerView)
+        if currencyOfResultPickerView == "EUR" && valueOfResultPickerView == 1 {
+            result = ("\(Double(round(100*convertedValueResult)/100)) €")
+        }
+        if currencyOfResultPickerView == "USD" {
+            result = ("$ \(Double(round(100*convertedValueResult)/100))")
+        }
+        if currencyOfResultPickerView == "GBP" {
+            result = ("£ \(Double(round(100*convertedValueResult)/100))")
+        }
+        if currencyOfResultPickerView == "JPY" {
+            result = ("\(Double(round(100*convertedValueResult)/100)) ¥")
+        }
+    }
 }

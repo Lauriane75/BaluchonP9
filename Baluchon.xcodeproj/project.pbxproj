@@ -27,7 +27,7 @@
 		D358AD3E2330D0EA00D84FD4 /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358AD3D2330D0EA00D84FD4 /* Screens.swift */; };
 		D358AD442330D74900D84FD4 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358AD432330D74900D84FD4 /* MainCoordinator.swift */; };
 		D358AD4A2331060000D84FD4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358AD492331060000D84FD4 /* AppCoordinator.swift */; };
-		D3658AFF234CF233005CD724 /* CityWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3658AFE234CF233005CD724 /* CityWeatherTableViewCell.swift */; };
+		D3658AFF234CF233005CD724 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3658AFE234CF233005CD724 /* WeatherTableViewCell.swift */; };
 		D36A7D95233A7886001E722B /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A7D94233A7886001E722B /* Currency.swift */; };
 		D387BA9A23325DB7006AE04D /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387BA9923325DB7006AE04D /* ConverterViewModel.swift */; };
 		D387BA9C23325DD2006AE04D /* ConverterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387BA9B23325DD2006AE04D /* ConverterRepository.swift */; };
@@ -108,7 +108,7 @@
 		D358AD3D2330D0EA00D84FD4 /* Screens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
 		D358AD432330D74900D84FD4 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		D358AD492331060000D84FD4 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		D3658AFE234CF233005CD724 /* CityWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		D3658AFE234CF233005CD724 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		D36A7D94233A7886001E722B /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		D387BA9923325DB7006AE04D /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
 		D387BA9B23325DD2006AE04D /* ConverterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRepository.swift; sourceTree = "<group>"; };
@@ -308,8 +308,8 @@
 			isa = PBXGroup;
 			children = (
 				D33C6A12231EBE12003FB721 /* Weather */,
-				D33C6A13231EBE19003FB721 /* Translator */,
 				D39BFC202331221C00455A59 /* Converter */,
+				D33C6A13231EBE19003FB721 /* Translator */,
 				2F041F082331422A00177AC2 /* Network */,
 			);
 			path = App;
@@ -318,7 +318,7 @@
 		D3658AFD234CF223005CD724 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				D3658AFE234CF233005CD724 /* CityWeatherTableViewCell.swift */,
+				D3658AFE234CF233005CD724 /* WeatherTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -364,14 +364,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F661DE4823AB904E00E3031C /* SelectLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				F691CEB82370D4B70016B39A /* SelectLanguagesViewController.swift */,
+				F691CEB62370D44B0016B39A /* SelectLanguageViewModel.swift */,
+				F691CEB42370D4280016B39A /* SelectLanguageDataSource.swift */,
+				F691CEBA2370D6420016B39A /* SelectLanguageRepository.swift */,
+			);
+			path = SelectLanguage;
+			sourceTree = "<group>";
+		};
 		F6D4628123706F7C0042F210 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				F6D4628223706FA50042F210 /* SelectLanguageTableViewCell.swift */,
-				F691CEB42370D4280016B39A /* SelectLanguageDataSource.swift */,
-				F691CEB82370D4B70016B39A /* SelectLanguagesViewController.swift */,
-				F691CEB62370D44B0016B39A /* SelectLanguageViewModel.swift */,
-				F691CEBA2370D6420016B39A /* SelectLanguageRepository.swift */,
+				F661DE4823AB904E00E3031C /* SelectLanguage */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -686,7 +694,7 @@
 				2F041F072331416D00177AC2 /* TranslatorRepository.swift in Sources */,
 				D33C6A11231EBD83003FB721 /* AlertPresenter.swift in Sources */,
 				D358AD442330D74900D84FD4 /* MainCoordinator.swift in Sources */,
-				D3658AFF234CF233005CD724 /* CityWeatherTableViewCell.swift in Sources */,
+				D3658AFF234CF233005CD724 /* WeatherTableViewCell.swift in Sources */,
 				D33C69EC231EBC2E003FB721 /* AppDelegate.swift in Sources */,
 				D387BA9E23325DF5006AE04D /* WeatherViewModel.swift in Sources */,
 				D31A47C3233BD23B002EA4FF /* Weather.swift in Sources */,

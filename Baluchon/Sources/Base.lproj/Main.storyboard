@@ -68,7 +68,6 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you want to translate ?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oFB-SX-hsg">
                                                 <rect key="frame" x="0.0" y="0.0" width="270" height="99"/>
                                                 <color key="backgroundColor" red="0.87051171059999999" green="0.87063723800000004" blue="0.87048423289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -106,8 +105,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="Rce-WF-AIu"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="textColor" red="0.46895521880000002" green="0.71435898539999998" blue="0.62459135060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5z-X5-BS2">
@@ -240,14 +239,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Pti-1M-qsu">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Pti-1M-qsu">
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QWw-59-VTH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" red="0.33919420839999997" green="0.53422820569999996" blue="0.57863390449999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityWeatherTableViewCell" rowHeight="233" id="c8e-N0-F98" customClass="CityWeatherTableViewCell" customModule="Baluchon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherTableViewCell" rowHeight="233" id="c8e-N0-F98" userLabel="WeatherTableViewCell" customClass="WeatherTableViewCell" customModule="Baluchon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="233"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c8e-N0-F98" id="8Vm-zP-I51">
@@ -312,11 +311,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cityLabel" destination="fVf-n2-iSq" id="kk0-kF-c2x"/>
+                                            <outlet property="cityLabel" destination="fVf-n2-iSq" id="NH6-Hl-dTa"/>
                                             <outlet property="iconImageView" destination="ZfN-Pw-bdm" id="qwM-xu-5cu"/>
-                                            <outlet property="tempMaxLabel" destination="3Pr-kg-UyU" id="08U-4c-uPt"/>
-                                            <outlet property="tempMinLabel" destination="zvz-p8-qwb" id="7w3-fY-RHH"/>
-                                            <outlet property="tempOfTheDayLabel" destination="oPP-1z-nrt" id="pwN-cc-0WA"/>
+                                            <outlet property="tempMaxLabel" destination="3Pr-kg-UyU" id="bkB-bF-kPW"/>
+                                            <outlet property="tempMinLabel" destination="zvz-p8-qwb" id="B8J-08-Ow9"/>
+                                            <outlet property="tempOfTheDayLabel" destination="oPP-1z-nrt" id="85V-9W-0Jx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -337,7 +336,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Pti-1M-qsu" id="mSa-Ak-xCk"/>
-                        <outlet property="tableView" destination="QWw-59-VTH" id="lh4-8G-v8I"/>
+                        <outlet property="tableView" destination="QWw-59-VTH" id="R7F-f7-ci2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDg-49-yfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
