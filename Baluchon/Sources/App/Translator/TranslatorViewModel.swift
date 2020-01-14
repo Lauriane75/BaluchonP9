@@ -88,9 +88,6 @@ final class TranslatorViewModel {
     func viewDidLoad() {
         language = initializeLanguage(with: translationType)
     }
-
-    func didTapRequestTextField(text : String?) {
-    }
     
     func didSelectLanguageType(for type: LanguageType) {
         delegate?.showLanguageChoices(for: type)

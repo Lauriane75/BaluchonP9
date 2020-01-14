@@ -25,15 +25,12 @@ final class Screens {
 
 // MARK : - Main
 
-protocol WeatherViewControllerDelegate: class {
-}
-
 extension Screens {
 
-    func createMainViewController(repository: WeatherRepository, delegate: WeatherViewControllerDelegate?) -> UIViewController {
+    func createMainViewController(repository: WeatherRepository) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "WeatherViewController") as! WeatherViewController
         let repository = WeatherRepository(client: context.client)
-        let viewModel = WeatherViewModel(repository: repository, delegate: delegate)
+        let viewModel = WeatherViewModel(repository: repository)
         viewController.viewModel = viewModel
         return viewController
     }

@@ -15,11 +15,10 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     // MARK: - Properties
 
     var viewModel: WeatherViewModel!
-
-    weak var delegate: WeatherViewControllerDelegate?
 
     private var source = WeatherDataSource()
 

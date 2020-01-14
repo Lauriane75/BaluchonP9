@@ -86,10 +86,6 @@ class TranslatorViewController: UIViewController {
     @IBAction func didPressTranslateButton(_ sender: Any) {
         viewModel.didPressTranslatButton(for: requestTextField.text!)
     }
-    @IBAction func didTapRequestTextField(_ sender: Any) {
-        guard let text = self.requestTextField.text else { return }
-        viewModel.didTapRequestTextField(text: text)
-    }
 
     @IBAction func didPressClearButton(_ sender: Any) {
         viewModel.didPressClearButton()
@@ -109,9 +105,6 @@ class TranslatorViewController: UIViewController {
     fileprivate func elementsCustom() {
         requestLanguageButton.layer.cornerRadius = 15
         resultLanguageButton.layer.cornerRadius = 15
-//        requestTextField.attributedPlaceholder = NSAttributedString(string:
-//            "Que voulez-vous traduire ?", attributes:
-//            [NSAttributedString.Key.foregroundColor: UIColor(named: "Translator-placeHolder") ?? 0])
        }
     
     @objc private func hideKeyBoard() {

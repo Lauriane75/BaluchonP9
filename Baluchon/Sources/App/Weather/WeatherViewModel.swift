@@ -20,123 +20,56 @@ final class WeatherViewModel {
     
     // MARK: - Properties
     
-    private let delegate: WeatherViewControllerDelegate?
-    
     private let repository: WeatherRepositoryType
     
-    var weatherItems: [WeatherItem] = [] {
+    private var visibleItems: [VisibleWeather] = [] {
         didSet {
-            let items = weatherItems.map { Item(weatherItem: $0) }
-            self.items?(items)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.items?(self.visibleItems)
+            }
         }
     }
     
     // MARK: - Initializer
     
-    init(repository: WeatherRepositoryType, delegate: WeatherViewControllerDelegate?) {
+    init(repository: WeatherRepositoryType) {
         self.repository = repository
-        self.delegate = delegate
     }
     
     // MARK: - Outputs
     
-    var items: (([Item]) -> Void)?
+    var items: (([VisibleWeather]) -> Void)?
     
     var nextScreen: ((NextScreen) -> Void)?
     
     var activityIndicatorIsLoading: ((Bool) -> Void)?
     
-    enum Item: Equatable {
-        case weatherElements(weather: VisibleWeather)
+    // MARK: - Private Files
+    
+    fileprivate func errorNoService() {
+        self.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
     }
     
-    enum WeatherItem {
-        case weatherType(weather: Weather)
+    fileprivate func showWeathers() {
+        activityIndicatorIsLoading?(false)
+        
+        repository.getWeather(callback: { weather in
+            
+            self.visibleItems = weather.list.map { city in
+                VisibleWeather(cityName: city.name, temperature: "\(Int(city.main.temp)) °C", iconID: city.weather.first?.icon ?? "01d", temperatureMax: "\(Int(city.main.tempMax)) °C max", temperatureMin: "\(Int(city.main.tempMin)) °C min")
+            }
+        }, error: { [weak self] in
+            self!.errorNoService()
+        })
     }
     
     // MARK: - Inputs
     
     func viewDidLoad() {
         activityIndicatorIsLoading?(true)
-        displayWeather()
-    }
-    
-    // MARK: - Private Files
-    
-    private static func initialize(_ weather1: Weather, _ weather2: Weather, _ weather3: Weather, _ weather4: Weather, _ weather5: Weather, _ weather6: Weather, _ weather7: Weather, _ weather8: Weather) -> [WeatherItem] {
-        var weatherItems: [WeatherItem] = []
-        weatherItems.append(.weatherType(weather: weather1))
-        weatherItems.append(.weatherType(weather: weather2))
-        weatherItems.append(.weatherType(weather: weather3))
-        weatherItems.append(.weatherType(weather: weather4))
-        weatherItems.append(.weatherType(weather: weather5))
-        weatherItems.append(.weatherType(weather: weather6))
-        weatherItems.append(.weatherType(weather: weather7))
-        weatherItems.append(.weatherType(weather: weather8))
-        return weatherItems
-    }
-    
-    
-    fileprivate func errorNoService() {
-        self.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
-    }
-    
-    fileprivate func displayWeather() {
-        repository.getWeather(for: .paris, callback: { (parisWeather) in
-            self.repository.getWeather(for: .newYork, callback: { (newYorkWeather) in
-                self.repository.getWeather(for: .nantes, callback: { (nantesWeather) in
-                    self.repository.getWeather(for: .bordeaux, callback: { (bordeauxWeather) in
-                        self.repository.getWeather(for: .lyon, callback: { (lyonWeather) in
-                            self.repository.getWeather(for: .losAngeles, callback: { (losAngelesWeather) in
-                                self.repository.getWeather(for: .chicago, callback: { (chicagoWeather) in
-                                    self.repository.getWeather(for: .houston, callback: { (houstonWeather) in
-                                        
-                                        
-                                        DispatchQueue.main.async {
-                                            self.activityIndicatorIsLoading?(false)
-                                            self.weatherItems = WeatherViewModel.self.initialize(parisWeather, newYorkWeather, nantesWeather, bordeauxWeather, lyonWeather, losAngelesWeather, chicagoWeather, houstonWeather)
-                                        }
-                                    }, error: { [weak self] in
-                                        self!.errorNoService()
-                                    })
-                                }, error: { [weak self] in
-                                    self!.errorNoService()
-                                })
-                            }, error: { [weak self] in
-                                self!.errorNoService()
-                            })
-                        }, error: { [weak self] in
-                            self!.errorNoService()
-                        })
-                    }, error: { [weak self] in
-                        self!.errorNoService()
-                    })
-                }, error: { [weak self] in
-                    self!.errorNoService()
-                })
-            }, error: { [weak self] in
-                self!.errorNoService()
-            })
-        }, error: { [weak self] in
-            self!.errorNoService()
-        })
+        showWeathers()
     }
 }
 
-extension WeatherViewModel.Item {
-    init(weatherItem: WeatherViewModel.WeatherItem) {
-        
-        switch weatherItem {
-        case .weatherType(weather: let weather):
-            
-            var imageName = ""
-            
-            for (_, index) in weather.weather.enumerated() {
-                imageName =  "\(index.icon)"
-            }
-            
-            self = .weatherElements(weather: VisibleWeather(cityName: "\(weather.name)", temperature: "\(weather.main.temp)", iconID: "\(imageName)", temperatureMax: "\(weather.main.tempMax)", temperatureMin: "\(weather.main.tempMin)"))
-            
-        }
-    }
-}
+

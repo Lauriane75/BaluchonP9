@@ -11,12 +11,12 @@ import XCTest
 class WeatherViewUITests: UITestCase, RootViewStarting, WeatherViewVerifying {
     
 
-    func testVerifyingWeatherView() {
-        // Wait
-        weatherViewWaitForExistence()
-        // Check View
-        XCTAssertTrue(weatherViewExists())
-    }
+//    func testVerifyingWeatherView() {
+//        // Wait
+//        weatherViewWaitForExistence()
+//        // Check View
+//        XCTAssertTrue(weatherViewExists())
+//    }
     
     func testVerifyingTabBarItems() {
         // Wait

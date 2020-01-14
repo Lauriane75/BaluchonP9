@@ -32,11 +32,8 @@ final class WeatherCoordinator {
     private func showHome() {
         let client = HTTPClient()
         let repository = WeatherRepository(client: client)
-        let viewController = screens.createMainViewController(repository: repository, delegate: self)
+        let viewController = screens.createMainViewController(repository: repository)
         presenter.viewControllers = [viewController]
     }
 }
 
-extension WeatherCoordinator: WeatherViewControllerDelegate {
-
-}

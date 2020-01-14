@@ -74,7 +74,7 @@ final class TranslatorViewModelTests: XCTestCase {
         
         waitForExpectations(timeout: 1.0, handler: nil)
     }
-    
+    //
     func test_Given_TranslatorView_When_ViewDidLoad_Then_IsReturned() {
         let mockRepository = MockTranslatorRepository()
         let mockDelegate = MockTranslatorViewModelDelegate()
@@ -84,8 +84,8 @@ final class TranslatorViewModelTests: XCTestCase {
         
         viewModel.viewDidLoad()
         
-        viewModel.didTapRequestTextField(text: "Bonjour")
-        
+        viewModel.didPressTranslatButton(for: "Bonjour")
+                
         viewModel.requestTextField = { text in
             XCTAssertEqual(text, "Bonjour")
         }

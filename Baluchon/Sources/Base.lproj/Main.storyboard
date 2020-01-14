@@ -70,9 +70,6 @@
                                                 <color key="backgroundColor" red="0.87051171059999999" green="0.87063723800000004" blue="0.87048423289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="didTapRequestTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="LY9-oy-zPL"/>
-                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXK-lD-f98">
                                                 <rect key="frame" x="270" y="0.0" width="30" height="30"/>
