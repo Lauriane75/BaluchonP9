@@ -74,8 +74,7 @@ final class ConverterViewModelTests: XCTestCase {
         repository.isSuccess = false
 
         viewModel.nextScreen = { screen in
-            XCTAssertEqual(screen, .alert(title: "Erreur de connexion",
-                                          message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+            XCTAssertEqual(screen, .alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
             expectation.fulfill()
         }
 

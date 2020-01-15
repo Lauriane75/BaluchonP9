@@ -12,7 +12,6 @@ final class Context {
 
     let client: HTTPClientType
     
-
     init(client: HTTPClientType) {
         self.client = client
     }

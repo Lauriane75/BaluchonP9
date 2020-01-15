@@ -11,7 +11,7 @@ import UIKit
 final class WeatherTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
-        
+
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var tempMinLabel: UILabel!
     @IBOutlet weak var tempMaxLabel: UILabel!
@@ -25,8 +25,4 @@ final class WeatherTableViewCell: UITableViewCell {
         tempMaxLabel.text = String(visibleWeather.temperatureMax)
         tempOfTheDayLabel.text = String(visibleWeather.temperature)
     }
-    
 }
-
-
-

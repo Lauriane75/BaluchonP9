@@ -35,7 +35,7 @@ final class SelectLanguageViewModel {
     private let languageType: LanguageType
 
     // MARK: - Initializer
-    
+
     init(languageType: LanguageType,
          repository: SelectLanguageRepositoryType,
          delegate: SelectLanguageViewModelDelegate?) {
@@ -49,11 +49,11 @@ final class SelectLanguageViewModel {
     enum ItemLabel: Equatable {
         case language(_ titleLabel: String)
     }
-    
+
     fileprivate enum LanguageItem: Equatable {
         case language(_ languageStruct: LanguageConfiguration)
     }
-    
+
     private class func initialItems(from languages: [Language]) -> [LanguageItem] {
         return languages.map {
             return .language(LanguageConfiguration(nameLanguage: $0.value,

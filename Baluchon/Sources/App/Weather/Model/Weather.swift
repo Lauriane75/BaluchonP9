@@ -50,5 +50,3 @@ struct WeatherElement: Codable {
         case icon
     }
 }
-
-

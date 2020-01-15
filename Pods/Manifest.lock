@@ -1,10 +1,10 @@
 PODS:
   - SwiftGoogleTranslate (0.2.1)
-  - SwiftLint (0.38.0)
+  - SwiftLint (0.38.2)
 
 DEPENDENCIES:
   - SwiftGoogleTranslate
-  - SwiftLint
+  - SwiftLint (~> 0.27)
 
 SPEC REPOS:
   trunk:
@@ -13,8 +13,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   SwiftGoogleTranslate: 96960d3548e800e15b347518afca546d2edc8519
-  SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
+  SwiftLint: 8f5d2f903e1c9bcbc832fd16771e80a263ac6cbb
 
-PODFILE CHECKSUM: d58d61d802cea21aea53cc0c243c434e9220482e
+PODFILE CHECKSUM: 94b994e9b839e55fb9252c9b7d3fb6700272f76d
 
 COCOAPODS: 1.8.4

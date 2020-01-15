@@ -4,9 +4,6 @@
 //
 //  Created by Lauriane Haydari on 24/11/2019.
 //  Copyright © 2019 Lauriane Haydari. All rights reserved.
-//
-
-
 import UIKit
 
 final class ResultPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -37,9 +34,8 @@ final class ResultPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicker
 
         return items.count
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-//        delegate?.didSelectItemPickerView(for: pickerView, at: row)
 
         name = items[row]
 
@@ -87,7 +83,7 @@ final class ResultPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicker
         }
     }
 }
-       /// if you need other currencies
+       // if you need other currencies
 //        if name == "AED" {
 //            frenchName = "Dirham des Émirats Arabes Unis"
 //        }
@@ -544,7 +540,3 @@ final class ResultPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicker
 //        if name == "ZWL" {
 //            frenchName = "Dollar du Zimbabwe"
 //        }
-
-
-
-

@@ -25,19 +25,19 @@ class TranslatorViewController: UIViewController {
     var viewModel: TranslatorViewModel!
 
     weak var delegate: TranslatorViewControllerDelegate?
-    
+
     // MARK: - View life cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         bind(to: viewModel)
         viewModel.viewDidLoad()
-        
+
         elementsCustom()
-        
+
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
-        
+
         view.addGestureRecognizer(tap)
 
         settingNotificationCenter()

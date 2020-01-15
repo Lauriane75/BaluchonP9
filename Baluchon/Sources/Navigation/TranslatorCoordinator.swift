@@ -24,9 +24,7 @@ final class TranslatorCoordinator {
     }
 
     // MARK: - Coodinator
-
     private var initialTranslation = TranslationType.init(initialLanguage: (nameLanguage: "French", ISOCode: "fr", text: ""), destinationLanguage: (nameLanguage: "English", ISOCode: "en", text: ""))
-
 
     func start() {
         showTranslator(with: initialTranslation)
@@ -38,7 +36,7 @@ final class TranslatorCoordinator {
         let viewController = screens.createTranslatorViewController(with: parameter, repository: repository, delegate: self)
         presenter.viewControllers = [viewController]
     }
-    
+
     private func showLanguageType(with type: LanguageType) {
         let viewController = screens.createSelectLanguagesViewController(languageType: type, delegate: self)
         presenter.show(viewController, sender: nil)
@@ -49,12 +47,10 @@ extension TranslatorCoordinator: TranslatorViewModelDelegate {
     func showLanguageChoices(for type: LanguageType) {
         showLanguageType(with: type)
     }
-    
 }
 
 extension TranslatorCoordinator: SelectLanguageViewModelDelegate {
-   
-    
+
     func didPressLanguageTypeButton(with languageType: SelectLanguageType) {
         presenter.popViewController(animated: true)
         switch languageType {
@@ -68,8 +64,6 @@ extension TranslatorCoordinator: SelectLanguageViewModelDelegate {
 }
 
 enum SelectLanguageType: Equatable {
-       case request(_ value: String, _ key: String)
-       case result(_ value: String, _ key: String)
-   }
-
-
+    case request(_ value: String, _ key: String)
+    case result(_ value: String, _ key: String)
+}

@@ -20,7 +20,7 @@ fileprivate final class MockSelectLanguageRepository: SelectLanguageRepositoryTy
 
 fileprivate final class MockSelectLanguageViewControllerDelegate: SelectLanguageViewModelDelegate {
 
-    var language: SelectLanguageType? = nil
+    var language: SelectLanguageType?
 
     func didPressLanguageTypeButton(with language: SelectLanguageType) {
         self.language = language

@@ -45,9 +45,7 @@ class ConverterViewController: UIViewController {
 
         viewModel.viewDidLoad()
         elementsCustomCornerRadius()
-        initialValuetextField.attributedPlaceholder = NSAttributedString(string: "",
-                                                                         
-                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.green ])
+        initialValuetextField.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.green ])
     }
 
     private func bind(to viewModel: ConverterViewModel) {

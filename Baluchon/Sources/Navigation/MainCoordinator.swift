@@ -20,8 +20,7 @@ protocol TabBarSourceType {
 
 extension TabBarSourceType {
     subscript(item: ViewControllerItem) -> UINavigationController {
-        get {
-            guard !items.isEmpty, item.rawValue < items.count, item.rawValue >= 0 else {
+        get { guard !items.isEmpty, item.rawValue < items.count, item.rawValue >= 0 else {
                 fatalError("Item does not exists")
             }
             return items[item.rawValue]
@@ -35,11 +34,9 @@ fileprivate class TabBarSource: TabBarSourceType {
         UINavigationController(nibName: nil, bundle: nil),
         UINavigationController(nibName: nil, bundle: nil)
     ]
-    
     let weatherItem = UIImage(named: "weather-icon")
     let converterItem = UIImage(named: "converter-icon")
     let translatorItem = UIImage(named: "translator-icon")
-
 
     init() {
         self[.weather].tabBarItem.image = weatherItem
@@ -122,4 +119,3 @@ extension MainCoordinator {
 extension MainCoordinator: TranslatorViewControllerDelegate {
 
 }
-

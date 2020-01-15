@@ -18,7 +18,7 @@ final class MockWeatherRepository: WeatherRepositoryType {
         if isSuccess {
             callback(Weather(cnt: 0,
                              list: [List(weather: [WeatherElement(icon: "01d")],
-                                         main: Main(temp:  5.14, tempMin: 3.89, tempMax: 6.11), name: "Paris")]))
+                                         main: Main(temp: 5.14, tempMin: 3.89, tempMax: 6.11), name: "Paris")]))
         } else {
             error()
         }
@@ -30,8 +30,7 @@ final class WeatherViewModelTests: XCTestCase {
 
     func test_Weather_viewDidLoad() {
 
-        let expectedResult = [VisibleWeather(cityName: "Paris",
-                                             temperature: "5 °C", iconID: "01d", temperatureMax: "6 °C max", temperatureMin: "3 °C min")]
+        let expectedResult = [VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "01d", temperatureMax: "6°C max", temperatureMin: "3°C min")]
         let mockRepository = MockWeatherRepository()
         let viewModel = WeatherViewModel(repository: mockRepository)
         let expectation1 = expectation(description: "Wait for weather completion")

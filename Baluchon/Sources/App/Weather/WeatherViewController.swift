@@ -13,9 +13,9 @@ class WeatherViewController: UIViewController {
     // MARK: - Outlets
 
     @IBOutlet weak var tableView: UITableView!
-    
+
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+
     // MARK: - Properties
 
     var viewModel: WeatherViewModel!
@@ -42,12 +42,12 @@ class WeatherViewController: UIViewController {
         }
         viewModel.activityIndicatorIsLoading = { [weak self] loadingState in
             switch loadingState {
-                 case true:
-                     self?.tableView.isHidden = true
-                     self?.activityIndicator.startAnimating()
-                 case false:
-                     self?.tableView.isHidden = false
-                     self?.activityIndicator.stopAnimating()
+            case true:
+            self?.tableView.isHidden = true
+            self?.activityIndicator.startAnimating()
+            case false:
+            self?.tableView.isHidden = false
+            self?.activityIndicator.stopAnimating()
             }
         }
     }

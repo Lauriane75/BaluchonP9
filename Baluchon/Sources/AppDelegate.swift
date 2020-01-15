@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var appCoordinator: AppCoordinator?
     var context: Context!
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let client = HTTPClient()
         context = Context(client: client)
@@ -24,4 +24,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

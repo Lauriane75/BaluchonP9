@@ -23,7 +23,7 @@ final class Screens {
     }
 }
 
-// MARK : - Main
+// MARK: - Main
 
 extension Screens {
 

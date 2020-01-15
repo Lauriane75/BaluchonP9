@@ -18,4 +18,3 @@ class AlertPresenter {
         viewController.present(alertView, animated: true, completion: nil)
     }
 }
-

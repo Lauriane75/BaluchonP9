@@ -10,8 +10,7 @@ import Foundation
 
 protocol HTTPClientType {
     func request<T>(type: T.Type,
-                    requestType: RequestType, url: URL, cancelledBy token:
-        RequestCancelationToken, completion: @escaping (T) -> Void) where T: Codable
+                    requestType: RequestType, url: URL, cancelledBy token: RequestCancelationToken, completion: @escaping (T) -> Void) where T: Codable
 }
 
 enum RequestType: String {
@@ -36,10 +35,7 @@ class HTTPClient: HTTPClientType {
         var request = URLRequest(url: url)
         request.httpMethod = requestType.rawValue
 
-        engine.send(request: request,
-                    cancelledBy: token)
-        { (data,
-            httpUrlResponse, error) in
+        engine.send(request: request, cancelledBy: token) { (data, _, _) in
                         guard let data = data else { return }
                         self.decodeJSON(type: T.self, data: data, completion: completion)
         }

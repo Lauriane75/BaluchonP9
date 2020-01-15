@@ -9,19 +9,19 @@
 import UIKit
 
 class SelectLanguageDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
-        
+
     // MARK: - Private
 
     private enum VisibleItem {
         case item(language: String)
     }
-    
+
     private var items: [VisibleItem] = []
-    
+
     // MARK: - Public
-    
+
     var didSelectItemAtIndex: ((Int) -> Void)?
-    
+
     func update(with items: [SelectLanguageViewModel.ItemLabel]) {
         self.items = items.map { item -> VisibleItem  in
             switch item {
@@ -32,16 +32,16 @@ class SelectLanguageDataSource: NSObject, UITableViewDelegate, UITableViewDataSo
     }
 
     // MARK: - UITableViewDelegate
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard indexPath.item < items.count else {
             fatalError("Error! No service connection")
         }
-        
+
         switch items[indexPath.item] {
         case .item(language: let language):
             let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as! SelectLanguageTableViewCell
@@ -49,17 +49,15 @@ class SelectLanguageDataSource: NSObject, UITableViewDelegate, UITableViewDataSo
             return cell
         }
     }
-    
+
     // MARK: - UITableViewDataSource
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.item < items.count else {
             assertionFailure("Error! Index out of Range")
             return
         }
-        
         let index = indexPath.item
         didSelectItemAtIndex?(index)
     }
 }
-

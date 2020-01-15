@@ -55,31 +55,25 @@ final class TranslatorViewModel {
 
     // MARK: - Initializer
 
-    init(repository: TranslatorRepositoryType, translationType: TranslationType,
-         
-         delegate: TranslatorViewModelDelegate) {
+    init(repository: TranslatorRepositoryType, translationType: TranslationType, delegate: TranslatorViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
         self.translationType = translationType
     }
 
     private func initializeLanguage(with parameter: TranslationType) -> [LanguageParameters] {
-        return [LanguageParameters(nameLanguage:parameter.initialLanguage.nameLanguage,
+        return [LanguageParameters(nameLanguage: parameter.initialLanguage.nameLanguage,
                                 ISOCode: parameter.initialLanguage.ISOCode,
-                                text: parameter.initialLanguage.text),
-            LanguageParameters(nameLanguage: parameter.destinationLanguage.nameLanguage,
-                               ISOCode:parameter.destinationLanguage.ISOCode,
-                               
-                               text: parameter.destinationLanguage.text)
+                                text: parameter.initialLanguage.text), LanguageParameters(nameLanguage: parameter.destinationLanguage.nameLanguage, ISOCode: parameter.destinationLanguage.ISOCode, text: parameter.destinationLanguage.text)
         ]
     }
 
     // MARK: - Outputs
-    
+
     var requestLanguageTextButton: ((String) -> Void)?
 
     var resultLanguageTextButton: ((String) -> Void)?
-    
+
     var requestTextField: ((String) -> Void)?
 
     var resultText: ((String) -> Void)?
@@ -91,7 +85,7 @@ final class TranslatorViewModel {
     func viewDidLoad() {
         language = initializeLanguage(with: translationType)
     }
-    
+
     func didSelectLanguageType(for type: LanguageType) {
         delegate?.showLanguageChoices(for: type)
     }
@@ -103,8 +97,7 @@ final class TranslatorViewModel {
     func didPressTranslatButton(for requestText: String) {
         repository.getTranslation(for: requestText,
                                   from: language[0].ISOCode,
-                                  to: language[1].ISOCode) {
-                                    [weak self] (text, error) in
+                                  to: language[1].ISOCode) { [weak self] (text, error) in
             if let text = text {
                 self?.language[0].text = requestText
                 self?.language[1].text = text
@@ -131,6 +124,5 @@ final class TranslatorViewModel {
         }
         language.swapAt(0, 1)
     }
-
 
 }

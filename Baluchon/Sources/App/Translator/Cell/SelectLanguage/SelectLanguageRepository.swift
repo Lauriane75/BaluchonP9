@@ -19,23 +19,17 @@ protocol SelectLanguageRepositoryType: class {
 }
 
 final class SelectLanguageRepository: SelectLanguageRepositoryType {
-    
     // MARK: - Properties
-    
     private var translator: SwiftGoogleTranslate
 
     // MARK: - Initializer
-    
     init() {
         translator = SwiftGoogleTranslate.shared
         translator.start(with: "AIzaSyBP0KxCjiYHKryO2NlZrsb2RYhqzHTlrog")
     }
-    
     // MARK: - Requests
-    
     func requestLanguages(callback: @escaping ([Language]) -> Void) {
-        translator.languages { (languages, error) in
-            guard let languages = languages else { return }
+        translator.languages { (languages, _) in guard let languages = languages else { return }
             let result = languages.map { Language(key: $0.language, value: $0.name) }
             callback(result)
         }
