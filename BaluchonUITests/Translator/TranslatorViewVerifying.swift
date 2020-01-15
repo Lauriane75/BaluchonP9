@@ -1,5 +1,4 @@
 
-//
 //  TranslatorViewVerifying.swift
 //  BaluchonUITests
 //
@@ -11,7 +10,6 @@ import XCTest
 
 protocol TranslatorViewVerifying {
     func showTranslatorView()
-    
     func translatorViewWaitForExistence()
     func translatorViewExists() -> Bool
 
@@ -25,12 +23,12 @@ protocol TranslatorViewVerifying {
 }
 
 extension TranslatorViewVerifying {
-    
+
     func showTranslatorView() {
      let weatherViewUITests = WeatherViewUITests()
         weatherViewUITests.testGoToTranslatorView()
     }
-    
+
     func translatorViewWaitForExistence() {
         _ = frenchButton.waitForExistence(timeout: 1)
         _ = englishButton.waitForExistence(timeout: 1)
@@ -38,13 +36,17 @@ extension TranslatorViewVerifying {
         _ = textField.waitForExistence(timeout: 1)
         _ = clearButton.waitForExistence(timeout: 1)
     }
-    
+
     func translatorViewExists() -> Bool {
-        return frenchButton.exists && englishButton.exists && arrowTranslateButton.exists && textField.exists && clearButton.exists
+        return frenchButton.exists
+            && englishButton.exists
+            && arrowTranslateButton.exists
+            && textField.exists
+            && clearButton.exists
     }
-    
+
     // MARK: - Properties
-    
+
     var frenchButton: XCUIElement {
         return XCUIApplication().buttons["French"]
     }
@@ -52,7 +54,11 @@ extension TranslatorViewVerifying {
         return XCUIApplication().buttons["English"]
     }
     var arrowTranslateButton: XCUIElement {
-        return XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).children(matching: .other).element(boundBy: 0).buttons["arrow translate"]
+        return XCUIApplication().children(matching: .window)
+            .element(boundBy: 0)
+            .children(matching: .other)
+            .children(matching: .other)
+            .element(boundBy: 0).buttons["arrow translate"]
     }
 
     var textField: XCUIElement {
@@ -61,5 +67,5 @@ extension TranslatorViewVerifying {
     var clearButton: XCUIElement {
         return XCUIApplication().buttons["X"]
     }
-      
+
 }

@@ -6,7 +6,6 @@
 //  Copyright © 2019 Lauriane Haydari. All rights reserved.
 //
 
-
 import XCTest
 
 protocol LanguageViewVerifying {
@@ -17,9 +16,9 @@ protocol LanguageViewVerifying {
     // MARK: - Properties
 
     var backButton: XCUIElement { get }
-    
+
     var englishButton: XCUIElement { get }
-    
+
     var afrikaansSelectButton: XCUIElement { get }
     var albanianSelectButton: XCUIElement { get }
     var amharicSelectButton: XCUIElement { get }
@@ -28,7 +27,6 @@ protocol LanguageViewVerifying {
     var azerbaijaniSelectButton: XCUIElement { get }
     var basqueSelectButton: XCUIElement { get }
     var belarusianSelectButton: XCUIElement { get }
-    
     var bengaliSelectButton: XCUIElement { get }
     var bosnianSelectButton: XCUIElement { get }
     var bulgarianSelectButton: XCUIElement { get }
@@ -38,12 +36,12 @@ protocol LanguageViewVerifying {
 }
 
 extension LanguageViewVerifying {
-    
+
     func showLanguageView() {
         let translatorViewUITests = TranslatorViewUITests()
         translatorViewUITests.testGoToLanguageView()
     }
-    
+
     func languageViewWaitForExistence() {
         _ = afrikaansSelectButton.waitForExistence(timeout: 1)
         _ = albanianSelectButton.waitForExistence(timeout: 1)
@@ -61,15 +59,27 @@ extension LanguageViewVerifying {
         _ = chichewaSelectButton.waitForExistence(timeout: 1)
     }
     func languageViewExists() -> Bool {
-        return afrikaansSelectButton.exists && albanianSelectButton.exists && amharicSelectButton.exists && arabicSelectButton.exists && armenianSelectButton.exists && azerbaijaniSelectButton.exists && basqueSelectButton.exists && belarusianSelectButton.exists && bengaliSelectButton.exists && bosnianSelectButton.exists && bulgarianSelectButton.exists && catalanSelectButton.exists && cebuanoSelectButton.exists && chichewaSelectButton.exists
+    return afrikaansSelectButton.exists &&
+            albanianSelectButton.exists &&
+            amharicSelectButton.exists &&
+            arabicSelectButton.exists &&
+            armenianSelectButton.exists &&
+            azerbaijaniSelectButton.exists &&
+            basqueSelectButton.exists &&
+            belarusianSelectButton.exists &&
+            bengaliSelectButton.exists &&
+            bosnianSelectButton.exists &&
+            bulgarianSelectButton.exists &&
+            catalanSelectButton.exists &&
+            cebuanoSelectButton.exists &&
+            chichewaSelectButton.exists
     }
-    
+
     // MARK: - Properties
 
     var backButton: XCUIElement {
         return XCUIApplication().navigationBars["Baluchon.SelectLanguagesView"].buttons["Back"]
     }
-    
     var englishButton: XCUIElement {
         return XCUIApplication().buttons["English"]
     }
@@ -115,7 +125,4 @@ extension LanguageViewVerifying {
     var chichewaSelectButton: XCUIElement {
         return XCUIApplication().buttons["Chichewa"]
     }
-
-
-    
 }

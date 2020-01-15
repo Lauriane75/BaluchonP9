@@ -18,7 +18,6 @@ final class AppCoordinator {
 
     private var mainCoordinator: MainCoordinator?
 
-
     // MARK: - Initializer
 
     init(appDelegate: AppDelegate, context: Context) {

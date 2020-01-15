@@ -18,7 +18,6 @@ class TranslatorViewUITests: UITestCase, RootViewStarting, TranslatorViewVerifyi
 //        // Check view
 //        XCTAssertTrue(translatorViewExists())
 //    }
-    
     func testGoToLanguageView() {
         // Show view
         showTranslatorView()

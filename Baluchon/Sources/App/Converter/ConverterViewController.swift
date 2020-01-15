@@ -19,13 +19,13 @@ class ConverterViewController: UIViewController {
     @IBOutlet private weak var resultPickerView: UIPickerView!
     @IBOutlet private weak var selectedRequestRateValueLabel: UILabel!
     @IBOutlet weak var selectedResultRateValueLabel: UILabel!
-    
+
     // MARK: - Properties
-    
+
     var viewModel: ConverterViewModel!
 
     // MARK: - Private properties
-    
+
     private var requestDataSource = RequestPickerViewDataSource()
     private var resultDataSource = ResultPickerViewDataSource()
 
@@ -39,16 +39,15 @@ class ConverterViewController: UIViewController {
 
         resultPickerView.dataSource = resultDataSource
         resultPickerView.delegate = resultDataSource
-        
         bind(to: viewModel)
         bind(to: requestDataSource)
         bind(to: resultDataSource)
 
         viewModel.viewDidLoad()
-        
         elementsCustomCornerRadius()
-        
-        initialValuetextField.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.green ])
+        initialValuetextField.attributedPlaceholder = NSAttributedString(string: "",
+                                                                         
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.green ])
     }
 
     private func bind(to viewModel: ConverterViewModel) {
@@ -101,7 +100,7 @@ class ConverterViewController: UIViewController {
         }
     }
 }
-    
+
     private func bind(to dataSource: RequestPickerViewDataSource) {
         dataSource.didSelectItemAt = viewModel.didSelectRequestRate
       }
@@ -126,9 +125,8 @@ class ConverterViewController: UIViewController {
         }
         viewModel.didTapInitialValuetextField(valueFromTextField: Double(textValue)!)
     }
-    
+
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         initialValuetextField.resignFirstResponder()
     }
 }
-

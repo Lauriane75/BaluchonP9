@@ -36,8 +36,8 @@ final class RequestPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicke
 
         return items.count
     }
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int,
+                    forComponent component: Int, reusing view: UIView?) -> UIView {
 
         name = items[row]
 
@@ -54,21 +54,21 @@ final class RequestPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicke
 
     // MARK: - UIPickerViewDelegate
 
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {        
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int, inComponent component: Int) {
         didSelectItemAt?(row)
     }
 
     // MARK: - Private Functions
-    
+
     fileprivate func customLabel(_ view: UIView?, _ label: inout UILabel) {
-        if let uiLabel = view {
-            label = uiLabel as! UILabel
-        }
-        
+        guard let uiLabel = view else { return }
+        label = uiLabel as! UILabel
+
         label.font = UIFont.systemFont(ofSize: 18)
-        
+
         label.textColor = .white
-        
+
         label.textAlignment = .center
     }
 
@@ -87,7 +87,8 @@ final class RequestPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicke
         }
     }
 }
-       /// if you need other currencies
+
+// if you need other currencies
 //        if name == "AED" {
 //            frenchName = "Dirham des Émirats Arabes Unis"
 //        }
@@ -544,6 +545,3 @@ final class RequestPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicke
 //        if name == "ZWL" {
 //            frenchName = "Dollar du Zimbabwe"
 //        }
-
-
-

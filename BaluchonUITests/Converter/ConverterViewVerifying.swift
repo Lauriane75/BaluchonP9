@@ -10,7 +10,6 @@ import XCTest
 
 protocol ConverterViewVerifying {
     func showConverterView()
-        
     func converterViewWaitForExistence()
     func converterViewExists() -> Bool
 
@@ -22,24 +21,19 @@ protocol ConverterViewVerifying {
     }
 
     extension ConverterViewVerifying {
-        
     func showConverterView() {
     let weatherViewUITests = WeatherViewUITests()
     weatherViewUITests.testGoToConverterView()
     }
-        
     func converterViewWaitForExistence() {
     _ = amountLabel.waitForExistence(timeout: 1)
     _ = placeholderTextField.waitForExistence(timeout: 1)
     _ = resultLabel.waitForExistence(timeout: 1)
     }
-        
     func converterViewExists() -> Bool {
     return amountLabel.exists && placeholderTextField.exists && resultLabel.exists
     }
-        
     // MARK: - Properties
-           
     var amountLabel: XCUIElement {
         return XCUIApplication().staticTexts["Montant"]
     }

@@ -61,12 +61,12 @@ final class ResultPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicker
     }
 
     // MARK: - Private Functions
-    
+
     fileprivate func customLabel(_ view: UIView?, _ label: inout UILabel) {
         if let uiLabel = view {
             label = uiLabel as! UILabel
         }
-        
+
         label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = .white
         label.textAlignment = .center

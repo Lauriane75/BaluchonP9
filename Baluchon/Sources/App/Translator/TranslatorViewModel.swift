@@ -29,7 +29,7 @@ final class TranslatorViewModel {
     private let repository: TranslatorRepositoryType
 
     private let translationType: TranslationType
-    
+
     private weak var delegate: TranslatorViewModelDelegate?
 
     typealias LanguageParameters = (nameLanguage: String, ISOCode: String, text: String)
@@ -55,7 +55,9 @@ final class TranslatorViewModel {
 
     // MARK: - Initializer
 
-    init(repository: TranslatorRepositoryType, translationType: TranslationType, delegate: TranslatorViewModelDelegate) {
+    init(repository: TranslatorRepositoryType, translationType: TranslationType,
+         
+         delegate: TranslatorViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
         self.translationType = translationType
@@ -67,6 +69,7 @@ final class TranslatorViewModel {
                                 text: parameter.initialLanguage.text),
             LanguageParameters(nameLanguage: parameter.destinationLanguage.nameLanguage,
                                ISOCode:parameter.destinationLanguage.ISOCode,
+                               
                                text: parameter.destinationLanguage.text)
         ]
     }

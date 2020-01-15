@@ -9,17 +9,10 @@
 import Foundation
 
 enum Accessibility {
-    
     enum Weather {
-        
     }
-    
     enum Converter {
-        
     }
-    
     enum Translator {
-        
     }
-    
 }

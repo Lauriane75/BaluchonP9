@@ -10,5 +10,4 @@ import XCTest
 
 protocol StartupConfigurable {
     func configureStartup()
-    
 }

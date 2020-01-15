@@ -10,7 +10,6 @@ import XCTest
 
 class LanguagesViewUITests: UITestCase, RootViewStarting, LanguageViewVerifying {
 
-
     func test_GivenLanguageView_WhenBackButtonTap_ThenBackToTranslatorView() {
     // Show view
     showLanguageView()

@@ -18,22 +18,22 @@ protocol SelectLanguageViewModelDelegate: class {
 }
 
 final class SelectLanguageViewModel {
-    
+
     // MARK: Private properties
-    
+
     private weak var delegate: SelectLanguageViewModelDelegate?
-    
+
     private var languageItems: [LanguageItem] = [] {
         didSet {
             let items = languageItems.map { ItemLabel(languageItem: $0) }
             visibleItems?(items)
         }
     }
-    
+
     private let repository: SelectLanguageRepositoryType
-    
+
     private let languageType: LanguageType
-    
+
     // MARK: - Initializer
     
     init(languageType: LanguageType,
@@ -43,9 +43,9 @@ final class SelectLanguageViewModel {
         self.repository = repository
         self.delegate = delegate
     }
-    
+
     // MARK: - Properties
-    
+
     enum ItemLabel: Equatable {
         case language(_ titleLabel: String)
     }
@@ -60,21 +60,21 @@ final class SelectLanguageViewModel {
                                                    ISOCode: $0.key))
         }
     }
-    
+
     // MARK: - Outputs
-        
+
     var visibleItems: (([ItemLabel]) -> Void)?
-    
+
     var nextScreen: ((NextScreen) -> Void)?
-    
+
     // MARK: - Inputs
-    
+
     func viewDidLoad() {
         repository.requestLanguages { [weak self] (languages) in
             self?.languageItems = SelectLanguageViewModel.initialItems(from: languages)
         }
     }
-    
+
     func didSelectItem(at index: Int) {
         guard index < languageItems.count else {
             return
@@ -83,7 +83,8 @@ final class SelectLanguageViewModel {
         if case .language(languageStruct: let languageStruct) = item {
             switch languageType {
             case .request:
-                delegate?.didPressLanguageTypeButton(with: .request(languageStruct.nameLanguage, languageStruct.ISOCode))
+                delegate?.didPressLanguageTypeButton(with: .request(languageStruct.nameLanguage,
+                                                                    languageStruct.ISOCode))
             case .result:
                 delegate?.didPressLanguageTypeButton(with: .result(languageStruct.nameLanguage, languageStruct.ISOCode))
             }
