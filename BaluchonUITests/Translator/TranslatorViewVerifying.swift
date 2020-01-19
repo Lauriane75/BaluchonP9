@@ -52,15 +52,10 @@ extension TranslatorViewVerifying {
         return XCUIApplication().buttons["English"]
     }
     var arrowTranslateButton: XCUIElement {
-        return XCUIApplication().children(matching: .window)
-            .element(boundBy: 0)
-            .children(matching: .other)
-            .children(matching: .other)
-            .element(boundBy: 0).buttons["arrow translate"]
+        return XCUIApplication().children(matching: .window).element(boundBy: 0).buttons["arrow translate"]
     }
-
     var textField: XCUIElement {
-        return XCUIApplication().textFields["Entrez votre texte"]
+        return XCUIApplication().textFields["What do you want to translate ?"]
     }
     var clearButton: XCUIElement {
         return XCUIApplication().buttons["X"]

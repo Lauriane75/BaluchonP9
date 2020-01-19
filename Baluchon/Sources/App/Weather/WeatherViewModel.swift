@@ -62,6 +62,7 @@ final class WeatherViewModel {
     }
 
     // MARK: - Inputs
+
     func viewDidLoad() {
         activityIndicatorIsLoading?(true)
         showWeathers()

@@ -35,7 +35,8 @@ final class ResultPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicker
         return items.count
     }
 
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int,
+                    forComponent component: Int, reusing view: UIView?) -> UIView {
 
         name = items[row]
 
@@ -70,20 +71,20 @@ final class ResultPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicker
 
     private func setItemName(index: Int) {
         if name == "EUR" {
-        frenchName = "Euro €"
-            }
+            frenchName = "Euro €"
+        }
         if name == "USD" {
-        frenchName = "Dollar Américain $"
-            }
+            frenchName = "Dollar Américain $"
+        }
         if name == "GBP" {
-        frenchName = "Livre Sterling £"
-            }
+            frenchName = "Livre Sterling £"
+        }
         if name == "JPY" {
-        frenchName = "Yen ¥"
+            frenchName = "Yen ¥"
         }
     }
 }
-       // if you need other currencies
+// if you need other currencies
 //        if name == "AED" {
 //            frenchName = "Dirham des Émirats Arabes Unis"
 //        }

@@ -10,8 +10,16 @@ import XCTest
 
 protocol LanguageViewVerifying {
     func showLanguageView()
-    func languageViewWaitForExistence()
-    func languageViewExists() -> Bool
+
+    func englishButtonExists() -> Bool
+
+    func arabicButtonExists() -> Bool
+
+    func arabicSelectButtonExists() -> Bool
+
+    func navBarTitleExists() -> Bool
+
+    func backButtonExists() -> Bool
 
     // MARK: - Properties
 
@@ -19,21 +27,9 @@ protocol LanguageViewVerifying {
 
     var englishButton: XCUIElement { get }
 
-    var afrikaansSelectButton: XCUIElement { get }
-    var albanianSelectButton: XCUIElement { get }
-    var amharicSelectButton: XCUIElement { get }
     var arabicSelectButton: XCUIElement { get }
-    var armenianSelectButton: XCUIElement { get }
-    var azerbaijaniSelectButton: XCUIElement { get }
-    var basqueSelectButton: XCUIElement { get }
-    var belarusianSelectButton: XCUIElement { get }
-    var bengaliSelectButton: XCUIElement { get }
-    var bosnianSelectButton: XCUIElement { get }
-    var bulgarianSelectButton: XCUIElement { get }
-    var catalanSelectButton: XCUIElement { get }
-    var cebuanoSelectButton: XCUIElement { get }
-    var chichewaSelectButton: XCUIElement { get }
 }
+
 
 extension LanguageViewVerifying {
 
@@ -42,87 +38,52 @@ extension LanguageViewVerifying {
         translatorViewUITests.testGoToLanguageView()
     }
 
-    func languageViewWaitForExistence() {
-        _ = afrikaansSelectButton.waitForExistence(timeout: 1)
-        _ = albanianSelectButton.waitForExistence(timeout: 1)
-        _ = amharicSelectButton.waitForExistence(timeout: 1)
+    func englishButtonExists() -> Bool {
+        _ = englishButton.waitForExistence(timeout: 1)
+    return englishButton.exists
+    }
+
+    func arabicButtonExists() -> Bool {
+        _ = arabicButton.waitForExistence(timeout: 1)
+        return arabicButton.exists
+    }
+
+    func arabicSelectButtonExists() -> Bool {
         _ = arabicSelectButton.waitForExistence(timeout: 1)
-        _ = armenianSelectButton.waitForExistence(timeout: 1)
-        _ = azerbaijaniSelectButton.waitForExistence(timeout: 1)
-        _ = basqueSelectButton.waitForExistence(timeout: 1)
-        _ = belarusianSelectButton.waitForExistence(timeout: 1)
-        _ = bengaliSelectButton.waitForExistence(timeout: 1)
-        _ = bosnianSelectButton.waitForExistence(timeout: 1)
-        _ = bulgarianSelectButton.waitForExistence(timeout: 1)
-        _ = catalanSelectButton.waitForExistence(timeout: 1)
-        _ = cebuanoSelectButton.waitForExistence(timeout: 1)
-        _ = chichewaSelectButton.waitForExistence(timeout: 1)
+    return arabicSelectButton.exists
     }
-    func languageViewExists() -> Bool {
-    return afrikaansSelectButton.exists &&
-            albanianSelectButton.exists &&
-            amharicSelectButton.exists &&
-            arabicSelectButton.exists &&
-            armenianSelectButton.exists &&
-            azerbaijaniSelectButton.exists &&
-            basqueSelectButton.exists &&
-            belarusianSelectButton.exists &&
-            bengaliSelectButton.exists &&
-            bosnianSelectButton.exists &&
-            bulgarianSelectButton.exists &&
-            catalanSelectButton.exists &&
-            cebuanoSelectButton.exists &&
-            chichewaSelectButton.exists
+
+    func navBarTitleExists() -> Bool {
+        _ = navBar.waitForExistence(timeout: 1)
+    return navBar.exists
     }
+
+    func backButtonExists() -> Bool {
+        _ = backButton.waitForExistence(timeout: 1)
+       return backButton.exists
+    }
+
 
     // MARK: - Properties
 
     var backButton: XCUIElement {
-        return XCUIApplication().navigationBars["Baluchon.SelectLanguagesView"].buttons["Back"]
+        return XCUIApplication().navigationBars["Select a language"].buttons["Back"]
     }
+
     var englishButton: XCUIElement {
         return XCUIApplication().buttons["English"]
     }
-    var afrikaansSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Afrikaans"]
-    }
-    var albanianSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Albanian"]
-    }
-    var amharicSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Amharic"]
-    }
-    var arabicSelectButton: XCUIElement {
+
+    var arabicButton: XCUIElement {
         return XCUIApplication().buttons["Arabic"]
     }
-    var armenianSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Armenian"]
+
+    var arabicSelectButton: XCUIElement {
+        return XCUIApplication().tables.staticTexts["Arabic"]
     }
-    var azerbaijaniSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Azerbaijani"]
+
+    var navBar: XCUIElement {
+        return XCUIApplication().navigationBars["Select a language"].staticTexts["Select a language"]
     }
-    var basqueSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Basque"]
-    }
-    var belarusianSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Belarusian"]
-    }
-    var bengaliSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Bengali"]
-    }
-    var bosnianSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Bosnian"]
-    }
-    var bulgarianSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Bulgarian"]
-    }
-    var catalanSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Catalan"]
-    }
-    var cebuanoSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Cebuano"]
-    }
-    var chichewaSelectButton: XCUIElement {
-        return XCUIApplication().buttons["Chichewa"]
-    }
+
 }

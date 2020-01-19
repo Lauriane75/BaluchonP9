@@ -10,14 +10,38 @@ import XCTest
 
 class LanguagesViewUITests: UITestCase, RootViewStarting, LanguageViewVerifying {
 
-    func test_GivenLanguageView_WhenBackButtonTap_ThenBackToTranslatorView() {
-    // Show view
-    showLanguageView()
-    // Wait
-    languageViewWaitForExistence()
-    // Check view
-    _ = backButton.waitForExistence(timeout: 1)
-    backButton.tap()
+    func test_GivenLanguageView_WhenSelectArabicLanguage_ThenArabicLanguageIsSelectedInsideTheButton() {
+        // Show View
+        showLanguageView()
+        XCUIApplication().tabBars.children(matching: .button).element(boundBy: 2).tap()
+
+        // Tap button
+        XCTAssertTrue(englishButtonExists())
+        englishButton.tap()
+
+        XCTAssertTrue(backButtonExists())
+
+        XCTAssertTrue(navBarTitleExists())
+
+        XCTAssertTrue(arabicSelectButtonExists())
+        arabicSelectButton.tap()
+
+        // Check view
+        XCTAssertTrue(arabicButtonExists())
+    }
+
+    func testtest_GivenLanguageView_WhenBackButtonTap_ThenBackToTranslatorView() {
+        showLanguageView()
+        XCUIApplication().tabBars.children(matching: .button).element(boundBy: 2).tap()
+
+        // Tap button
+        XCTAssertTrue(englishButtonExists())
+        englishButton.tap()
+
+        XCTAssertTrue(backButtonExists())
+        backButton.tap()
+
+        XCTAssertTrue(englishButtonExists())
     }
 
 }

@@ -33,7 +33,10 @@ final class SelectLanguagesViewController: UIViewController {
         bind(to: viewModel)
 
         viewModel.viewDidLoad()
+        navigationBar()
     }
+
+    // MARK: - Private Functions
 
     private func bind(to source: SelectLanguageDataSource) {
        dataSource.didSelectItemAtIndex = viewModel.didSelectItem
@@ -55,5 +58,15 @@ final class SelectLanguagesViewController: UIViewController {
                 }
             }
         }
+    }
+
+    private func navigationBar() {
+        
+        let titleColor = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        
+        navigationController?.navigationBar.titleTextAttributes = titleColor as [NSAttributedString.Key : Any]
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "UITabBar.item.tintColor")
+        self.title = "Select a language"
     }
 }

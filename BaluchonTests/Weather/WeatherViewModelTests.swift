@@ -30,7 +30,7 @@ final class WeatherViewModelTests: XCTestCase {
 
     func test_Weather_viewDidLoad() {
 
-        let expectedResult = [VisibleWeather(cityName: "Paris", temperature: "5°C", iconID: "01d", temperatureMax: "6°C max", temperatureMin: "3°C min")]
+        let expectedResult = [VisibleWeather(cityName: "Paris", temperature: "5 °C", iconID: "01d", temperatureMax: "6 °C max", temperatureMin: "3 °C min")]
         let mockRepository = MockWeatherRepository()
         let viewModel = WeatherViewModel(repository: mockRepository)
         let expectation1 = expectation(description: "Wait for weather completion")
@@ -38,7 +38,7 @@ final class WeatherViewModelTests: XCTestCase {
         viewModel.items = { items in
                 XCTAssertEqual(items, expectedResult)
                 expectation1.fulfill()
-            }
+        }
 
         viewModel.viewDidLoad()
 

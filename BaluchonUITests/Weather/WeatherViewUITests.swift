@@ -13,7 +13,7 @@ class WeatherViewUITests: UITestCase, RootViewStarting, WeatherViewVerifying {
     func testVerifyingWeatherView() {
         // Wait
         weatherViewWaitForExistence()
-//        // Check View
+        // Check View
         XCTAssertTrue(weatherViewExists())
     }
 
@@ -26,7 +26,7 @@ class WeatherViewUITests: UITestCase, RootViewStarting, WeatherViewVerifying {
 
     func testGoToConverterView() {
         _ = itemTwo.waitForExistence(timeout: 1)
-itemTwo.tap()
+        itemTwo.tap()
     }
 
     func testGoToTranslatorView() {

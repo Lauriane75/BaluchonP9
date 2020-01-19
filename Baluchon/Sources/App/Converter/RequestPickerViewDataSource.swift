@@ -29,6 +29,7 @@ final class RequestPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicke
     // MARK: - UIPickerViewDataSource
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+
         return 1
     }
 
@@ -36,6 +37,7 @@ final class RequestPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicke
 
         return items.count
     }
+
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int,
                     forComponent component: Int, reusing view: UIView?) -> UIView {
 
@@ -62,28 +64,27 @@ final class RequestPickerViewDataSource: NSObject, UIPickerViewDelegate, UIPicke
     // MARK: - Private Functions
 
     fileprivate func customLabel(_ view: UIView?, _ label: inout UILabel) {
-        guard let uiLabel = view else { return }
-        label = uiLabel as! UILabel
+        if let uiLabel = view {
+            label = uiLabel as! UILabel
+        }
 
         label.font = UIFont.systemFont(ofSize: 18)
-
         label.textColor = .white
-
         label.textAlignment = .center
     }
 
     private func setItemName(index: Int) {
         if name == "EUR" {
-        frenchName = "Euro €"
-            }
+            frenchName = "Euro €"
+        }
         if name == "USD" {
-        frenchName = "Dollar Américain $"
-            }
+            frenchName = "Dollar Américain $"
+        }
         if name == "GBP" {
-        frenchName = "Livre Sterling £"
-            }
+            frenchName = "Livre Sterling £"
+        }
         if name == "JPY" {
-        frenchName = "Yen ¥"
+            frenchName = "Yen ¥"
         }
     }
 }
