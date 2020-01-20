@@ -36,4 +36,3 @@ final class ConverterCoordinator {
         presenter.viewControllers = [viewController]
     }
 }
-

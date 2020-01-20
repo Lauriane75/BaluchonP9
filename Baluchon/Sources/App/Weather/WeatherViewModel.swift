@@ -54,7 +54,10 @@ final class WeatherViewModel {
 
     // MARK: - Private Files
 
-    fileprivate func errorNoService() { self.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+    fileprivate func errorNoService() {
+        DispatchQueue.main.async {
+            self.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+        }
     }
 
     fileprivate func showWeathers() {

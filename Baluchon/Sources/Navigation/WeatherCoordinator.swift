@@ -36,4 +36,3 @@ final class WeatherCoordinator {
         presenter.viewControllers = [viewController]
     }
 }
-

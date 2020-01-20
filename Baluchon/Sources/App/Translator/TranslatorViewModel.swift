@@ -122,5 +122,4 @@ final class TranslatorViewModel {
         }
         language.swapAt(0, 1)
     }
-
 }
