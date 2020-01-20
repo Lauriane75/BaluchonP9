@@ -16,42 +16,24 @@ struct Rate {
 final class ConverterViewModel {
 
     // MARK: - Properties
+
     private let repository: ConverterRepositoryType
     var valueOfRequestPickerView: Double = 1
     var valueOfResultPickerView: Double = 1
     var currencyOfRequestPickerView: String = ""
     var currencyOfResultPickerView: String = ""
 
-    // MARK: - Initializer
-
-    init(repository: ConverterRepositoryType) {
-        self.repository = repository
-    }
-    // MARK: - Outputs
-
-    var titleLabel: ((String) -> Void)?
-
-    var resultText: ((String) -> Void)?
-    var visibleRequestCurrencyName: (([String]) -> Void)?
-    var visibleResultCurrencyName: (([String]) -> Void)?
-    var selectedRequestRateValue: ((String) -> Void)?
-
-    var selectedResultRateValue: ((String) -> Void)?
-
-    var initialValuetextField: ((String) -> Void)?
-    var placeHolderTextField: ((String) -> Void)?
-    var nextScreen: ((NextScreen) -> Void)?
-    var requestRates: [Rate] = [] {
-        didSet {
-            let keys: [String] = requestRates.map { $0.key }.sorted(by: { $0 < $1 })
-            self.visibleRequestCurrencyName?(keys)
-        }
-    }
-
-    var resultRates: [Rate] = [] {
+    private var resultRates: [Rate] = [] {
         didSet {
             let keys: [String] = resultRates.map { $0.key }.sorted(by: { $0 < $1 })
             self.visibleResultCurrencyName?(keys)
+        }
+    }
+
+    private var requestRates: [Rate] = [] {
+        didSet {
+            let keys: [String] = requestRates.map { $0.key }.sorted(by: { $0 < $1 })
+            self.visibleRequestCurrencyName?(keys)
         }
     }
 
@@ -66,6 +48,32 @@ final class ConverterViewModel {
             resultText?(result)
         }
     }
+
+    // MARK: - Initializer
+
+    init(repository: ConverterRepositoryType) {
+        self.repository = repository
+    }
+
+    // MARK: - Outputs
+
+    var titleLabel: ((String) -> Void)?
+
+    var resultText: ((String) -> Void)?
+
+    var visibleRequestCurrencyName: (([String]) -> Void)?
+
+    var visibleResultCurrencyName: (([String]) -> Void)?
+
+    var selectedRequestRateValue: ((String) -> Void)?
+
+    var selectedResultRateValue: ((String) -> Void)?
+
+    var initialValuetextField: ((String) -> Void)?
+
+    var placeHolderTextField: ((String) -> Void)?
+
+    var nextScreen: ((NextScreen) -> Void)?
 
     // MARK: - Inputs
 
@@ -138,6 +146,8 @@ final class ConverterViewModel {
     private func convertedValue(valueToConvert: Double, topRateValue: Double, bottomRateValue: Double) -> Double {
         return (valueToConvert / topRateValue) * bottomRateValue
     }
+
+    // MARK: - Private Files
 
     fileprivate func convert() {
         let convertedValueResult = convertedValue(valueToConvert: valueToConvert,

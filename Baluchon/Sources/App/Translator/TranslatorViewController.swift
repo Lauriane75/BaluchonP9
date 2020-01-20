@@ -24,8 +24,6 @@ class TranslatorViewController: UIViewController {
 
     var viewModel: TranslatorViewModel!
 
-    weak var delegate: TranslatorViewControllerDelegate?
-
     // MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -142,5 +140,4 @@ class TranslatorViewController: UIViewController {
                 view.frame.origin.y = 0
         }
     }
-
 }

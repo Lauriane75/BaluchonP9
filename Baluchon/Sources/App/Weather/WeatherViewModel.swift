@@ -45,6 +45,13 @@ final class WeatherViewModel {
 
     var activityIndicatorIsLoading: ((Bool) -> Void)?
 
+    // MARK: - Inputs
+
+    func viewDidLoad() {
+        activityIndicatorIsLoading?(true)
+        showWeathers()
+    }
+
     // MARK: - Private Files
 
     fileprivate func errorNoService() { self.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
@@ -59,12 +66,5 @@ final class WeatherViewModel {
         }, error: { [weak self] in
             self!.errorNoService()
         })
-    }
-
-    // MARK: - Inputs
-
-    func viewDidLoad() {
-        activityIndicatorIsLoading?(true)
-        showWeathers()
     }
 }

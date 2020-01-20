@@ -24,6 +24,7 @@ final class TranslatorCoordinator {
     }
 
     // MARK: - Coodinator
+
     private var initialTranslation = TranslationType.init(initialLanguage: (nameLanguage: "French", ISOCode: "fr", text: ""), destinationLanguage: (nameLanguage: "English", ISOCode: "en", text: ""))
 
     func start() {

@@ -23,16 +23,16 @@ final class SelectLanguageViewModel {
 
     private weak var delegate: SelectLanguageViewModelDelegate?
 
-    private var languageItems: [LanguageItem] = [] {
-        didSet {
-            let items = languageItems.map { ItemLabel(languageItem: $0) }
-            visibleItems?(items)
-        }
-    }
-
     private let repository: SelectLanguageRepositoryType
 
     private let languageType: LanguageType
+
+    private var languageItems: [LanguageItem] = [] {
+         didSet {
+             let items = languageItems.map { ItemLabel(languageItem: $0) }
+             visibleItems?(items)
+         }
+     }
 
     // MARK: - Initializer
 

@@ -24,17 +24,13 @@ struct TranslationType {
 
 final class TranslatorViewModel {
 
-    // MARK: - Properties
+    // MARK: Private properties
 
     private let repository: TranslatorRepositoryType
 
     private let translationType: TranslationType
 
     private weak var delegate: TranslatorViewModelDelegate?
-
-    typealias LanguageParameters = (nameLanguage: String, ISOCode: String, text: String)
-
-    // MARK: Private properties
 
     private var requestTranslationText = "" {
         didSet {
@@ -53,19 +49,14 @@ final class TranslatorViewModel {
         }
     }
 
+    typealias LanguageParameters = (nameLanguage: String, ISOCode: String, text: String)
+
     // MARK: - Initializer
 
     init(repository: TranslatorRepositoryType, translationType: TranslationType, delegate: TranslatorViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
         self.translationType = translationType
-    }
-
-    private func initializeLanguage(with parameter: TranslationType) -> [LanguageParameters] {
-        return [LanguageParameters(nameLanguage: parameter.initialLanguage.nameLanguage,
-                                ISOCode: parameter.initialLanguage.ISOCode,
-                                text: parameter.initialLanguage.text), LanguageParameters(nameLanguage: parameter.destinationLanguage.nameLanguage, ISOCode: parameter.destinationLanguage.ISOCode, text: parameter.destinationLanguage.text)
-        ]
     }
 
     // MARK: - Outputs
@@ -98,16 +89,23 @@ final class TranslatorViewModel {
         repository.getTranslation(for: requestText,
                                   from: language[0].ISOCode,
                                   to: language[1].ISOCode) { [weak self] (text, error) in
-            if let text = text {
-                self?.language[0].text = requestText
-                self?.language[1].text = text
-            } else if error != nil {
-                self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
-            }
+                                    if let text = text {
+                                        self?.language[0].text = requestText
+                                        self?.language[1].text = text
+                                    } else if error != nil {
+                                        self?.nextScreen?(.alert(title: "Erreur de connexion", message: "Veuillez vous assurer de votre connexion internet et retenter l'action"))
+                                    }
         }
     }
 
     // MARK: - Private Functions
+
+    private func initializeLanguage(with parameter: TranslationType) -> [LanguageParameters] {
+        return [LanguageParameters(nameLanguage: parameter.initialLanguage.nameLanguage,
+                                   ISOCode: parameter.initialLanguage.ISOCode,
+                                   text: parameter.initialLanguage.text), LanguageParameters(nameLanguage: parameter.destinationLanguage.nameLanguage, ISOCode: parameter.destinationLanguage.ISOCode, text: parameter.destinationLanguage.text)
+        ]
+    }
 
     private func clear() {
         requestTranslationText.removeAll()

@@ -11,14 +11,17 @@ import UIKit
 final class WeatherDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: Private properties
+
     private var items: [VisibleWeather] = []
 
-    // MARK: Public
+    // MARK: Public function
+
     func update(with items: [VisibleWeather]) {
         self.items = items
     }
 
     // MARK: - UITableViewDataSource
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }

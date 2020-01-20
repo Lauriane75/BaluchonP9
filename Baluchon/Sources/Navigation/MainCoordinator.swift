@@ -115,7 +115,3 @@ extension MainCoordinator {
         }
     }
 }
-
-extension MainCoordinator: TranslatorViewControllerDelegate {
-
-}

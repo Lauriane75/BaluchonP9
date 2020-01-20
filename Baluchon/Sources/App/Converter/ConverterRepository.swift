@@ -26,6 +26,8 @@ final class ConverterRepository: ConverterRepositoryType {
         self.client = client
     }
 
+    // MARK: - Requests
+
     func getCurrency(callback: @escaping (Currency) -> Void, error: @escaping (() -> Void)) {
 
         let apiKey = "5f3d531bcfe0d265036a1aa20e889301&format=1&base=EUR&symbols=EUR,USD,GBP,JPY"

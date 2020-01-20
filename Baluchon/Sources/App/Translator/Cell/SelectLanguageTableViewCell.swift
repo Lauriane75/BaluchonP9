@@ -16,7 +16,7 @@ class SelectLanguageTableViewCell: UITableViewCell {
 
     // MARK: - Configure
 
-      func configure(with language: String) {
-          self.languageLabel.text = language
-      }
+    func configure(with language: String) {
+        self.languageLabel.text = language
+    }
 }
